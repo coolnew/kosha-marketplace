@@ -1,0 +1,652 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "linux-essentials",
+    "title": "Linux Essentials",
+    "version": "1.0.0",
+    "description": "Find development, server, office, design, video, and audio files on Linux.",
+    "tags": [
+      "linux",
+      "development",
+      "server",
+      "database",
+      "office",
+      "cad",
+      "video",
+      "audio"
+    ]
+  },
+  "recipes": [
+    {
+      "os": "linux",
+      "phrase": "large rotated system logs",
+      "dsl": "file and path ~ \"/var/log/\" and (ext in (gz, xz, zst) or name ~ \".log.\") and size > 20mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "apt package archives",
+      "dsl": "file and path ~ \"/var/cache/apt/archives/\" and ext = deb"
+    },
+    {
+      "os": "linux",
+      "phrase": "pacman package archives",
+      "dsl": "file and path ~ \"/var/cache/pacman/pkg/\" and name ~ \".pkg.tar.\""
+    },
+    {
+      "os": "linux",
+      "phrase": "dnf rpm downloads",
+      "dsl": "file and (path ~ \"/var/cache/dnf/\" or path ~ \"/var/cache/libdnf5/\") and ext = rpm"
+    },
+    {
+      "os": "linux",
+      "phrase": "old systemd journals",
+      "dsl": "file and path ~ \"/var/log/journal/\" and age > 14d"
+    },
+    {
+      "os": "linux",
+      "phrase": "large systemd crash dumps",
+      "dsl": "file and path ~ \"/var/lib/systemd/coredump/\" and size > 100mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "cargo downloaded crates",
+      "dsl": "file and path ~ \"/.cargo/registry/cache/\" and ext = crate"
+    },
+    {
+      "os": "linux",
+      "phrase": "large cargo release artifacts",
+      "dsl": "file and path ~ \"/target/release/\" and size > 25mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "compiler object files",
+      "dsl": "file and ext in (o, obj)"
+    },
+    {
+      "os": "linux",
+      "phrase": "cmake object files",
+      "dsl": "file and path ~ \"/CMakeFiles/\" and ext = o"
+    },
+    {
+      "os": "linux",
+      "phrase": "ninja bookkeeping files",
+      "dsl": "file and name in (.ninja_log, .ninja_deps, build.ninja)"
+    },
+    {
+      "os": "linux",
+      "phrase": "large go module downloads",
+      "dsl": "file and path ~ \"/go/pkg/mod/cache/download/\" and size > 20mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "old go build artifacts",
+      "dsl": "file and path ~ \"/.cache/go-build/\" and age > 30d"
+    },
+    {
+      "os": "linux",
+      "phrase": "python virtual environment files",
+      "dsl": "file and path ~ \"/.venv/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "python downloaded wheels",
+      "dsl": "file and (path ~ \"/.cache/pip/\" or path ~ \"/.cache/uv/\") and ext = whl"
+    },
+    {
+      "os": "linux",
+      "phrase": "npm package trees",
+      "dsl": "dir and name = node_modules and size > 100mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "linux nuget packages",
+      "dsl": "file and path ~ \"/.nuget/packages/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "large claude transcripts",
+      "dsl": "file and path ~ \"/.claude/projects/\" and ext = jsonl and size > 5mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "large codex rollout files",
+      "dsl": "file and (path ~ \"/.codex/sessions/\" or path ~ \"/.codex/archived_sessions/\") and name startswith \"rollout-\" and ext = jsonl and size > 5mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "archived codex sessions",
+      "dsl": "file and path ~ \"/.codex/archived_sessions/\" and ext = jsonl"
+    },
+    {
+      "os": "linux",
+      "phrase": "old gemini chats",
+      "dsl": "file and path ~ \"/.gemini/tmp/\" and path ~ \"/chats/\" and ext = json and age > 30d"
+    },
+    {
+      "os": "linux",
+      "phrase": "old copilot cli logs",
+      "dsl": "file and path ~ \"/.copilot/logs/\" and age > 14d"
+    },
+    {
+      "os": "linux",
+      "phrase": "large pi agent sessions",
+      "dsl": "file and path ~ \"/.pi/agent/sessions/\" and ext = jsonl and size > 5mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "remote vscode server logs",
+      "dsl": "file and path ~ \"/.vscode-server/data/logs/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "remote vscode extensions",
+      "dsl": "file and path ~ \"/.vscode-server/extensions/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "hugging face dataset cache",
+      "dsl": "file and path ~ \"/.cache/huggingface/datasets/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "large hugging face downloads",
+      "dsl": "file and path ~ \"/.cache/huggingface/\" and size > 1gib"
+    },
+    {
+      "os": "linux",
+      "phrase": "large ollama blobs",
+      "dsl": "file and path ~ \"/.ollama/models/blobs/\" and size > 1gib"
+    },
+    {
+      "os": "linux",
+      "phrase": "lm studio gguf files",
+      "dsl": "file and path ~ \"/.lmstudio/models/\" and ext = gguf"
+    },
+    {
+      "os": "linux",
+      "phrase": "vllm autotune cache",
+      "dsl": "file and path ~ \"/.cache/vllm/flashinfer_autotune_cache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "git object packs",
+      "dsl": "file and path ~ \"/.git/objects/pack/\" and ext in (pack, idx, rev, bitmap)"
+    },
+    {
+      "os": "linux",
+      "phrase": "git lfs objects",
+      "dsl": "file and path ~ \"/.git/lfs/objects/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "git repository bundles",
+      "dsl": "file and ext = bundle"
+    },
+    {
+      "os": "linux",
+      "phrase": "project build definitions",
+      "dsl": "file and name in (Cargo.toml, CMakeLists.txt, meson.build, Makefile, go.mod, pyproject.toml, package.json, pom.xml, build.gradle, build.gradle.kts)"
+    },
+    {
+      "os": "linux",
+      "phrase": "dependency lockfiles",
+      "dsl": "file and name in (Cargo.lock, go.sum, uv.lock, poetry.lock, package-lock.json, pnpm-lock.yaml, yarn.lock, composer.lock, Gemfile.lock, packages.lock.json)"
+    },
+    {
+      "os": "linux",
+      "phrase": "container build definitions",
+      "dsl": "file and (name in (Dockerfile, Containerfile, compose.yaml, compose.yml, docker-compose.yaml, docker-compose.yml) or name startswith \"Dockerfile.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "terraform project files",
+      "dsl": "file and (ext in (tf, tfvars) or name endswith \".tf.json\" or name = .terraform.lock.hcl)"
+    },
+    {
+      "os": "linux",
+      "phrase": "terraform provider cache files",
+      "dsl": "file and path ~ \"/.terraform/providers/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "maven downloaded jars",
+      "dsl": "file and path ~ \"/.m2/repository/\" and ext = jar"
+    },
+    {
+      "os": "linux",
+      "phrase": "gradle cached packages",
+      "dsl": "file and path ~ \"/.gradle/caches/modules-2/files-2.1/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "java archives",
+      "dsl": "file and ext in (jar, war, ear)"
+    },
+    {
+      "os": "linux",
+      "phrase": "android build packages",
+      "dsl": "file and ext in (apk, aab, apks)"
+    },
+    {
+      "os": "linux",
+      "phrase": "javascript build caches",
+      "dsl": "file and (path ~ \"/.next/cache/\" or path ~ \"/.turbo/cache/\" or path ~ \"/node_modules/.vite/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "test coverage reports",
+      "dsl": "file and (name in (lcov.info, coverage.xml, coverage.json, .coverage) or name startswith \".coverage.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "large source maps",
+      "dsl": "file and (name endswith \".js.map\" or name endswith \".css.map\") and size > 5mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql cluster markers",
+      "dsl": "file and name = PG_VERSION"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql wal files",
+      "dsl": "file and (path ~ \"/pg_wal/\" or path ~ \"/pg_xlog/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql configuration files",
+      "dsl": "file and name in (postgresql.conf, postgresql.auto.conf, pg_hba.conf, pg_ident.conf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql directory dump catalogues",
+      "dsl": "file and name = toc.dat"
+    },
+    {
+      "os": "linux",
+      "phrase": "sql scripts and compressed dumps",
+      "dsl": "file and (ext = sql or name endswith \".sql.gz\" or name endswith \".sql.xz\" or name endswith \".sql.zst\" or name endswith \".sql.bz2\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "innodb tablespaces and recovery files",
+      "dsl": "file and (ext = ibd or name in (ibdata1, undo_001, undo_002) or name startswith \"ib_logfile\" or path ~ \"/#innodb_redo/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mysql and mariadb binary log candidates",
+      "dsl": "file and (name startswith \"binlog.\" or name startswith \"mysql-bin.\" or name startswith \"mariadb-bin.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mariadb aria tables and logs",
+      "dsl": "file and (ext in (mai, mad) or name = aria_log_control or name startswith \"aria_log.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mongodb wiredtiger data files",
+      "dsl": "file and (ext = wt or name in (WiredTiger, WiredTiger.turtle, WiredTiger.lock) or name startswith \"WiredTigerLog.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mongodb bson dump candidates",
+      "dsl": "file and (ext = bson or name endswith \".bson.gz\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "redis persistence candidates",
+      "dsl": "file and (ext in (rdb, aof) or (path ~ \"/appendonlydir/\" and ext = manifest))"
+    },
+    {
+      "os": "linux",
+      "phrase": "sqlite database candidates",
+      "dsl": "file and ext in (sqlite, sqlite3, db, db3)"
+    },
+    {
+      "os": "linux",
+      "phrase": "sqlite sidecar candidates",
+      "dsl": "file and (name endswith \"-wal\" or name endswith \"-shm\" or name endswith \"-journal\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "sql server data and log candidates",
+      "dsl": "file and ext in (mdf, ndf, ldf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "excel workbooks",
+      "dsl": "file and ext in (xlsx, xlsm, xlsb, xls)"
+    },
+    {
+      "os": "linux",
+      "phrase": "spreadsheet files",
+      "dsl": "file and ext in (xlsx, xlsm, xlsb, xls, ods)"
+    },
+    {
+      "os": "linux",
+      "phrase": "spreadsheet templates",
+      "dsl": "file and ext in (xltx, xltm, xlt, ots)"
+    },
+    {
+      "os": "linux",
+      "phrase": "csv and tabular text",
+      "dsl": "file and ext in (csv, tsv)"
+    },
+    {
+      "os": "linux",
+      "phrase": "presentation files",
+      "dsl": "file and ext in (pptx, pptm, ppt, ppsx, ppsm, pps, odp)"
+    },
+    {
+      "os": "linux",
+      "phrase": "presentation templates",
+      "dsl": "file and ext in (potx, potm, pot, otp)"
+    },
+    {
+      "os": "linux",
+      "phrase": "word processing documents",
+      "dsl": "file and ext in (docx, docm, doc, odt, rtf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "pdf documents",
+      "dsl": "file and ext in (pdf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "large pdf documents",
+      "dsl": "file and ext = pdf and size > 20mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "recent office documents",
+      "dsl": "file and ext in (docx, docm, xlsx, xlsm, pptx, pptm, odt, ods, odp, pdf) and age < 14d"
+    },
+    {
+      "os": "linux",
+      "phrase": "invoice pdf candidates",
+      "dsl": "file and ext = pdf and (name ~ invoice or name ~ receipt)"
+    },
+    {
+      "os": "linux",
+      "phrase": "office lock files",
+      "dsl": "file and (name startswith \"~$\" or (name startswith \".~lock.\" and name endswith \"#\"))"
+    },
+    {
+      "os": "linux",
+      "phrase": "visio and diagram files",
+      "dsl": "file and ext in (vsdx, vsdm, vsd, vdx, drawio)"
+    },
+    {
+      "os": "linux",
+      "phrase": "project schedules",
+      "dsl": "file and ext in (mpp, mpt)"
+    },
+    {
+      "os": "linux",
+      "phrase": "email archives and messages",
+      "dsl": "file and ext in (pst, ost, mbox, eml, msg)"
+    },
+    {
+      "os": "linux",
+      "phrase": "autocad drawings",
+      "dsl": "file and ext in (dwg, dxf, dwt)"
+    },
+    {
+      "os": "linux",
+      "phrase": "mechanical cad projects",
+      "dsl": "file and ext in (fcstd, sldprt, sldasm, slddrw, ipt, iam, idw)"
+    },
+    {
+      "os": "linux",
+      "phrase": "cad exchange files",
+      "dsl": "file and ext in (step, stp, iges, igs, sat, x_t, x_b)"
+    },
+    {
+      "os": "linux",
+      "phrase": "3d print assets",
+      "dsl": "file and ext in (stl, 3mf, amf, gcode)"
+    },
+    {
+      "os": "linux",
+      "phrase": "kicad design files",
+      "dsl": "file and ext in (kicad_pro, kicad_pcb, kicad_sch, kicad_sym, kicad_mod)"
+    },
+    {
+      "os": "linux",
+      "phrase": "gerber and pcb drill candidates",
+      "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)"
+    },
+    {
+      "os": "linux",
+      "phrase": "blender projects",
+      "dsl": "file and ext in (blend)"
+    },
+    {
+      "os": "linux",
+      "phrase": "blender version backups",
+      "dsl": "file and ext in (blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8, blend9)"
+    },
+    {
+      "os": "linux",
+      "phrase": "3d meshes and scene exchange",
+      "dsl": "file and ext in (obj, fbx, gltf, glb, usd, usda, usdc, usdz, abc)"
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe photoshop projects",
+      "dsl": "file and ext in (psd, psb)"
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe illustrator files",
+      "dsl": "file and ext in (ai, eps, ait)"
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe indesign documents",
+      "dsl": "file and ext in (indd, idml, indt)"
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe after effects projects",
+      "dsl": "file and ext in (aep, aepx, aet)"
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe premiere projects",
+      "dsl": "file and ext in (prproj)"
+    },
+    {
+      "os": "linux",
+      "phrase": "premiere auto save projects",
+      "dsl": "file and ext = prproj and path ~ \"/Adobe Premiere Pro Auto-Save/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "adobe lightroom catalogues",
+      "dsl": "file and ext in (lrcat, lrcat-data)"
+    },
+    {
+      "os": "linux",
+      "phrase": "camera raw photos",
+      "dsl": "file and ext in (dng, cr2, cr3, nef, arw, raf, rw2, orf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "gimp krita and affinity projects",
+      "dsl": "file and ext in (xcf, kra, ora, afphoto, afdesign, afpub)"
+    },
+    {
+      "os": "linux",
+      "phrase": "davinci resolve projects and timelines",
+      "dsl": "file and ext in (drp, drt, drb)"
+    },
+    {
+      "os": "linux",
+      "phrase": "davinci resolve project archives",
+      "dsl": "dir and name endswith \".dra\""
+    },
+    {
+      "os": "linux",
+      "phrase": "davinci resolve archive contents",
+      "dsl": "file and path ~ \".dra/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "video footage and exports",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts, mpg, mpeg)"
+    },
+    {
+      "os": "linux",
+      "phrase": "large video files",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts) and size > 1gib"
+    },
+    {
+      "os": "linux",
+      "phrase": "camera cinema footage",
+      "dsl": "file and ext in (braw, r3d, ari, arx, crm)"
+    },
+    {
+      "os": "linux",
+      "phrase": "subtitles and captions",
+      "dsl": "file and ext in (srt, vtt, ass, ssa, scc)"
+    },
+    {
+      "os": "linux",
+      "phrase": "compositing image sequences",
+      "dsl": "file and ext in (exr, dpx, cin)"
+    },
+    {
+      "os": "linux",
+      "phrase": "lossless audio and stems",
+      "dsl": "file and ext in (wav, bwf, aif, aiff, flac, caf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "midi files",
+      "dsl": "file and ext in (mid, midi, smf)"
+    },
+    {
+      "os": "linux",
+      "phrase": "daw sessions",
+      "dsl": "file and ext in (als, ardour, rpp, flp, bwproject, sesx, cpr, npr, ptx, song)"
+    },
+    {
+      "os": "linux",
+      "phrase": "ableton live packs and devices",
+      "dsl": "file and ext in (alp, adg, adv, amxd)"
+    },
+    {
+      "os": "linux",
+      "phrase": "daw project backups",
+      "dsl": "file and (name endswith \".ardour.bak\" or ext = rpp-bak)"
+    },
+    {
+      "os": "linux",
+      "phrase": "vst3 plugin bundles",
+      "dsl": "dir and name endswith \".vst3\""
+    },
+    {
+      "os": "linux",
+      "phrase": "standalone vst3 plugin files",
+      "dsl": "file and ext = vst3 and not path ~ \".vst3/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "clap plugin files",
+      "dsl": "file and ext in (clap)"
+    },
+    {
+      "os": "linux",
+      "phrase": "lv2 plugin bundles",
+      "dsl": "dir and name endswith \".lv2\""
+    },
+    {
+      "os": "linux",
+      "phrase": "audio plugin presets",
+      "dsl": "file and ext in (vstpreset, fxp, fxb)"
+    },
+    {
+      "os": "linux",
+      "phrase": "sampler instruments and mappings",
+      "dsl": "file and ext in (sf2, sfz, nki, nkm, exs)"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql conventional data directories",
+      "dsl": "file and (path startswith \"/var/lib/postgresql/\" or path startswith \"/var/lib/pgsql/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "postgresql service logs",
+      "dsl": "file and path startswith \"/var/log/postgresql/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "mysql and mariadb conventional data files",
+      "dsl": "file and (path startswith \"/var/lib/mysql/\" or path startswith \"/var/lib/mariadb/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mysql and mariadb service logs",
+      "dsl": "file and (path startswith \"/var/log/mysql/\" or path startswith \"/var/log/mariadb/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "mongodb conventional data and logs",
+      "dsl": "file and (path startswith \"/var/lib/mongodb/\" or path startswith \"/var/lib/mongo/\" or path startswith \"/var/log/mongodb/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "redis and valkey conventional data",
+      "dsl": "file and (path startswith \"/var/lib/redis/\" or path startswith \"/var/lib/valkey/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "clickhouse data and service logs",
+      "dsl": "file and (path startswith \"/var/lib/clickhouse/\" or path startswith \"/var/log/clickhouse-server/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "sql server linux data and logs",
+      "dsl": "file and (path startswith \"/var/opt/mssql/data/\" or path startswith \"/var/opt/mssql/log/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "nginx and apache logs",
+      "dsl": "file and (path startswith \"/var/log/nginx/\" or path startswith \"/var/log/apache2/\" or path startswith \"/var/log/httpd/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "docker json container logs",
+      "dsl": "file and path startswith \"/var/lib/docker/containers/\" and name endswith \"-json.log\""
+    },
+    {
+      "os": "linux",
+      "phrase": "docker named volume files",
+      "dsl": "file and path startswith \"/var/lib/docker/volumes/\" and path ~ \"/_data/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "rootless container storage files",
+      "dsl": "file and (path ~ \"/.local/share/docker/\" or path ~ \"/.local/share/containers/storage/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "kubernetes pod log files",
+      "dsl": "file and path startswith \"/var/log/pods/\" and (ext = log or name ~ \".log.\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "linux ladspa plugin candidates",
+      "dsl": "file and ext = so and (path ~ \"/ladspa/\" or path ~ \"/.ladspa/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "linux vst2 plugin candidates",
+      "dsl": "file and ext = so and (path ~ \"/vst/\" or path ~ \"/.vst/\")"
+    }
+  ]
+}

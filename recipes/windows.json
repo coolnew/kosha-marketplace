@@ -1,0 +1,662 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "windows-essentials",
+    "title": "Windows Essentials",
+    "version": "1.0.0",
+    "description": "Find development, server, office, design, video, and audio files on Windows.",
+    "tags": [
+      "windows",
+      "development",
+      "server",
+      "database",
+      "office",
+      "cad",
+      "video",
+      "audio"
+    ]
+  },
+  "recipes": [
+    {
+      "os": "windows",
+      "phrase": "windows update logs",
+      "dsl": "file and (path ~ \"/Windows/Logs/WindowsUpdate/\" or path ~ \"/Windows/Logs/CBS/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "windows update download files",
+      "dsl": "file and path ~ \"/Windows/SoftwareDistribution/Download/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows setup logs",
+      "dsl": "file and path ~ \"/Windows/Panther/\" and ext = log"
+    },
+    {
+      "os": "windows",
+      "phrase": "windows crash dumps",
+      "dsl": "file and ext = dmp and (path ~ \"/AppData/Local/CrashDumps/\" or path ~ \"/Windows/Minidump/\" or path endswith \"/Windows/MEMORY.DMP\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "large windows temp files",
+      "dsl": "file and (path ~ \"/AppData/Local/Temp/\" or path ~ \"/Windows/Temp/\") and size > 100mib"
+    },
+    {
+      "os": "windows",
+      "phrase": "nuget global packages",
+      "dsl": "file and path ~ \"/.nuget/packages/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "nuget http cache",
+      "dsl": "file and path ~ \"/AppData/Local/NuGet/v3-cache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "visual studio debug symbols",
+      "dsl": "file and ext in (pdb, ipdb, iobj)"
+    },
+    {
+      "os": "windows",
+      "phrase": "rust build files",
+      "dsl": "file and (path ~ \"/target/debug/\" or path ~ \"/target/release/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "cargo downloaded crates",
+      "dsl": "file and path ~ \"/.cargo/registry/cache/\" and ext = crate"
+    },
+    {
+      "os": "windows",
+      "phrase": "cmake build files",
+      "dsl": "file and (name = CMakeCache.txt or path ~ \"/CMakeFiles/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "go build cache",
+      "dsl": "file and path ~ \"/AppData/Local/go-build/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "go module cache",
+      "dsl": "file and path ~ \"/go/pkg/mod/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "python bytecode caches",
+      "dsl": "file and path ~ \"/__pycache__/\" and ext = pyc"
+    },
+    {
+      "os": "windows",
+      "phrase": "pip download cache",
+      "dsl": "file and path ~ \"/AppData/Local/pip/Cache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "npm download cache",
+      "dsl": "file and path ~ \"/AppData/Local/npm-cache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "node dependencies",
+      "dsl": "file and path ~ \"/node_modules/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "vscode settings",
+      "dsl": "file and (path endswith \"/AppData/Roaming/Code/User/settings.json\" or path endswith \"/.vscode/settings.json\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "vscode logs",
+      "dsl": "file and path ~ \"/AppData/Roaming/Code/logs/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "vscode extensions",
+      "dsl": "file and path ~ \"/.vscode/extensions/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "vscode chat sessions",
+      "dsl": "file and path ~ \"/AppData/Roaming/Code/User/workspaceStorage/\" and path ~ \"/chatSessions/\" and ext in (json, jsonl)"
+    },
+    {
+      "os": "windows",
+      "phrase": "claude code sessions",
+      "dsl": "file and path ~ \"/.claude/projects/\" and ext = jsonl"
+    },
+    {
+      "os": "windows",
+      "phrase": "codex settings",
+      "dsl": "file and path endswith \"/.codex/config.toml\""
+    },
+    {
+      "os": "windows",
+      "phrase": "codex sessions",
+      "dsl": "file and (path ~ \"/.codex/sessions/\" or path ~ \"/.codex/archived_sessions/\") and ext = jsonl"
+    },
+    {
+      "os": "windows",
+      "phrase": "codex logs",
+      "dsl": "file and path ~ \"/.codex/log/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "gemini cli sessions",
+      "dsl": "file and path ~ \"/.gemini/tmp/\" and path ~ \"/chats/\" and ext = json"
+    },
+    {
+      "os": "windows",
+      "phrase": "copilot cli sessions",
+      "dsl": "file and path ~ \"/.copilot/session-state/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "copilot cli logs",
+      "dsl": "file and path ~ \"/.copilot/logs/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "pi agent sessions",
+      "dsl": "file and path ~ \"/.pi/agent/sessions/\" and ext = jsonl"
+    },
+    {
+      "os": "windows",
+      "phrase": "hugging face cache",
+      "dsl": "file and path ~ \"/.cache/huggingface/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "ollama models",
+      "dsl": "file and path ~ \"/.ollama/models/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "lm studio models",
+      "dsl": "file and path ~ \"/.lmstudio/models/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "large local model files",
+      "dsl": "file and size > 1gib and ext in (gguf, safetensors)"
+    },
+    {
+      "os": "windows",
+      "phrase": "claude code settings",
+      "dsl": "file and (path endswith \"/.claude/settings.json\" or path endswith \"/.claude/settings.local.json\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "claude code logs",
+      "dsl": "file and path ~ \"/.claude/debug/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "gemini cli settings",
+      "dsl": "file and path endswith \"/.gemini/settings.json\""
+    },
+    {
+      "os": "windows",
+      "phrase": "copilot cli settings",
+      "dsl": "file and path endswith \"/.copilot/config.json\""
+    },
+    {
+      "os": "windows",
+      "phrase": "pi agent settings",
+      "dsl": "file and (path endswith \"/.pi/agent/settings.json\" or path endswith \"/.pi/settings.json\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "hugging face model blobs",
+      "dsl": "file and path ~ \"/.cache/huggingface/hub/models--\" and path ~ \"/blobs/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "git object packs",
+      "dsl": "file and path ~ \"/.git/objects/pack/\" and ext in (pack, idx, rev, bitmap)"
+    },
+    {
+      "os": "windows",
+      "phrase": "git lfs objects",
+      "dsl": "file and path ~ \"/.git/lfs/objects/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "git repository bundles",
+      "dsl": "file and ext = bundle"
+    },
+    {
+      "os": "windows",
+      "phrase": "project build definitions",
+      "dsl": "file and name in (Cargo.toml, CMakeLists.txt, meson.build, Makefile, go.mod, pyproject.toml, package.json, pom.xml, build.gradle, build.gradle.kts)"
+    },
+    {
+      "os": "windows",
+      "phrase": "dependency lockfiles",
+      "dsl": "file and name in (Cargo.lock, go.sum, uv.lock, poetry.lock, package-lock.json, pnpm-lock.yaml, yarn.lock, composer.lock, Gemfile.lock, packages.lock.json)"
+    },
+    {
+      "os": "windows",
+      "phrase": "container build definitions",
+      "dsl": "file and (name in (Dockerfile, Containerfile, compose.yaml, compose.yml, docker-compose.yaml, docker-compose.yml) or name startswith \"Dockerfile.\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "terraform project files",
+      "dsl": "file and (ext in (tf, tfvars) or name endswith \".tf.json\" or name = .terraform.lock.hcl)"
+    },
+    {
+      "os": "windows",
+      "phrase": "terraform provider cache files",
+      "dsl": "file and path ~ \"/.terraform/providers/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "maven downloaded jars",
+      "dsl": "file and path ~ \"/.m2/repository/\" and ext = jar"
+    },
+    {
+      "os": "windows",
+      "phrase": "gradle cached packages",
+      "dsl": "file and path ~ \"/.gradle/caches/modules-2/files-2.1/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "java archives",
+      "dsl": "file and ext in (jar, war, ear)"
+    },
+    {
+      "os": "windows",
+      "phrase": "android build packages",
+      "dsl": "file and ext in (apk, aab, apks)"
+    },
+    {
+      "os": "windows",
+      "phrase": "javascript build caches",
+      "dsl": "file and (path ~ \"/.next/cache/\" or path ~ \"/.turbo/cache/\" or path ~ \"/node_modules/.vite/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "test coverage reports",
+      "dsl": "file and (name in (lcov.info, coverage.xml, coverage.json, .coverage) or name startswith \".coverage.\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "large source maps",
+      "dsl": "file and (name endswith \".js.map\" or name endswith \".css.map\") and size > 5mib"
+    },
+    {
+      "os": "windows",
+      "phrase": "postgresql cluster markers",
+      "dsl": "file and name = PG_VERSION"
+    },
+    {
+      "os": "windows",
+      "phrase": "postgresql wal files",
+      "dsl": "file and (path ~ \"/pg_wal/\" or path ~ \"/pg_xlog/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "postgresql configuration files",
+      "dsl": "file and name in (postgresql.conf, postgresql.auto.conf, pg_hba.conf, pg_ident.conf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "postgresql directory dump catalogues",
+      "dsl": "file and name = toc.dat"
+    },
+    {
+      "os": "windows",
+      "phrase": "sql scripts and compressed dumps",
+      "dsl": "file and (ext = sql or name endswith \".sql.gz\" or name endswith \".sql.xz\" or name endswith \".sql.zst\" or name endswith \".sql.bz2\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "innodb tablespaces and recovery files",
+      "dsl": "file and (ext = ibd or name in (ibdata1, undo_001, undo_002) or name startswith \"ib_logfile\" or path ~ \"/#innodb_redo/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "mysql and mariadb binary log candidates",
+      "dsl": "file and (name startswith \"binlog.\" or name startswith \"mysql-bin.\" or name startswith \"mariadb-bin.\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "mariadb aria tables and logs",
+      "dsl": "file and (ext in (mai, mad) or name = aria_log_control or name startswith \"aria_log.\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "mongodb wiredtiger data files",
+      "dsl": "file and (ext = wt or name in (WiredTiger, WiredTiger.turtle, WiredTiger.lock) or name startswith \"WiredTigerLog.\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "mongodb bson dump candidates",
+      "dsl": "file and (ext = bson or name endswith \".bson.gz\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "redis persistence candidates",
+      "dsl": "file and (ext in (rdb, aof) or (path ~ \"/appendonlydir/\" and ext = manifest))"
+    },
+    {
+      "os": "windows",
+      "phrase": "sqlite database candidates",
+      "dsl": "file and ext in (sqlite, sqlite3, db, db3)"
+    },
+    {
+      "os": "windows",
+      "phrase": "sqlite sidecar candidates",
+      "dsl": "file and (name endswith \"-wal\" or name endswith \"-shm\" or name endswith \"-journal\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "sql server data and log candidates",
+      "dsl": "file and ext in (mdf, ndf, ldf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "excel workbooks",
+      "dsl": "file and ext in (xlsx, xlsm, xlsb, xls)"
+    },
+    {
+      "os": "windows",
+      "phrase": "spreadsheet files",
+      "dsl": "file and ext in (xlsx, xlsm, xlsb, xls, ods)"
+    },
+    {
+      "os": "windows",
+      "phrase": "spreadsheet templates",
+      "dsl": "file and ext in (xltx, xltm, xlt, ots)"
+    },
+    {
+      "os": "windows",
+      "phrase": "csv and tabular text",
+      "dsl": "file and ext in (csv, tsv)"
+    },
+    {
+      "os": "windows",
+      "phrase": "presentation files",
+      "dsl": "file and ext in (pptx, pptm, ppt, ppsx, ppsm, pps, odp)"
+    },
+    {
+      "os": "windows",
+      "phrase": "presentation templates",
+      "dsl": "file and ext in (potx, potm, pot, otp)"
+    },
+    {
+      "os": "windows",
+      "phrase": "word processing documents",
+      "dsl": "file and ext in (docx, docm, doc, odt, rtf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "pdf documents",
+      "dsl": "file and ext in (pdf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "large pdf documents",
+      "dsl": "file and ext = pdf and size > 20mib"
+    },
+    {
+      "os": "windows",
+      "phrase": "recent office documents",
+      "dsl": "file and ext in (docx, docm, xlsx, xlsm, pptx, pptm, odt, ods, odp, pdf) and age < 14d"
+    },
+    {
+      "os": "windows",
+      "phrase": "invoice pdf candidates",
+      "dsl": "file and ext = pdf and (name ~ invoice or name ~ receipt)"
+    },
+    {
+      "os": "windows",
+      "phrase": "office lock files",
+      "dsl": "file and (name startswith \"~$\" or (name startswith \".~lock.\" and name endswith \"#\"))"
+    },
+    {
+      "os": "windows",
+      "phrase": "visio and diagram files",
+      "dsl": "file and ext in (vsdx, vsdm, vsd, vdx, drawio)"
+    },
+    {
+      "os": "windows",
+      "phrase": "project schedules",
+      "dsl": "file and ext in (mpp, mpt)"
+    },
+    {
+      "os": "windows",
+      "phrase": "email archives and messages",
+      "dsl": "file and ext in (pst, ost, mbox, eml, msg)"
+    },
+    {
+      "os": "windows",
+      "phrase": "autocad drawings",
+      "dsl": "file and ext in (dwg, dxf, dwt)"
+    },
+    {
+      "os": "windows",
+      "phrase": "mechanical cad projects",
+      "dsl": "file and ext in (fcstd, sldprt, sldasm, slddrw, ipt, iam, idw)"
+    },
+    {
+      "os": "windows",
+      "phrase": "cad exchange files",
+      "dsl": "file and ext in (step, stp, iges, igs, sat, x_t, x_b)"
+    },
+    {
+      "os": "windows",
+      "phrase": "3d print assets",
+      "dsl": "file and ext in (stl, 3mf, amf, gcode)"
+    },
+    {
+      "os": "windows",
+      "phrase": "kicad design files",
+      "dsl": "file and ext in (kicad_pro, kicad_pcb, kicad_sch, kicad_sym, kicad_mod)"
+    },
+    {
+      "os": "windows",
+      "phrase": "gerber and pcb drill candidates",
+      "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)"
+    },
+    {
+      "os": "windows",
+      "phrase": "blender projects",
+      "dsl": "file and ext in (blend)"
+    },
+    {
+      "os": "windows",
+      "phrase": "blender version backups",
+      "dsl": "file and ext in (blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8, blend9)"
+    },
+    {
+      "os": "windows",
+      "phrase": "3d meshes and scene exchange",
+      "dsl": "file and ext in (obj, fbx, gltf, glb, usd, usda, usdc, usdz, abc)"
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe photoshop projects",
+      "dsl": "file and ext in (psd, psb)"
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe illustrator files",
+      "dsl": "file and ext in (ai, eps, ait)"
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe indesign documents",
+      "dsl": "file and ext in (indd, idml, indt)"
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe after effects projects",
+      "dsl": "file and ext in (aep, aepx, aet)"
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe premiere projects",
+      "dsl": "file and ext in (prproj)"
+    },
+    {
+      "os": "windows",
+      "phrase": "premiere auto save projects",
+      "dsl": "file and ext = prproj and path ~ \"/Adobe Premiere Pro Auto-Save/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "adobe lightroom catalogues",
+      "dsl": "file and ext in (lrcat, lrcat-data)"
+    },
+    {
+      "os": "windows",
+      "phrase": "camera raw photos",
+      "dsl": "file and ext in (dng, cr2, cr3, nef, arw, raf, rw2, orf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "gimp krita and affinity projects",
+      "dsl": "file and ext in (xcf, kra, ora, afphoto, afdesign, afpub)"
+    },
+    {
+      "os": "windows",
+      "phrase": "davinci resolve projects and timelines",
+      "dsl": "file and ext in (drp, drt, drb)"
+    },
+    {
+      "os": "windows",
+      "phrase": "davinci resolve project archives",
+      "dsl": "dir and name endswith \".dra\""
+    },
+    {
+      "os": "windows",
+      "phrase": "davinci resolve archive contents",
+      "dsl": "file and path ~ \".dra/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "video footage and exports",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts, mpg, mpeg)"
+    },
+    {
+      "os": "windows",
+      "phrase": "large video files",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts) and size > 1gib"
+    },
+    {
+      "os": "windows",
+      "phrase": "camera cinema footage",
+      "dsl": "file and ext in (braw, r3d, ari, arx, crm)"
+    },
+    {
+      "os": "windows",
+      "phrase": "subtitles and captions",
+      "dsl": "file and ext in (srt, vtt, ass, ssa, scc)"
+    },
+    {
+      "os": "windows",
+      "phrase": "compositing image sequences",
+      "dsl": "file and ext in (exr, dpx, cin)"
+    },
+    {
+      "os": "windows",
+      "phrase": "lossless audio and stems",
+      "dsl": "file and ext in (wav, bwf, aif, aiff, flac, caf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "midi files",
+      "dsl": "file and ext in (mid, midi, smf)"
+    },
+    {
+      "os": "windows",
+      "phrase": "daw sessions",
+      "dsl": "file and ext in (als, ardour, rpp, flp, bwproject, sesx, cpr, npr, ptx, song)"
+    },
+    {
+      "os": "windows",
+      "phrase": "ableton live packs and devices",
+      "dsl": "file and ext in (alp, adg, adv, amxd)"
+    },
+    {
+      "os": "windows",
+      "phrase": "daw project backups",
+      "dsl": "file and (name endswith \".ardour.bak\" or ext = rpp-bak)"
+    },
+    {
+      "os": "windows",
+      "phrase": "vst3 plugin bundles",
+      "dsl": "dir and name endswith \".vst3\""
+    },
+    {
+      "os": "windows",
+      "phrase": "standalone vst3 plugin files",
+      "dsl": "file and ext = vst3 and not path ~ \".vst3/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "clap plugin files",
+      "dsl": "file and ext in (clap)"
+    },
+    {
+      "os": "windows",
+      "phrase": "lv2 plugin bundles",
+      "dsl": "dir and name endswith \".lv2\""
+    },
+    {
+      "os": "windows",
+      "phrase": "audio plugin presets",
+      "dsl": "file and ext in (vstpreset, fxp, fxb)"
+    },
+    {
+      "os": "windows",
+      "phrase": "sampler instruments and mappings",
+      "dsl": "file and ext in (sf2, sfz, nki, nkm, exs)"
+    },
+    {
+      "os": "windows",
+      "phrase": "sql server backup candidates",
+      "dsl": "file and path ~ \"/Microsoft SQL Server/\" and ext in (bak, trn)"
+    },
+    {
+      "os": "windows",
+      "phrase": "postgresql programdata files",
+      "dsl": "file and (path ~ \"/ProgramData/PostgreSQL/\" or path ~ \"/Program Files/PostgreSQL/\") and (path ~ \"/data/\" or name = PG_VERSION)"
+    },
+    {
+      "os": "windows",
+      "phrase": "mysql programdata files",
+      "dsl": "file and path ~ \"/ProgramData/MySQL/\" and path ~ \"/Data/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows iis log files",
+      "dsl": "file and path ~ \"/inetpub/logs/LogFiles/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows event logs",
+      "dsl": "file and path ~ \"/Windows/System32/winevt/Logs/\" and ext = evtx"
+    },
+    {
+      "os": "windows",
+      "phrase": "windows vst2 plugin candidates",
+      "dsl": "file and ext = dll and (path ~ \"/VstPlugins/\" or path ~ \"/Common Files/VST2/\")"
+    },
+    {
+      "os": "windows",
+      "phrase": "avid aax plugin bundles",
+      "dsl": "dir and name endswith \".aaxplugin\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows installer packages",
+      "dsl": "file and ext in (msi, msix, appx, msixbundle, appxbundle)"
+    }
+  ]
+}
