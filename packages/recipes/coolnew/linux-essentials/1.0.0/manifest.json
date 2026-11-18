@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "linux-essentials",
+    "title": "Linux Essentials",
+    "version": "1.0.0",
+    "description": "Find development, server, office, design, video, and audio files on Linux.",
+    "tags": [
+      "linux",
+      "development",
+      "server",
+      "database",
+      "office",
+      "cad",
+      "video",
+      "audio"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact"
+  ],
+  "path": "packages/recipes/coolnew/linux-essentials/1.0.0/pack.json"
+}

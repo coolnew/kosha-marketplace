@@ -9,26 +9,41 @@ Keep application code and query-language changes in the Kosha repository.
 1. Review provenance, licensing, phrase collisions, supported OSes, and query
    behavior. Require DCO sign-off on every contributed commit and no
    `Co-authored-by` trailers. Run repository CI and compatible Kosha CLI checks.
-2. For pack changes, require a new version with the same stable ID. Update the
-   catalog metadata and SHA-256 in the same commit. Hash exact LF file bytes:
-   `python -c "import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('recipes/linux.json').read_bytes()).hexdigest())"`.
+2. For changed published packs, require a new version with the same publisher/ID.
+   The owner-approved pre-release format replacement keeps schema 1 and versions
+   1.0.0. Edit manifests, artifacts and corpora; regenerate with
+   `python xtask-marketplace.py --root .`, then check using
+   `python xtask-marketplace.py --root . --check --cli /path/to/kosha`.
+   Commit matching artifacts, manifests, indexes and root together. The tool
+   derives exact byte lengths, hashes and counts without bumping versions.
 3. Merge reviewed changes to `main`. Preserve sign-offs when merging or
    squashing, and sign off any new merge or squash commit yourself. Do not
    attribute someone else's DCO certification without their consent.
 4. Record the resulting full commit SHA. Verify unauthenticated downloads of
-   `catalog.json` and all changed packs from
+   `catalog.json`, all referenced index shards and changed artifacts from
    `https://raw.githubusercontent.com/coolnew/kosha-marketplace/<SHA>/<path>`.
-   Recheck their hashes. GitHub source archives must include the packs.
+   Recheck their lengths, counts and hashes. GitHub source archives must include
+   the manifests, indexes, corpora and packs.
 5. With an isolated Kosha profile, sync, search, show, get, resolve a host-OS
    phrase, and uninstall. Confirm other-OS entries are inactive, offline use
    works after install, and personal recipes and downloaded originals survive
-   uninstall. Check GUI flows for changes affecting discovery or installation.
+   uninstall. Check qualified IDs, typed captures, ambiguity errors and typo
+   suggestions without executable queries. Unsupported kinds/capabilities must
+   show unavailable reasons. Check GUI discovery, installation and interpretation.
 
 A merge to `main` publishes the next catalog snapshot; a tag or separate
 release is not required. Sync updates cached discovery without replacing
 installed packs. Users explicitly remove and reinstall a pack to update it.
 Publish corrections with a new pack version rather than rewriting history.
 Removing an entry stops future discovery but does not remove installed copies.
+
+## Retaining old versions
+
+Only one version per publisher/ID may be listed. Use `listed:false` in an older
+manifest to retain its artifacts without advertising them. Generated indexes
+exclude author-only `cases` and `listed` fields. Remove retired index files
+deliberately after review; the generator refuses stale extra shards and never
+deletes them. Do not use the application-only `--compat-recipes` option here.
 
 ## Repository settings
 

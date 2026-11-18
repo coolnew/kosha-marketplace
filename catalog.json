@@ -1,53 +1,12 @@
 {
   "schema": 1,
-  "packages": [
+  "indexes": [
     {
       "kind": "recipe-pack",
-      "metadata": {
-        "id": "linux-essentials",
-        "title": "Linux Essentials",
-        "version": "1.0.0",
-        "description": "Find development, server, office, design, video, and audio files on Linux.",
-        "tags": [
-          "linux",
-          "development",
-          "server",
-          "database",
-          "office",
-          "cad",
-          "video",
-          "audio"
-        ]
-      },
-      "platforms": [
-        "linux"
-      ],
-      "path": "recipes/linux.json",
-      "sha256": "f7043014dc02fdf459df992153f90aafe5ba203af53bcd167c7e9b83a7cef019"
-    },
-    {
-      "kind": "recipe-pack",
-      "metadata": {
-        "id": "windows-essentials",
-        "title": "Windows Essentials",
-        "version": "1.0.0",
-        "description": "Find development, server, office, design, video, and audio files on Windows.",
-        "tags": [
-          "windows",
-          "development",
-          "server",
-          "database",
-          "office",
-          "cad",
-          "video",
-          "audio"
-        ]
-      },
-      "platforms": [
-        "windows"
-      ],
-      "path": "recipes/windows.json",
-      "sha256": "0a1a1ed383a60869fc0a1cf2cd2ce34caea6e69144c26d0c515a89299375940a"
+      "path": "indexes/recipes.jsonl",
+      "bytes": 1640,
+      "sha256": "6daa9c86cdbb9bd9aa00e0b6780e4fe9b2aa5153112cb4730018e940c265c0e4",
+      "entries": 3
     }
   ]
 }

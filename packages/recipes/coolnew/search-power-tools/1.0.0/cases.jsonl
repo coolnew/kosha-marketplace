@@ -1,0 +1,9 @@
+{"input": "check notes", "dsl": "file and ext = md"}
+{"input": "tickets for ABC-123", "dsl": "file and name ~ \"ABC-123\""}
+{"input": "documents larger than 20 MB", "dsl": "file and ext in (\"pdf\", \"docx\", \"xlsx\", \"txt\") and size > 20971520b"}
+{"input": "builds older than 2 days", "dsl": "file and ext in (\"obj\", \"o\", \"pdb\") and age > 172800s"}
+{"input": "files inside 'build outputs'", "dsl": "file and path ~ \"build outputs\""}
+{"input": "documents larger than nonsense", "error": true}
+{"input": "documents larger than 10 MB or all files", "error": true}
+{"input": "tickets for ABC; execute", "dsl": "name ~ \"tickets for ABC; execute\""}
+{"input": "databse reports", "error": true}

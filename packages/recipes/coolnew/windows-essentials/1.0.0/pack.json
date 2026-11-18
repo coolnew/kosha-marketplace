@@ -15,7 +15,8 @@
       "cad",
       "video",
       "audio"
-    ]
+    ],
+    "publisher": "coolnew"
   },
   "recipes": [
     {
@@ -658,5 +659,8 @@
       "phrase": "windows installer packages",
       "dsl": "file and ext in (msi, msix, appx, msixbundle, appxbundle)"
     }
+  ],
+  "requires": [
+    "recipe.exact"
   ]
 }

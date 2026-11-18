@@ -20,6 +20,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/validate.py
+      - run: python xtask-marketplace.py --root . --check
+      - run: python -m unittest test_xtask_marketplace
       - run: python -m unittest discover -s tests
 
   dco:

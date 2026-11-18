@@ -9,8 +9,10 @@ problems and proposals. Kosha application bugs belong in
 
 1. Fork and clone this repository; create a branch from `main`.
 2. Keep changes focused. Discuss a new pack or format change in an issue first.
-3. Edit the pack, bump `metadata.version` for changed published content, and
-   update its catalog metadata and SHA-256 together. Keep the pack ID stable.
+3. Edit the package manifest, artifact and optional JSONL corpus under
+   `packages/recipes/PUBLISHER/ID/VERSION/`. Keep publisher/ID stable; use a new
+   version for changed published content, then regenerate catalog/indexes.
+   The owner-approved pre-release format replacement retains versions `1.0.0`.
 4. Run the checks below, then commit with `git commit -s` and open a pull request.
    Include the purpose, affected OS, example phrases, expected matches and
    non-matches, and the Kosha version and validation results.
@@ -25,36 +27,55 @@ source should carry the project's SPDX license and copyright header.
 Python 3.12+ is sufficient for repository checks; no third-party packages needed:
 
 ```sh
+python xtask-marketplace.py --root . --check
 python scripts/validate.py
+python -m unittest test_xtask_marketplace
 python -m unittest discover -s tests
 python xtask-dco.py
 ```
 
 The DCO check needs committed history. On a branch, use
 `python xtask-dco.py origin/main..HEAD` to check only your new commits.
-CI checks structure, hashes, platform coverage, LF endings, and commit sign-offs.
-It does not parse Kosha's query language. Validate DSL with a compatible Kosha
-build before submitting pack changes:
+CI checks manifests, deterministic indexes, hashes, lengths/counts, corpus
+shape, LF endings and sign-offs. It does not parse Kosha rules or execute corpus
+expectations. Validate those with a current compatible Kosha build:
 
 ```sh
+python xtask-marketplace.py --root . --check --cli /path/to/kosha
 python scripts/validate.py --kosha /path/to/kosha
 ```
 
-This runs `kosha search --describe --recipes FILE files` for every pack.
-Kosha validates all recipes, including those scoped to a different OS.
-Also describe each changed phrase on its intended OS and test it against a small
+These load every recipe pack and check platform-applicable positive/negative
+JSONL cases without scanning. Kosha validates every rule, including inactive OS
+rules, capabilities, regexes and typed bindings. Check Recipe entities/captures
+as well as exit status to distinguish recipes from built-in/literal fallbacks.
+Describe each changed phrase on its intended OS and test it against a small
 synthetic tree, recording expected matches and non-matches. Do not include
 personal file inventories, private paths, or credentials in reports.
 
 ## Recipe review
+
+Read the public [recipe authoring guide](https://github.com/coolnew/kosha/blob/main/docs/manual/recipe-authoring.md)
+before writing rules. Regenerate with `python xtask-marketplace.py --root .`
+without `--check` after intentional manifest/artifact edits; review the outputs.
 
 Use clear whole phrases and narrow, understandable DSL. Avoid duplicate phrases
 on the same OS. Use `os` for platform-specific locations. Catalog platforms must
 describe exactly where the pack has active entries. Do not infer that caches,
 database files, logs, or creative projects are safe to delete. Recipes contain
 query data only; executable payloads and downloads are outside this catalog.
-Keep packs within 1 MiB and 256 recipes, and the catalog within 256 KiB and
-256 entries. Preserve tag order when copying metadata to the catalog.
+Keep packs within 1 MiB/256 rules, with at most 64 template/regex rules per
+file. Regexes have at most 16 total capture groups, including unnamed groups.
+Declare exact/template/regex/fuzzy capabilities across every OS rule. Include
+working sample phrases and corpus cases for aliases, typed values, malformed
+input, ambiguity, injection-like text, fallback and typos.
+
+The active engine limits all sources together to 8,192 rules, 128 patterns,
+32,768 phrases/aliases and 1,024 fuzzy phrases/aliases, with a conservative
+16 KiB bound-output budget. Root catalogs are bounded to 256 KiB, each shard to
+2 MiB, all catalog bytes to 16 MiB, and listed entries to 16,384. The generator
+checks distribution budgets; Kosha checks rule semantics and active budgets.
+Publisher names and hashes are identities/integrity checks, not signatures.
 
 ## Developer Certificate of Origin
 

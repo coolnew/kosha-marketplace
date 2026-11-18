@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "search-power-tools",
+    "publisher": "coolnew",
+    "title": "Search Power Tools",
+    "description": "Examples of exact aliases, typed entities, regex captures and typo suggestions.",
+    "version": "1.0.0",
+    "tags": [
+      "search",
+      "entities",
+      "templates",
+      "regex",
+      "examples"
+    ]
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.regex",
+    "recipe.fuzzy-suggestions"
+  ],
+  "recipes": [
+    {
+      "phrase": "review notes",
+      "aliases": [
+        "check notes"
+      ],
+      "dsl": "file and ext = md"
+    },
+    {
+      "type": "template",
+      "phrase": "documents larger than 10 MB",
+      "template": "documents larger than {minimum:size}",
+      "dsl": "file and ext in (pdf,docx,xlsx,txt) and size > {minimum}"
+    },
+    {
+      "type": "template",
+      "phrase": "builds older than 7 days",
+      "template": "builds older than {age:duration}",
+      "dsl": "file and ext in (obj,o,pdb) and age > {age}"
+    },
+    {
+      "type": "template",
+      "phrase": "files inside 'build outputs'",
+      "template": "files inside {folder:path}",
+      "dsl": "file and path ~ {folder}"
+    },
+    {
+      "type": "regex",
+      "phrase": "tickets for KOSHA",
+      "pattern": "tickets for (?P<project>[A-Za-z][A-Za-z0-9_-]{0,31})",
+      "bindings": {
+        "project": "text"
+      },
+      "dsl": "file and name ~ {project}"
+    },
+    {
+      "type": "fuzzy-suggestions",
+      "phrase": "database reports",
+      "aliases": [
+        "db reports"
+      ],
+      "dsl": "file and ext in (csv,sqlite,db)"
+    }
+  ]
+}

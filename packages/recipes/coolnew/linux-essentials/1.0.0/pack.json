@@ -15,7 +15,8 @@
       "cad",
       "video",
       "audio"
-    ]
+    ],
+    "publisher": "coolnew"
   },
   "recipes": [
     {
@@ -648,5 +649,8 @@
       "phrase": "linux vst2 plugin candidates",
       "dsl": "file and ext = so and (path ~ \"/vst/\" or path ~ \"/.vst/\")"
     }
+  ],
+  "requires": [
+    "recipe.exact"
   ]
 }

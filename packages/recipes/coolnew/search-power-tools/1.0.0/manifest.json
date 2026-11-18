@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "search-power-tools",
+    "publisher": "coolnew",
+    "title": "Search Power Tools",
+    "description": "Examples of exact aliases, typed entities, regex captures and typo suggestions.",
+    "version": "1.0.0",
+    "tags": [
+      "search",
+      "entities",
+      "templates",
+      "regex",
+      "examples"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.regex",
+    "recipe.fuzzy-suggestions"
+  ],
+  "path": "packages/recipes/coolnew/search-power-tools/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/search-power-tools/1.0.0/cases.jsonl"
+}

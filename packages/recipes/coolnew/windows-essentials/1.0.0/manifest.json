@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "windows-essentials",
+    "title": "Windows Essentials",
+    "version": "1.0.0",
+    "description": "Find development, server, office, design, video, and audio files on Windows.",
+    "tags": [
+      "windows",
+      "development",
+      "server",
+      "database",
+      "office",
+      "cad",
+      "video",
+      "audio"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows"
+  ],
+  "requires": [
+    "recipe.exact"
+  ],
+  "path": "packages/recipes/coolnew/windows-essentials/1.0.0/pack.json"
+}
