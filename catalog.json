@@ -2,6 +2,13 @@
   "schema": 1,
   "indexes": [
     {
+      "kind": "insight-pack",
+      "path": "indexes/insights.jsonl",
+      "bytes": 579,
+      "sha256": "0a8bdf286f6aff207ea5faf4cb77b294a0cdc3150cde072e73c818181abf6340",
+      "entries": 1
+    },
+    {
       "kind": "recipe-pack",
       "path": "indexes/recipes.jsonl",
       "bytes": 1640,

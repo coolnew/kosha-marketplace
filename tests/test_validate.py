@@ -15,7 +15,7 @@ class CatalogTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         for name in ("packages", "indexes"):
             shutil.copytree(ROOT / name, self.root / name)
         shutil.copyfile(ROOT / "catalog.json", self.root / "catalog.json")
@@ -55,7 +55,9 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual(entry["metadata"]["version"], "1.0.0")
 
     def test_all_seed_artifacts_are_listed(self):
-        entries = [json.loads(line) for line in (self.root / "indexes/recipes.jsonl").read_bytes().splitlines()]
+        catalog = json.loads((self.root / "catalog.json").read_bytes())
+        entries = [json.loads(line) for index in catalog["indexes"]
+                   for line in (self.root / index["path"]).read_bytes().splitlines()]
         actual = {p.relative_to(self.root).as_posix() for p in (self.root / "packages").rglob("pack.json")}
         self.assertEqual({entry["path"] for entry in entries}, actual)
 

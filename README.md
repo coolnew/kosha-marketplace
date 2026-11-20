@@ -1,6 +1,6 @@
 # Kosha marketplace
 
-Community recipe packs for [Kosha](https://github.com/coolnew/kosha), the
+Community search recipes and review-only insight packs for [Kosha](https://github.com/coolnew/kosha), the
 disk-usage and file-search tool. Recipes translate whole phrases into inspectable
 queries over recorded file metadata. A match is not a recommendation to delete
 anything. Loaded recipes work offline and do not execute scripts.
@@ -10,6 +10,13 @@ anything. Loaded recipes work offline and do not execute scripts.
 | [Linux Essentials](packages/recipes/coolnew/linux-essentials/1.0.0/pack.json) | `coolnew/linux-essentials` | 1.0.0 | Linux |
 | [Windows Essentials](packages/recipes/coolnew/windows-essentials/1.0.0/pack.json) | `coolnew/windows-essentials` | 1.0.0 | Windows |
 | [Search Power Tools](packages/recipes/coolnew/search-power-tools/1.0.0/pack.json) | `coolnew/search-power-tools` | 1.0.0 | All supported OSes |
+| [Assistant session review](packages/insights/coolnew/assistant-session-review/1.0.0/pack.json) | `coolnew/assistant-session-review` | 1.0.0 | All supported OSes; requires new insight capability |
+
+**Insight compatibility:** session review requires the unreleased
+`insight.known-home-review.v1` engine capability (builds after 0.10.7). Older
+releases show it as unavailable and cannot install it. These are valuable
+conversation records, not disposable cache; this pack provides review-only
+findings and no cleanup actions. See [insight usage and authoring](INSIGHTS.md).
 
 The Essentials packs cover development, server, database, office, design, video,
 and audio files. Search Power Tools demonstrates exact aliases, typed size,
@@ -87,7 +94,9 @@ rules are `exact` (the default, with optional aliases), `template`, `regex`, and
 the query AST; captured text cannot inject query operators. Fuzzy typos produce
 suggestions and never execute a corrected query. Declare every capability used,
 including rules scoped to another OS. Unknown fields are errors. Future package
-kinds may be cataloged as metadata; this client installs recipe packs only.
+kinds may be cataloged as unavailable metadata. New insight-capable builds also
+install the separate review-only contract in [INSIGHTS.md](INSIGHTS.md); recipe
+capabilities do not authorize insight or plugin execution.
 
 Follow the public [recipe authoring guide](https://github.com/coolnew/kosha/blob/main/docs/manual/recipe-authoring.md)
 for complete manifest/corpus examples, field types, conflicts, limits and layered

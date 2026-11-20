@@ -22,7 +22,33 @@ MAX_SHARD = 2 * 1024 * 1024
 MAX_TOTAL = 16 * 1024 * 1024
 MAX_ENTRIES = 16384
 MAX_ARTIFACT = 1024 * 1024
-KINDS = {"recipe-pack": "recipes", "plugin": "plugins"}
+KINDS = {"recipe-pack": "recipes", "insight-pack": "insights", "plugin": "plugins"}
+INSIGHT_CAPABILITY = "insight.known-home-review.v1"
+
+
+def validate_insights(document, entry):
+    if not isinstance(document, dict) or set(document) != {"schema", "kind", "metadata", "requires", "platforms", "insights"}:
+        raise ValueError("Invalid insight artifact fields")
+    if document["schema"] != 1 or document["kind"] != "insight-pack" or document["metadata"] != entry["metadata"] or document["platforms"] != entry["platforms"] or document["requires"] != [INSIGHT_CAPABILITY] or entry["requires"] != [INSIGHT_CAPABILITY]:
+        raise ValueError("Insight artifact metadata/platforms/capabilities disagree with manifest")
+    rules = document["insights"]
+    if not isinstance(rules, list) or not 1 <= len(rules) <= 32:
+        raise ValueError("Insight pack needs 1..32 rules")
+    ids = set()
+    for rule in rules:
+        if not isinstance(rule, dict) or set(rule) != {"id", "title", "detail", "subject", "under-home", "action"}:
+            raise ValueError("Unknown or missing insight rule fields")
+        if not token(rule["id"]) or rule["id"] in ids or rule["action"] != "review-only":
+            raise ValueError("Insight IDs must be unique and actions review-only")
+        ids.add(rule["id"])
+        for field, limit in [("title", 160), ("detail", 4096), ("subject", 80), ("under-home", 1024)]:
+            value = rule[field]
+            if not isinstance(value, str) or not value.strip() or len(value.encode()) > limit or any(ord(c) < 32 or ord(c) == 127 for c in value):
+                raise ValueError(f"Invalid insight {field}")
+        path = rule["under-home"].replace("\\", "/")
+        parts = path.split("/")
+        if len(parts) > 32 or any(p in {"", ".", ".."} for p in parts) or ":" in path:
+            raise ValueError("Insight path needs 1..32 normal home-relative components")
 
 
 def encode(value):
@@ -104,7 +130,7 @@ def generated(root, cli=None):
         if not isinstance(requires, list) or len(requires) > 32 or len(set(requires)) != len(requires) or any(not isinstance(r, str) or not re.fullmatch(r"[a-z0-9][a-z0-9.-]{0,79}", r) for r in requires):
             raise ValueError("Invalid package capabilities")
         artifact = safe(root, entry["path"])
-        limit = MAX_ARTIFACT if kind == "recipe-pack" else 1024 * 1024 * 1024
+        limit = 256 * 1024 if kind == "insight-pack" else MAX_ARTIFACT if kind == "recipe-pack" else 1024 * 1024 * 1024
         if not artifact.is_file() or artifact.stat().st_size > limit:
             raise ValueError("Package artifact is missing or exceeds its kind's size limit")
         size = artifact.stat().st_size
@@ -117,6 +143,12 @@ def generated(root, cli=None):
                 raise ValueError("Recipe artifact metadata/capabilities disagree with its manifest")
             if cli:
                 subprocess.run([str(cli), "search", "--describe", "--recipes", str(artifact), "files"], check=True, capture_output=True)
+        if kind == "insight-pack":
+            if artifact.name != "pack.json":
+                raise ValueError("Insight artifact must be pack.json")
+            validate_insights(json.loads(artifact.read_bytes()), entry)
+            if cli:
+                subprocess.run([str(cli), "marketplace", "validate", str(artifact)], check=True, capture_output=True)
         if "cases" in entry:
             cases_path = safe(root, entry["cases"])
             if not entry["cases"].startswith(prefix) or cases_path.stat().st_size > MAX_ROOT or kind != "recipe-pack":
@@ -174,29 +206,12 @@ def generated(root, cli=None):
     return outputs
 
 
-def compatibility(root, destination):
-    """Keep the application's old Git example paths usable; not a remote layout."""
-    packages = []
-    copies = {}
-    for platform in ("linux", "windows"):
-        name = f"packages/recipes/coolnew/{platform}-essentials/1.0.0/pack.json"
-        data = safe(root, name).read_bytes()
-        meta = json.loads(data)["metadata"]
-        target = f"recipes/{platform}.json"
-        copies[safe(ROOT, target)] = data
-        packages.append({"kind": "recipe-pack", "publisher": "coolnew", "metadata": meta,
-                         "platforms": [platform], "requires": ["recipe.exact"], "path": target,
-                         "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()})
-    copies[safe(ROOT, "recipes/catalog.json")] = encode({"schema": 1, "packages": packages})
-    return copies
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=ROOT / "marketplace" if (ROOT / "marketplace").exists() else ROOT)
+    parser.add_argument("--root", type=Path, default=ROOT,
+                        help="Standalone marketplace checkout (default: this script's directory)")
     parser.add_argument("--check", action="store_true", help="Refuse stale/missing generated indexes without writing")
     parser.add_argument("--cli", type=Path, help="Also validate recipe artifacts with this built kosha executable")
-    parser.add_argument("--compat-recipes", type=Path, help="Refresh this application's generated legacy Git examples")
     args = parser.parse_args()
     try:
         outputs = generated(args.root, args.cli.resolve() if args.cli else None)
@@ -205,11 +220,6 @@ def main():
         if retired:
             raise ValueError(f"Retired indexes need manual review/removal; nothing deleted: {sorted(retired)}")
         writes = {safe(args.root, name): data for name, data in outputs.items()}
-        if args.compat_recipes:
-            destination = args.compat_recipes.resolve()
-            if destination != ROOT / "recipes":
-                raise ValueError("Compatibility output must be this script checkout's recipes directory")
-            writes.update(compatibility(args.root, destination))
         stale = [str(path) for path, data in writes.items() if not path.exists() or path.read_bytes() != data]
         if args.check and stale:
             raise ValueError(f"Stale generated marketplace files: {stale}")

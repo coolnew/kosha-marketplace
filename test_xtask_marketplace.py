@@ -17,10 +17,46 @@ spec.loader.exec_module(builder)
 
 
 class MarketplaceTests(unittest.TestCase):
+    def insight_package(self):
+        folder = self.root / 'packages/insights/author/sessions/1.0.0'
+        folder.mkdir(parents=True)
+        meta = {'id':'sessions','publisher':'author','version':'1.0.0','title':'Review sessions','description':'Valuable records, not disposable cache'}
+        entry = {'schema':1,'kind':'insight-pack','publisher':'author','metadata':meta,'platforms':[],
+                 'requires':[builder.INSIGHT_CAPABILITY],'path':'packages/insights/author/sessions/1.0.0/pack.json'}
+        document = {'schema':1,'kind':'insight-pack','metadata':meta,'platforms':[],'requires':[builder.INSIGHT_CAPABILITY],
+                    'insights':[{'id':'session-history','title':'Review history','detail':'Keep valuable conversations.','subject':'directory','under-home':'.assistant/sessions','action':'review-only'}]}
+        (folder/'manifest.json').write_bytes(builder.encode(entry))
+        (folder/'pack.json').write_bytes(builder.encode(document))
+        return folder, entry, document
+
+    def test_insight_contract_generates_a_distinct_bounded_index(self):
+        folder, entry, document = self.insight_package()
+        result = builder.generated(self.root)
+        record = json.loads(result['indexes/insights.jsonl'])
+        self.assertEqual(record['kind'],'insight-pack')
+        self.assertEqual(record['requires'],[builder.INSIGHT_CAPABILITY])
+        self.assertEqual(record['sha256'],hashlib.sha256((folder/'pack.json').read_bytes()).hexdigest())
+
+    def test_insight_contract_refuses_destructive_or_executable_fields(self):
+        folder, entry, document = self.insight_package()
+        import copy
+        for key, value in [('action','trash'),('command','run something'),('under-home','../outside'),('under-home','C:/Windows'),('under-home','.')]:
+            bad = copy.deepcopy(document)
+            bad['insights'][0][key] = value
+            (folder/'pack.json').write_bytes(builder.encode(bad))
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError):
+                builder.generated(self.root)
+        document['platforms'] = ['windows']
+        (folder/'pack.json').write_bytes(builder.encode(document))
+        with self.assertRaisesRegex(ValueError,'disagree'):
+            builder.generated(self.root)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        # /var is a symlink on macOS; use the canonical fixture root so the
+        # path-safety guard still rejects actual links inside the marketplace.
+        self.root = Path(self.temp.name).resolve()
 
     def package(self, publisher='author', name='tools', version='1.0.0', kind='recipe-pack', listed=True):
         group = builder.KINDS.get(kind, kind)
@@ -120,6 +156,12 @@ class MarketplaceTests(unittest.TestCase):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 builder.generated(self.root)
 
+    def test_links_inside_the_marketplace_are_still_refused(self):
+        with patch.object(Path, 'is_symlink', autospec=True,
+                          side_effect=lambda path: path == self.root / 'indexes'):
+            with self.assertRaisesRegex(ValueError, 'traverse links'):
+                builder.safe(self.root, 'indexes/recipes.jsonl')
+
     def test_check_is_read_only_and_refuses_stale_indexes(self):
         self.package()
         args = ['xtask-marketplace.py', '--root', str(self.root), '--check']
@@ -136,6 +178,20 @@ class MarketplaceTests(unittest.TestCase):
         with patch.object(builder.sys, 'argv', args), redirect_stderr(io.StringIO()), redirect_stdout(io.StringIO()):
             self.assertEqual(builder.main(), 1)
         self.assertEqual((self.root / 'indexes/recipes.jsonl').read_bytes(), b'stale\n')
+
+    def test_writer_maintains_only_indexed_layout_without_rewriting_packages(self):
+        manifest, entry = self.package()
+        artifact = self.root / entry['path']
+        original = {p.relative_to(self.root).as_posix(): p.read_bytes() for p in (manifest, artifact)}
+        args = ['xtask-marketplace.py', '--root', str(self.root)]
+        with patch.object(builder.sys, 'argv', args), redirect_stdout(io.StringIO()):
+            self.assertEqual(builder.main(), 0)
+        paths = {p.relative_to(self.root).as_posix() for p in self.root.rglob('*') if p.is_file()}
+        self.assertEqual(paths, set(original) | {'catalog.json', 'indexes/recipes.jsonl'})
+        self.assertNotIn('packages', json.loads((self.root / 'catalog.json').read_bytes()))
+        self.assertTrue(json.loads((self.root / 'catalog.json').read_bytes())['indexes'])
+        for name, data in original.items():
+            self.assertEqual((self.root / name).read_bytes(), data)
 
     def test_corpus_records_are_validated_and_do_not_enter_client_indexes(self):
         path, manifest = self.package()

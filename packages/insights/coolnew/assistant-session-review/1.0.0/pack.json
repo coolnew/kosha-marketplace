@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "assistant-session-review",
+    "version": "1.0.0",
+    "title": "Assistant session history review",
+    "description": "Review known Claude and Codex conversation locations. These are valuable records, not disposable cache.",
+    "tags": [
+      "sessions",
+      "history",
+      "claude",
+      "codex",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.known-home-review.v1"
+  ],
+  "insights": [
+    {
+      "id": "claude-project-history",
+      "title": "Review Claude project history",
+      "subject": "directory",
+      "under-home": ".claude/projects",
+      "action": "review-only",
+      "detail": "Recorded project conversations may be valuable. Review and back up anything you need; use the owning tool's supported history controls. Custom profiles are not discovered."
+    },
+    {
+      "id": "codex-session-history",
+      "title": "Review Codex session history",
+      "subject": "directory",
+      "under-home": ".codex/sessions",
+      "action": "review-only",
+      "detail": "Recorded sessions can contain valuable conversation history. Review and back up anything you need. This pack does not classify history as junk or discover custom CODEX_HOME locations."
+    }
+  ]
+}

@@ -43,7 +43,7 @@ Only one version per publisher/ID may be listed. Use `listed:false` in an older
 manifest to retain its artifacts without advertising them. Generated indexes
 exclude author-only `cases` and `listed` fields. Remove retired index files
 deliberately after review; the generator refuses stale extra shards and never
-deletes them. Do not use the application-only `--compat-recipes` option here.
+deletes them. Maintain the indexed layout only; do not generate flat compatibility copies.
 
 ## Repository settings
 
@@ -57,3 +57,14 @@ untrusted pull-request code with secrets or write tokens.
 Triage bugs and proposals in issues. For security or conduct reports, use the
 private email in the corresponding policy. Keep policy changes public and
 reviewable; document compatibility changes before altering the catalog format.
+
+## Insight capability boundary
+
+The first insight kind keeps schema 1 and uses a new explicit capability,
+`insight.known-home-review.v1`. It permits only review-only exact home paths,
+32 components per rule, 32 rules per 256 KiB pack, and 64 rules across installed
+managed packs. See [INSIGHTS.md](INSIGHTS.md). Unknown capabilities stay unavailable
+on old clients. The generator checks artifact/manifest agreement; `--cli` also
+runs the native side-effect-free validator. Test install/findings/remove with
+an isolated synthetic home before pushing. Do not infer a persona or add
+history-deletion, shell, AI-sharing or app-cleanup behavior to this capability.

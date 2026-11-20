@@ -101,3 +101,12 @@ and its Linux Foundation attribution verbatim.
 
 Follow our [code of conduct](CODE_OF_CONDUCT.md). Maintainers review changes
 before merging; there is no guaranteed response time.
+
+## Review-only insights
+
+Insight packages use `packages/insights/PUBLISHER/ID/VERSION/`. Follow
+[INSIGHTS.md](INSIGHTS.md) for the exact home-path, review-only contract and
+resource limits. They cannot use recipe DSL, commands, regexes or destructive
+actions. Keep session histories out of source fixtures. Validate all packages
+with an insight-capable Kosha CLI before publication; old clients keep this
+kind unavailable. Do not add optional recipe `cases` corpora to insight manifests.
