@@ -106,3 +106,4 @@
 {"location": {"base": "home", "path": "x", "expand": true}, "valid": false}
 {"location": {"base": "home"}, "valid": false}
 {"location": {"base": "home", "path": 12}, "valid": false}
+{"location": {"base": "absolute", "path": "//server/?/records"}, "valid": false}
