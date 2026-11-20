@@ -1,11 +1,12 @@
 # Review-only insight packs
 
-In builds after 0.10.7, optional insight packs add explanations of known storage
+First published in **Kosha 0.10.9**, optional insight packs add explanations of known storage
 locations to CLI and GUI findings. They are separate from search recipes and
 from your personal `rules.d` files. Older releases show this package kind as
 unavailable; syncing a new catalog does not add engine support to an old binary.
 
-The first capability, `insight.locations.v1`, matches exact recorded directory locations and offers **review only**. It never proposes a Trash,
+The first capability, `insight.locations.v1`, matches exact recorded directory
+locations and offers **review only**. It never proposes a Trash,
 empty-cache or permanent-delete action. Session histories can be valuable user
 data. A location being large does not make it disposable, and a pack does not
 infer your profession or inspect conversations.

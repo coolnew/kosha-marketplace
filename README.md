@@ -12,9 +12,9 @@ anything. Loaded recipes work offline and do not execute scripts.
 | [Search Power Tools](packages/recipes/coolnew/search-power-tools/1.0.0/pack.json) | `coolnew/search-power-tools` | 1.0.0 | All supported OSes |
 | [Assistant session review](packages/insights/coolnew/assistant-session-review/1.0.0/pack.json) | `coolnew/assistant-session-review` | 1.0.0 | All supported OSes; requires new insight capability |
 
-**Insight compatibility:** session review requires the unreleased
-`insight.locations.v1` engine capability (builds after 0.10.7). Older
-releases show it as unavailable and cannot install it. These are valuable
+**Insight compatibility:** first published support is [Kosha 0.10.9](https://github.com/coolnew/kosha/releases/tag/v0.10.9),
+with the `insight.locations.v1` engine capability. Older released versions
+show it as unavailable and cannot install it. These are valuable
 conversation records, not disposable cache; this pack provides review-only
 findings and no cleanup actions. See [insight usage and authoring](INSIGHTS.md).
 
