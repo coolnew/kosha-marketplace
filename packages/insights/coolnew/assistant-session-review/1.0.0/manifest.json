@@ -18,7 +18,7 @@
   },
   "platforms": [],
   "requires": [
-    "insight.known-home-review.v1"
+    "insight.locations.v1"
   ],
   "path": "packages/insights/coolnew/assistant-session-review/1.0.0/pack.json"
 }

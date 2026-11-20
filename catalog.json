@@ -4,8 +4,8 @@
     {
       "kind": "insight-pack",
       "path": "indexes/insights.jsonl",
-      "bytes": 579,
-      "sha256": "0a8bdf286f6aff207ea5faf4cb77b294a0cdc3150cde072e73c818181abf6340",
+      "bytes": 571,
+      "sha256": "f9d4b306a7e6da6779f495b8b073ca51e570692acdcc96c345f150e58d9aff1a",
       "entries": 1
     },
     {

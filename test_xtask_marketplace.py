@@ -24,7 +24,7 @@ class MarketplaceTests(unittest.TestCase):
         entry = {'schema':1,'kind':'insight-pack','publisher':'author','metadata':meta,'platforms':[],
                  'requires':[builder.INSIGHT_CAPABILITY],'path':'packages/insights/author/sessions/1.0.0/pack.json'}
         document = {'schema':1,'kind':'insight-pack','metadata':meta,'platforms':[],'requires':[builder.INSIGHT_CAPABILITY],
-                    'insights':[{'id':'session-history','title':'Review history','detail':'Keep valuable conversations.','subject':'directory','under-home':'.assistant/sessions','action':'review-only'}]}
+                    'insights':[{'id':'session-history','title':'Review history','detail':'Keep valuable conversations.','subject':'directory','location':{'base':'home','path':'.assistant/sessions'},'action':'review-only'}]}
         (folder/'manifest.json').write_bytes(builder.encode(entry))
         (folder/'pack.json').write_bytes(builder.encode(document))
         return folder, entry, document
@@ -50,6 +50,19 @@ class MarketplaceTests(unittest.TestCase):
         (folder/'pack.json').write_bytes(builder.encode(document))
         with self.assertRaisesRegex(ValueError,'disagree'):
             builder.generated(self.root)
+
+    def test_shared_location_corpus(self):
+        source = Path(__file__).parent / "crates/kosha-analyze/tests/fixtures/location_cases.jsonl"
+        if not source.exists():
+            source = Path(__file__).parent / "tests/fixtures/location_cases.jsonl"
+        for line, text in enumerate(source.read_text(encoding="utf-8").splitlines(), 1):
+            case = json.loads(text)
+            with self.subTest(line=line):
+                if case["valid"]:
+                    self.assertEqual(builder.validate_location(case["location"]), case["normalized"])
+                else:
+                    with self.assertRaises(ValueError):
+                        builder.validate_location(case["location"])
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()

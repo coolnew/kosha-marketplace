@@ -61,7 +61,7 @@ reviewable; document compatibility changes before altering the catalog format.
 ## Insight capability boundary
 
 The first insight kind keeps schema 1 and uses a new explicit capability,
-`insight.known-home-review.v1`. It permits only review-only exact home paths,
+`insight.locations.v1`. It permits only review-only structured locations,
 32 components per rule, 32 rules per 256 KiB pack, and 64 rules across installed
 managed packs. See [INSIGHTS.md](INSIGHTS.md). Unknown capabilities stay unavailable
 on old clients. The generator checks artifact/manifest agreement; `--cli` also

@@ -23,32 +23,63 @@ MAX_TOTAL = 16 * 1024 * 1024
 MAX_ENTRIES = 16384
 MAX_ARTIFACT = 1024 * 1024
 KINDS = {"recipe-pack": "recipes", "insight-pack": "insights", "plugin": "plugins"}
-INSIGHT_CAPABILITY = "insight.known-home-review.v1"
+INSIGHT_CAPABILITY = "insight.locations.v1"
+
+
+def validate_location(location):
+    if not isinstance(location, dict) or set(location) != {"base", "path"}:
+        raise ValueError("Location needs exactly base and path")
+    if not isinstance(location["base"], str) or location["base"] not in {"home", "scan_root", "absolute", "cache", "temp", "local_app_data"}:
+        raise ValueError("Unknown location base")
+    path = location["path"]
+    if not isinstance(path, str) or len(path.encode()) > 1024 or path.strip() != path or any(ord(c) < 32 or 127 <= ord(c) <= 159 for c in path):
+        raise ValueError("Invalid location path")
+    path = path.replace("\\", "/")
+    # Only normal drive/UNC verbatim paths are shortened. Device namespaces
+    # stay forbidden; lexical validation never opens an author's path.
+    if location["base"] == "absolute":
+        if path.startswith("//?/UNC/"):
+            path = "//" + path[8:]
+        elif path.startswith("//?/") and re.match(r"^[A-Za-z]:/", path[4:]):
+            path = path[4:]
+        if path.startswith("//"):
+            parts = path[2:].split("/", 2)
+            if len(parts) < 2 or any(not p or p in {".", "..", "?"} or ":" in p for p in parts[:2]):
+                raise ValueError("Invalid UNC location")
+            rest = parts[2] if len(parts) == 3 else ""
+        elif re.match(r"^[A-Za-z]:/", path):
+            rest = path[3:]
+        elif path.startswith("/"):
+            rest = path[1:]
+        else:
+            raise ValueError("Absolute location must be anchored")
+    else:
+        rest = path
+    if rest and (len(rest.split("/")) > 32 or any(not p or p in {".", ".."} or ":" in p for p in rest.split("/"))):
+        raise ValueError("Location needs at most 32 normal components")
+    return path
 
 
 def validate_insights(document, entry):
     if not isinstance(document, dict) or set(document) != {"schema", "kind", "metadata", "requires", "platforms", "insights"}:
         raise ValueError("Invalid insight artifact fields")
-    if document["schema"] != 1 or document["kind"] != "insight-pack" or document["metadata"] != entry["metadata"] or document["platforms"] != entry["platforms"] or document["requires"] != [INSIGHT_CAPABILITY] or entry["requires"] != [INSIGHT_CAPABILITY]:
+    if type(document["schema"]) is not int or document["schema"] != 1 or document["kind"] != "insight-pack" or document["metadata"] != entry["metadata"] or document["platforms"] != entry["platforms"] or document["requires"] != [INSIGHT_CAPABILITY] or entry["requires"] != [INSIGHT_CAPABILITY]:
         raise ValueError("Insight artifact metadata/platforms/capabilities disagree with manifest")
     rules = document["insights"]
     if not isinstance(rules, list) or not 1 <= len(rules) <= 32:
         raise ValueError("Insight pack needs 1..32 rules")
     ids = set()
     for rule in rules:
-        if not isinstance(rule, dict) or set(rule) != {"id", "title", "detail", "subject", "under-home", "action"}:
+        if not isinstance(rule, dict) or set(rule) != {"id", "title", "detail", "subject", "location", "action"}:
             raise ValueError("Unknown or missing insight rule fields")
         if not token(rule["id"]) or rule["id"] in ids or rule["action"] != "review-only":
             raise ValueError("Insight IDs must be unique and actions review-only")
         ids.add(rule["id"])
-        for field, limit in [("title", 160), ("detail", 4096), ("subject", 80), ("under-home", 1024)]:
+        for field, limit in [("title", 160), ("detail", 4096), ("subject", 80)]:
             value = rule[field]
             if not isinstance(value, str) or not value.strip() or len(value.encode()) > limit or any(ord(c) < 32 or ord(c) == 127 for c in value):
                 raise ValueError(f"Invalid insight {field}")
-        path = rule["under-home"].replace("\\", "/")
-        parts = path.split("/")
-        if len(parts) > 32 or any(p in {"", ".", ".."} for p in parts) or ":" in path:
-            raise ValueError("Insight path needs 1..32 normal home-relative components")
+        validate_location(rule["location"])
 
 
 def encode(value):

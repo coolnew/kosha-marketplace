@@ -17,14 +17,17 @@
   },
   "platforms": [],
   "requires": [
-    "insight.known-home-review.v1"
+    "insight.locations.v1"
   ],
   "insights": [
     {
       "id": "claude-project-history",
       "title": "Review Claude project history",
       "subject": "directory",
-      "under-home": ".claude/projects",
+      "location": {
+        "base": "home",
+        "path": ".claude/projects"
+      },
       "action": "review-only",
       "detail": "Recorded project conversations may be valuable. Review and back up anything you need; use the owning tool's supported history controls. Custom profiles are not discovered."
     },
@@ -32,7 +35,10 @@
       "id": "codex-session-history",
       "title": "Review Codex session history",
       "subject": "directory",
-      "under-home": ".codex/sessions",
+      "location": {
+        "base": "home",
+        "path": ".codex/sessions"
+      },
       "action": "review-only",
       "detail": "Recorded sessions can contain valuable conversation history. Review and back up anything you need. This pack does not classify history as junk or discover custom CODEX_HOME locations."
     }

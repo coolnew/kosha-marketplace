@@ -1,0 +1,108 @@
+{"location": {"base": "home", "path": ""}, "valid": true, "normalized": ""}
+{"location": {"base": "home", "path": "logs"}, "valid": true, "normalized": "logs"}
+{"location": {"base": "home", "path": "folder with spaces/\u8bb0\u5f55"}, "valid": true, "normalized": "folder with spaces/\u8bb0\u5f55"}
+{"location": {"base": "home", "path": "folder\\cache"}, "valid": true, "normalized": "folder/cache"}
+{"location": {"base": "home", "path": "../outside"}, "valid": false}
+{"location": {"base": "home", "path": "a/../b"}, "valid": false}
+{"location": {"base": "home", "path": "a/./b"}, "valid": false}
+{"location": {"base": "home", "path": "a//b"}, "valid": false}
+{"location": {"base": "home", "path": "/root"}, "valid": false}
+{"location": {"base": "home", "path": "C:/Windows"}, "valid": false}
+{"location": {"base": "home", "path": "C:relative"}, "valid": false}
+{"location": {"base": "home", "path": "x/"}, "valid": false}
+{"location": {"base": "home", "path": " x"}, "valid": false}
+{"location": {"base": "home", "path": "x "}, "valid": false}
+{"location": {"base": "home", "path": "x\u0000"}, "valid": false}
+{"location": {"base": "home", "path": "x\u0085"}, "valid": false}
+{"location": {"base": "home", "path": "x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x"}, "valid": false}
+{"location": {"base": "scan_root", "path": ""}, "valid": true, "normalized": ""}
+{"location": {"base": "scan_root", "path": "logs"}, "valid": true, "normalized": "logs"}
+{"location": {"base": "scan_root", "path": "folder with spaces/\u8bb0\u5f55"}, "valid": true, "normalized": "folder with spaces/\u8bb0\u5f55"}
+{"location": {"base": "scan_root", "path": "folder\\cache"}, "valid": true, "normalized": "folder/cache"}
+{"location": {"base": "scan_root", "path": "../outside"}, "valid": false}
+{"location": {"base": "scan_root", "path": "a/../b"}, "valid": false}
+{"location": {"base": "scan_root", "path": "a/./b"}, "valid": false}
+{"location": {"base": "scan_root", "path": "a//b"}, "valid": false}
+{"location": {"base": "scan_root", "path": "/root"}, "valid": false}
+{"location": {"base": "scan_root", "path": "C:/Windows"}, "valid": false}
+{"location": {"base": "scan_root", "path": "C:relative"}, "valid": false}
+{"location": {"base": "scan_root", "path": "x/"}, "valid": false}
+{"location": {"base": "scan_root", "path": " x"}, "valid": false}
+{"location": {"base": "scan_root", "path": "x "}, "valid": false}
+{"location": {"base": "scan_root", "path": "x\u0000"}, "valid": false}
+{"location": {"base": "scan_root", "path": "x\u0085"}, "valid": false}
+{"location": {"base": "scan_root", "path": "x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x"}, "valid": false}
+{"location": {"base": "cache", "path": ""}, "valid": true, "normalized": ""}
+{"location": {"base": "cache", "path": "logs"}, "valid": true, "normalized": "logs"}
+{"location": {"base": "cache", "path": "folder with spaces/\u8bb0\u5f55"}, "valid": true, "normalized": "folder with spaces/\u8bb0\u5f55"}
+{"location": {"base": "cache", "path": "folder\\cache"}, "valid": true, "normalized": "folder/cache"}
+{"location": {"base": "cache", "path": "../outside"}, "valid": false}
+{"location": {"base": "cache", "path": "a/../b"}, "valid": false}
+{"location": {"base": "cache", "path": "a/./b"}, "valid": false}
+{"location": {"base": "cache", "path": "a//b"}, "valid": false}
+{"location": {"base": "cache", "path": "/root"}, "valid": false}
+{"location": {"base": "cache", "path": "C:/Windows"}, "valid": false}
+{"location": {"base": "cache", "path": "C:relative"}, "valid": false}
+{"location": {"base": "cache", "path": "x/"}, "valid": false}
+{"location": {"base": "cache", "path": " x"}, "valid": false}
+{"location": {"base": "cache", "path": "x "}, "valid": false}
+{"location": {"base": "cache", "path": "x\u0000"}, "valid": false}
+{"location": {"base": "cache", "path": "x\u0085"}, "valid": false}
+{"location": {"base": "cache", "path": "x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x"}, "valid": false}
+{"location": {"base": "temp", "path": ""}, "valid": true, "normalized": ""}
+{"location": {"base": "temp", "path": "logs"}, "valid": true, "normalized": "logs"}
+{"location": {"base": "temp", "path": "folder with spaces/\u8bb0\u5f55"}, "valid": true, "normalized": "folder with spaces/\u8bb0\u5f55"}
+{"location": {"base": "temp", "path": "folder\\cache"}, "valid": true, "normalized": "folder/cache"}
+{"location": {"base": "temp", "path": "../outside"}, "valid": false}
+{"location": {"base": "temp", "path": "a/../b"}, "valid": false}
+{"location": {"base": "temp", "path": "a/./b"}, "valid": false}
+{"location": {"base": "temp", "path": "a//b"}, "valid": false}
+{"location": {"base": "temp", "path": "/root"}, "valid": false}
+{"location": {"base": "temp", "path": "C:/Windows"}, "valid": false}
+{"location": {"base": "temp", "path": "C:relative"}, "valid": false}
+{"location": {"base": "temp", "path": "x/"}, "valid": false}
+{"location": {"base": "temp", "path": " x"}, "valid": false}
+{"location": {"base": "temp", "path": "x "}, "valid": false}
+{"location": {"base": "temp", "path": "x\u0000"}, "valid": false}
+{"location": {"base": "temp", "path": "x\u0085"}, "valid": false}
+{"location": {"base": "temp", "path": "x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x"}, "valid": false}
+{"location": {"base": "local_app_data", "path": ""}, "valid": true, "normalized": ""}
+{"location": {"base": "local_app_data", "path": "logs"}, "valid": true, "normalized": "logs"}
+{"location": {"base": "local_app_data", "path": "folder with spaces/\u8bb0\u5f55"}, "valid": true, "normalized": "folder with spaces/\u8bb0\u5f55"}
+{"location": {"base": "local_app_data", "path": "folder\\cache"}, "valid": true, "normalized": "folder/cache"}
+{"location": {"base": "local_app_data", "path": "../outside"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "a/../b"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "a/./b"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "a//b"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "/root"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "C:/Windows"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "C:relative"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "x/"}, "valid": false}
+{"location": {"base": "local_app_data", "path": " x"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "x "}, "valid": false}
+{"location": {"base": "local_app_data", "path": "x\u0000"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "x\u0085"}, "valid": false}
+{"location": {"base": "local_app_data", "path": "x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x/x"}, "valid": false}
+{"location": {"base": "absolute", "path": "/"}, "valid": true, "normalized": "/"}
+{"location": {"base": "absolute", "path": "/var/log"}, "valid": true, "normalized": "/var/log"}
+{"location": {"base": "absolute", "path": "C:/"}, "valid": true, "normalized": "C:/"}
+{"location": {"base": "absolute", "path": "C:\\ProgramData\\Example"}, "valid": true, "normalized": "C:/ProgramData/Example"}
+{"location": {"base": "absolute", "path": "\\\\server\\share\\logs"}, "valid": true, "normalized": "//server/share/logs"}
+{"location": {"base": "absolute", "path": "\\\\?\\D:\\long\\folder"}, "valid": true, "normalized": "D:/long/folder"}
+{"location": {"base": "absolute", "path": "\\\\?\\UNC\\server\\share\\folder"}, "valid": true, "normalized": "//server/share/folder"}
+{"location": {"base": "absolute", "path": ""}, "valid": false}
+{"location": {"base": "absolute", "path": "relative/path"}, "valid": false}
+{"location": {"base": "absolute", "path": "C:Windows"}, "valid": false}
+{"location": {"base": "absolute", "path": "//server"}, "valid": false}
+{"location": {"base": "absolute", "path": "//server/../logs"}, "valid": false}
+{"location": {"base": "absolute", "path": "C:/a/../b"}, "valid": false}
+{"location": {"base": "absolute", "path": "//./PhysicalDrive0"}, "valid": false}
+{"location": {"base": "absolute", "path": "//?/GLOBALROOT/device"}, "valid": false}
+{"location": {"base": "absolute", "path": "//?/UNC/server"}, "valid": false}
+{"location": {"base": "absolute", "path": "///tmp"}, "valid": false}
+{"location": {"base": "home", "path": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"}, "valid": false}
+{"location": {"base": "scan_root", "path": "a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a"}, "valid": true, "normalized": "a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a"}
+{"location": {"base": "under-home", "path": "x"}, "valid": false}
+{"location": {"base": "home", "path": "x", "expand": true}, "valid": false}
+{"location": {"base": "home"}, "valid": false}
+{"location": {"base": "home", "path": 12}, "valid": false}

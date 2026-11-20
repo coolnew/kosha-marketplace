@@ -5,8 +5,7 @@ locations to CLI and GUI findings. They are separate from search recipes and
 from your personal `rules.d` files. Older releases show this package kind as
 unavailable; syncing a new catalog does not add engine support to an old binary.
 
-The first capability, `insight.known-home-review.v1`, matches exact paths beneath
-the detected user's home and offers **review only**. It never proposes a Trash,
+The first capability, `insight.locations.v1`, matches exact recorded directory locations and offers **review only**. It never proposes a Trash,
 empty-cache or permanent-delete action. Session histories can be valuable user
 data. A location being large does not make it disposable, and a pack does not
 infer your profession or inspect conversations.
@@ -50,27 +49,52 @@ scan. Sync alone never installs, updates or activates a pack.
     "title": "Session history review",
     "description": "Find a known history location without classifying it as disposable."
   },
-  "requires": ["insight.known-home-review.v1"],
+  "requires": ["insight.locations.v1"],
   "platforms": [],
   "insights": [{
     "id": "session-history",
     "title": "Review session history",
     "detail": "Keep conversations you value. Review the owning application's retention options.",
     "subject": "directory",
-    "under-home": ".assistant/sessions",
+    "location": {"base": "home", "path": ".assistant/sessions"},
     "action": "review-only"
   }]
 }
 ```
 
-Replace the example path with a verified tool location. Paths are literal,
-case-preserving, home-relative and limited to 32 normal components and 1,024
-UTF-8 bytes. Both slash styles are accepted; absolute paths, parent traversal
-and the home root are refused. There are no globs, regexes, fuzzy matching,
-environment expansion, content extraction or executable hooks. Custom tool
-profiles, redirected AppData/XDG directories and another account's home are not
-automatically discovered. Missing home or a target outside the scanned root
-produces no match; a matching filename is not a matching directory.
+Use a structured `location` with exactly `base` and `path`. All keys use single
+words or snake_case. The same shape works in personal `rules.d` files.
+
+| Base | Meaning of `path` | Example |
+| --- | --- | --- |
+| `home` | Relative to the detected account's home | `.codex/sessions` |
+| `scan_root` | Relative to this scan's root | `build/artifacts` |
+| `absolute` | Fully anchored Unix, Windows drive or UNC path | `/opt/example/records` |
+| `cache` | Relative to the current account's OS cache root | `example/cache` |
+| `temp` | Relative to the process temporary directory | `example` |
+| `local_app_data` | Relative to Windows Local AppData; unavailable on other OSes | `Example/records` |
+
+An empty relative `path` selects the base directory itself. Cache roots are
+Local AppData on Windows, `~/Library/Caches` on macOS, and absolute
+`XDG_CACHE_HOME` or `~/.cache` on other Unix systems. Tools can use different
+locations: these bases do not discover custom profiles or app-specific overrides.
+Providers describe the account/environment running Kosha, not the original
+account or machine that produced an imported snapshot. `scan_root` is useful
+for portable snapshot-relative packs; absolute paths are machine-specific.
+
+Paths are literal and case-preserving, limited to 32 normal components and
+1,024 UTF-8 bytes. Both slash styles are accepted. Windows extended drive and
+UNC spellings (`\\?\D:\folder`, `\\?\UNC\server\share\folder`) normalize to their
+ordinary spellings. Device namespaces, parent traversal, dot and empty components
+are refused. No globs, regexes, fuzzy matching, environment expansion, content
+extraction or executable hooks exist. Unknown providers or a target outside the
+recorded scan yield no match. A matching filename is not a matching directory.
+Author-supplied locations never trigger filesystem reads or another scan.
+
+The unreleased `under-home` prototype has been removed without aliases. Replace
+it with `"location": {"base": "home", "path": "..."}`; all location rules require
+`"action": "review-only"`, including personal rules. Older prototype packs must
+be reauthored/reinstalled; syncing alone never upgrades an installed copy.
 
 `platforms` is empty for all OSes or a unique subset of `windows`, `linux`,
 `macos`. Put OS-specific paths in separate packs with the appropriate filter.
@@ -84,7 +108,7 @@ packs and 64 rules in total, counting inactive OS rules too. Installation checks
 the prospective store under a writer lock; rejection preserves earlier packs.
 Matching uses binary lookup in the scan's existing child-name index. It adds no
 per-file index or full-tree traversal for each insight; each rule resolves at
-most 32 relative components. The ordinary minimum finding size still applies.
+most 32 authored components. The ordinary minimum finding size still applies.
 Recorded missing/unreadable data cannot establish an absent location or an exact
 current size. Review-only findings contribute zero to the reclaimable total.
 
@@ -93,7 +117,7 @@ For the public marketplace, use
 `indexes/insights.jsonl` shard. Manifest metadata, platforms and required
 capability must exactly match the artifact. The generator checks the contract;
 `--cli /path/to/kosha` also invokes the native validator without installation.
-Test positive paths, similar-name decoys, wrong homes, scan subroots, inactive
+Test positive paths, similar-name decoys, all declared bases, missing providers, wrong homes, scan subroots, inactive
 OSes, permission gaps and byte/rule limits with synthetic data. Never seed real
 conversation records or private paths. Publish changed pack content under a new
 pack version. Unsupported future capabilities remain unavailable on old clients.
