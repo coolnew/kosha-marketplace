@@ -30,6 +30,8 @@
 {"input": "  LIGHTROOM PREVIEWS  ", "dsl": "file and path ~ \"/Previews.lrdata/\" and not path ~ \"Smart Previews.lrdata\""}
 {"input": "capcut projects", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "windows"}
 {"input": "  CAPCUT PROJECTS  ", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "windows"}
+{"input": "zoom local recordings", "dsl": "file and path ~ \"/Documents/Zoom/\" and ext in (mp4, m4a, vtt)"}
+{"input": "  ZOOM LOCAL RECORDINGS  ", "dsl": "file and path ~ \"/Documents/Zoom/\" and ext in (mp4, m4a, vtt)"}
 {"input": "obs recordings", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
 {"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
 {"input": "premiere media cache files", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "macos"}
@@ -88,6 +90,10 @@
 {"input": "  CLAP PLUGIN FILES  ", "dsl": "file and ext in (clap)", "os": "macos"}
 {"input": "capcut projects", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "macos"}
 {"input": "  CAPCUT PROJECTS  ", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "macos"}
+{"input": "logic pro freeze files", "dsl": "file and path ~ \".logicx/\" and path ~ \"/Freeze Files/\"", "os": "macos"}
+{"input": "  LOGIC PRO FREEZE FILES  ", "dsl": "file and path ~ \".logicx/\" and path ~ \"/Freeze Files/\"", "os": "macos"}
+{"input": "logic pro bounces", "dsl": "file and (path ~ \"/Music/Logic/Bounces/\" or (path ~ \".logicx/\" and path ~ \"/Bounces/\"))", "os": "macos"}
+{"input": "  LOGIC PRO BOUNCES  ", "dsl": "file and (path ~ \"/Music/Logic/Bounces/\" or (path ~ \".logicx/\" and path ~ \"/Bounces/\"))", "os": "macos"}
 {"input": "obs recordings", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "linux"}
 {"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "linux"}
 {"input": "audacity projects; execute", "dsl": "name ~ \"audacity projects; execute\""}

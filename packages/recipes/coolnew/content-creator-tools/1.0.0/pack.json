@@ -242,6 +242,20 @@
       "os": "macos",
       "phrase": "capcut projects",
       "dsl": "file and path ~ \"/CapCut/User Data/Projects/\""
+    },
+    {
+      "phrase": "zoom local recordings",
+      "dsl": "file and path ~ \"/Documents/Zoom/\" and ext in (mp4, m4a, vtt)"
+    },
+    {
+      "os": "macos",
+      "phrase": "logic pro freeze files",
+      "dsl": "file and path ~ \".logicx/\" and path ~ \"/Freeze Files/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "logic pro bounces",
+      "dsl": "file and (path ~ \"/Music/Logic/Bounces/\" or (path ~ \".logicx/\" and path ~ \"/Bounces/\"))"
     }
   ]
 }
