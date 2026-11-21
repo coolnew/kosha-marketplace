@@ -1,0 +1,57 @@
+{"input": "virtual machine disks", "dsl": "file and ext in (qcow2, vmdk, vhd, vhdx, vdi)"}
+{"input": "  VIRTUAL MACHINE DISKS  ", "dsl": "file and ext in (qcow2, vmdk, vhd, vhdx, vdi)"}
+{"input": "log files older than 30 days", "dsl": "file and (ext = \"log\" or name ~ \".log.\") and age > 2592000s"}
+{"input": "  LOG FILES OLDER THAN 30 DAYS  ", "dsl": "file and (ext = \"log\" or name ~ \".log.\") and age > 2592000s"}
+{"input": "windows component store", "dsl": "file and path ~ \"/Windows/WinSxS/\"", "os": "windows"}
+{"input": "  WINDOWS COMPONENT STORE  ", "dsl": "file and path ~ \"/Windows/WinSxS/\"", "os": "windows"}
+{"input": "iis failed request traces", "dsl": "file and path ~ \"/inetpub/logs/FailedReqLogFiles/\"", "os": "windows"}
+{"input": "  IIS FAILED REQUEST TRACES  ", "dsl": "file and path ~ \"/inetpub/logs/FailedReqLogFiles/\"", "os": "windows"}
+{"input": "http error logs", "dsl": "file and path ~ \"/System32/LogFiles/HTTPERR/\"", "os": "windows"}
+{"input": "  HTTP ERROR LOGS  ", "dsl": "file and path ~ \"/System32/LogFiles/HTTPERR/\"", "os": "windows"}
+{"input": "windows image backups", "dsl": "file and path ~ \"/WindowsImageBackup/\"", "os": "windows"}
+{"input": "  WINDOWS IMAGE BACKUPS  ", "dsl": "file and path ~ \"/WindowsImageBackup/\"", "os": "windows"}
+{"input": "hyper-v virtual disks", "dsl": "file and ext in (vhd, vhdx, avhdx) and path ~ \"/Virtual hard disks/\"", "os": "windows"}
+{"input": "  HYPER-V VIRTUAL DISKS  ", "dsl": "file and ext in (vhd, vhdx, avhdx) and path ~ \"/Virtual hard disks/\"", "os": "windows"}
+{"input": "sccm client cache", "dsl": "file and path ~ \"/ccmcache/\"", "os": "windows"}
+{"input": "  SCCM CLIENT CACHE  ", "dsl": "file and path ~ \"/ccmcache/\"", "os": "windows"}
+{"input": "windows trace logs", "dsl": "file and ext = etl and path ~ \"/LogFiles/\"", "os": "windows"}
+{"input": "  WINDOWS TRACE LOGS  ", "dsl": "file and ext = etl and path ~ \"/LogFiles/\"", "os": "windows"}
+{"input": "restic repository cache", "dsl": "file and path ~ \"/AppData/Local/restic/\"", "os": "windows"}
+{"input": "  RESTIC REPOSITORY CACHE  ", "dsl": "file and path ~ \"/AppData/Local/restic/\"", "os": "windows"}
+{"input": "mac diagnostic logs", "dsl": "file and path ~ \"/var/db/diagnostics/\"", "os": "macos"}
+{"input": "  MAC DIAGNOSTIC LOGS  ", "dsl": "file and path ~ \"/var/db/diagnostics/\"", "os": "macos"}
+{"input": "mac system logs", "dsl": "file and path ~ \"/private/var/log/\"", "os": "macos"}
+{"input": "  MAC SYSTEM LOGS  ", "dsl": "file and path ~ \"/private/var/log/\"", "os": "macos"}
+{"input": "restic repository cache", "dsl": "file and path ~ \"/Library/Caches/restic/\"", "os": "macos"}
+{"input": "  RESTIC REPOSITORY CACHE  ", "dsl": "file and path ~ \"/Library/Caches/restic/\"", "os": "macos"}
+{"input": "linux crash reports", "dsl": "file and path startswith \"/var/crash/\"", "os": "linux"}
+{"input": "  LINUX CRASH REPORTS  ", "dsl": "file and path startswith \"/var/crash/\"", "os": "linux"}
+{"input": "linux var tmp large files", "dsl": "file and path startswith \"/var/tmp/\" and size > 500mib", "os": "linux"}
+{"input": "  LINUX VAR TMP LARGE FILES  ", "dsl": "file and path startswith \"/var/tmp/\" and size > 500mib", "os": "linux"}
+{"input": "containerd image store", "dsl": "file and path startswith \"/var/lib/containerd/\"", "os": "linux"}
+{"input": "  CONTAINERD IMAGE STORE  ", "dsl": "file and path startswith \"/var/lib/containerd/\"", "os": "linux"}
+{"input": "docker overlay2 layers", "dsl": "file and path startswith \"/var/lib/docker/overlay2/\"", "os": "linux"}
+{"input": "  DOCKER OVERLAY2 LAYERS  ", "dsl": "file and path startswith \"/var/lib/docker/overlay2/\"", "os": "linux"}
+{"input": "kubernetes pod volumes", "dsl": "file and path startswith \"/var/lib/kubelet/pods/\"", "os": "linux"}
+{"input": "  KUBERNETES POD VOLUMES  ", "dsl": "file and path startswith \"/var/lib/kubelet/pods/\"", "os": "linux"}
+{"input": "libvirt disk images", "dsl": "file and path startswith \"/var/lib/libvirt/images/\" and ext in (qcow2, img, raw, vmdk)", "os": "linux"}
+{"input": "  LIBVIRT DISK IMAGES  ", "dsl": "file and path startswith \"/var/lib/libvirt/images/\" and ext in (qcow2, img, raw, vmdk)", "os": "linux"}
+{"input": "lxd storage pools", "dsl": "file and path startswith \"/var/lib/lxd/storage-pools/\"", "os": "linux"}
+{"input": "  LXD STORAGE POOLS  ", "dsl": "file and path startswith \"/var/lib/lxd/storage-pools/\"", "os": "linux"}
+{"input": "audit logs rotated", "dsl": "file and path startswith \"/var/log/audit/\" and name ~ \"audit.log.\"", "os": "linux"}
+{"input": "  AUDIT LOGS ROTATED  ", "dsl": "file and path startswith \"/var/log/audit/\" and name ~ \"audit.log.\"", "os": "linux"}
+{"input": "sysstat history files", "dsl": "file and path startswith \"/var/log/sysstat/\"", "os": "linux"}
+{"input": "  SYSSTAT HISTORY FILES  ", "dsl": "file and path startswith \"/var/log/sysstat/\"", "os": "linux"}
+{"input": "prometheus time series data", "dsl": "file and path startswith \"/var/lib/prometheus/\"", "os": "linux"}
+{"input": "  PROMETHEUS TIME SERIES DATA  ", "dsl": "file and path startswith \"/var/lib/prometheus/\"", "os": "linux"}
+{"input": "elasticsearch data indices", "dsl": "file and path startswith \"/var/lib/elasticsearch/\"", "os": "linux"}
+{"input": "  ELASTICSEARCH DATA INDICES  ", "dsl": "file and path startswith \"/var/lib/elasticsearch/\"", "os": "linux"}
+{"input": "nginx proxy cache", "dsl": "file and path startswith \"/var/cache/nginx/\"", "os": "linux"}
+{"input": "  NGINX PROXY CACHE  ", "dsl": "file and path startswith \"/var/cache/nginx/\"", "os": "linux"}
+{"input": "server backup archives", "dsl": "file and path startswith \"/var/backups/\"", "os": "linux"}
+{"input": "  SERVER BACKUP ARCHIVES  ", "dsl": "file and path startswith \"/var/backups/\"", "os": "linux"}
+{"input": "mail spool files", "dsl": "file and (path startswith \"/var/spool/mail/\" or path startswith \"/var/mail/\")", "os": "linux"}
+{"input": "  MAIL SPOOL FILES  ", "dsl": "file and (path startswith \"/var/spool/mail/\" or path startswith \"/var/mail/\")", "os": "linux"}
+{"input": "restic repository cache", "dsl": "file and path ~ \"/.cache/restic/\"", "os": "linux"}
+{"input": "  RESTIC REPOSITORY CACHE  ", "dsl": "file and path ~ \"/.cache/restic/\"", "os": "linux"}
+{"input": "virtual machine disks; execute", "dsl": "name ~ \"virtual machine disks; execute\""}

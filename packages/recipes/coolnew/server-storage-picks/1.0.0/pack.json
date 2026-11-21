@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "server-storage-picks",
+    "title": "Server Storage Hotspots",
+    "version": "1.0.0",
+    "description": "Find the usual server space on Windows, macOS and Linux: container and VM disks, service logs, caches, backups and component stores, for inventory before any manual cleanup.",
+    "tags": [
+      "server",
+      "logs",
+      "containers",
+      "virtualization",
+      "backups",
+      "storage"
+    ],
+    "publisher": "coolnew"
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "recipes": [
+    {
+      "phrase": "virtual machine disks",
+      "dsl": "file and ext in (qcow2, vmdk, vhd, vhdx, vdi)"
+    },
+    {
+      "type": "template",
+      "phrase": "log files older than 30 days",
+      "template": "log files older than {age:duration}",
+      "dsl": "file and (ext = log or name ~ \".log.\") and age > {age}"
+    },
+    {
+      "os": "linux",
+      "phrase": "linux crash reports",
+      "dsl": "file and path startswith \"/var/crash/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "linux var tmp large files",
+      "dsl": "file and path startswith \"/var/tmp/\" and size > 500mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "containerd image store",
+      "dsl": "file and path startswith \"/var/lib/containerd/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "docker overlay2 layers",
+      "dsl": "file and path startswith \"/var/lib/docker/overlay2/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "kubernetes pod volumes",
+      "dsl": "file and path startswith \"/var/lib/kubelet/pods/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "libvirt disk images",
+      "dsl": "file and path startswith \"/var/lib/libvirt/images/\" and ext in (qcow2, img, raw, vmdk)"
+    },
+    {
+      "os": "linux",
+      "phrase": "lxd storage pools",
+      "dsl": "file and path startswith \"/var/lib/lxd/storage-pools/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "audit logs rotated",
+      "dsl": "file and path startswith \"/var/log/audit/\" and name ~ \"audit.log.\""
+    },
+    {
+      "os": "linux",
+      "phrase": "sysstat history files",
+      "dsl": "file and path startswith \"/var/log/sysstat/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "prometheus time series data",
+      "dsl": "file and path startswith \"/var/lib/prometheus/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "elasticsearch data indices",
+      "dsl": "file and path startswith \"/var/lib/elasticsearch/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "nginx proxy cache",
+      "dsl": "file and path startswith \"/var/cache/nginx/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "server backup archives",
+      "dsl": "file and path startswith \"/var/backups/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "mail spool files",
+      "dsl": "file and (path startswith \"/var/spool/mail/\" or path startswith \"/var/mail/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "restic repository cache",
+      "dsl": "file and path ~ \"/.cache/restic/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "mac diagnostic logs",
+      "dsl": "file and path ~ \"/var/db/diagnostics/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "mac system logs",
+      "dsl": "file and path ~ \"/private/var/log/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "restic repository cache",
+      "dsl": "file and path ~ \"/Library/Caches/restic/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows component store",
+      "dsl": "file and path ~ \"/Windows/WinSxS/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "iis failed request traces",
+      "dsl": "file and path ~ \"/inetpub/logs/FailedReqLogFiles/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "http error logs",
+      "dsl": "file and path ~ \"/System32/LogFiles/HTTPERR/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows image backups",
+      "dsl": "file and path ~ \"/WindowsImageBackup/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "hyper-v virtual disks",
+      "dsl": "file and ext in (vhd, vhdx, avhdx) and path ~ \"/Virtual hard disks/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "sccm client cache",
+      "dsl": "file and path ~ \"/ccmcache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows trace logs",
+      "dsl": "file and ext = etl and path ~ \"/LogFiles/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "restic repository cache",
+      "dsl": "file and path ~ \"/AppData/Local/restic/\""
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "server-storage-picks",
+    "title": "Server Storage Hotspots",
+    "version": "1.0.0",
+    "description": "Find the usual server space on Windows, macOS and Linux: container and VM disks, service logs, caches, backups and component stores, for inventory before any manual cleanup.",
+    "tags": [
+      "server",
+      "logs",
+      "containers",
+      "virtualization",
+      "backups",
+      "storage"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "path": "packages/recipes/coolnew/server-storage-picks/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/server-storage-picks/1.0.0/cases.jsonl"
+}
