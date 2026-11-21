@@ -51,7 +51,8 @@
 {"input": "hdr environment maps", "dsl": "file and ext = hdr and size > 20mib"}
 {"input": "  HDR ENVIRONMENT MAPS  ", "dsl": "file and ext = hdr and size > 20mib"}
 {"input": "3d scene files over 200 MB", "dsl": "file and ext in (\"blend\", \"ma\", \"mb\", \"max\", \"c4d\", \"hip\", \"hiplc\", \"hipnc\", \"skp\", \"3dm\", \"fbx\", \"obj\", \"glb\", \"gltf\") and size > 209715200b"}
-{"input": "  3D SCENE FILES OVER 200 MB  ", "dsl": "file and ext in (\"blend\", \"ma\", \"mb\", \"max\", \"c4d\", \"hip\", \"hiplc\", \"hipnc\", \"skp\", \"3dm\", \"fbx\", \"obj\", \"glb\", \"gltf\") and size > 209715200b"}
+{"input": "image files in Pictures", "dsl": "file and ext in (\"png\", \"jpg\", \"jpeg\", \"webp\", \"tif\", \"tiff\", \"heic\", \"psd\", \"psb\") and path ~ \"Pictures\""}
+{"input": "3d scene files in Projects", "dsl": "file and ext in (\"blend\", \"ma\", \"mb\", \"max\", \"c4d\", \"hip\", \"hiplc\", \"hipnc\", \"skp\", \"3dm\", \"fbx\", \"obj\", \"glb\", \"gltf\") and path ~ \"Projects\""}
 {"input": "adobe photoshop projects", "dsl": "file and ext in (psd, psb)", "os": "macos"}
 {"input": "  ADOBE PHOTOSHOP PROJECTS  ", "dsl": "file and ext in (psd, psb)", "os": "macos"}
 {"input": "adobe illustrator files", "dsl": "file and ext in (ai, eps, ait)", "os": "macos"}

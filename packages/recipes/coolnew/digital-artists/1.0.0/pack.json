@@ -207,6 +207,18 @@
       "os": "macos",
       "phrase": "gerber and pcb drill candidates",
       "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)"
+    },
+    {
+      "type": "template",
+      "phrase": "image files in Pictures",
+      "template": "image files in {folder:path}",
+      "dsl": "file and ext in (png, jpg, jpeg, webp, tif, tiff, heic, psd, psb) and path ~ {folder}"
+    },
+    {
+      "type": "template",
+      "phrase": "3d scene files in Projects",
+      "template": "3d scene files in {folder:path}",
+      "dsl": "file and ext in (blend, ma, mb, max, c4d, hip, hiplc, hipnc, skp, 3dm, fbx, obj, glb, gltf) and path ~ {folder}"
     }
   ]
 }
