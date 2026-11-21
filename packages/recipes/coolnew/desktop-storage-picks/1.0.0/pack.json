@@ -179,6 +179,31 @@
       "os": "linux",
       "phrase": "large linux user caches",
       "dsl": "file and path ~ \"/.cache/\" and size > 500mib"
+    },
+    {
+      "os": "windows",
+      "phrase": "discord app caches",
+      "dsl": "file and path ~ \"/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "discord app caches",
+      "dsl": "file and path ~ \"/Application Support/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "mac e5rt bundle caches",
+      "dsl": "file and path ~ \"/com.apple.e5rt.e5bundlecache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "flatpak app data",
+      "dsl": "file and path ~ \"/.var/app/\" and size > 100mib"
+    },
+    {
+      "os": "macos",
+      "phrase": "coreml model caches",
+      "dsl": "file and path ~ \"/Application Support/coreMLCache/\""
     }
   ]
 }

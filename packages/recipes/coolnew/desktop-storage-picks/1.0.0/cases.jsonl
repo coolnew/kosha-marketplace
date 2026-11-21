@@ -28,6 +28,8 @@
 {"input": "  WINDOWS SEARCH INDEX  ", "dsl": "file and path ~ \"/Microsoft/Search/Data/\"", "os": "windows"}
 {"input": "explorer thumbnail caches", "dsl": "file and name startswith \"thumbcache_\" and ext = db", "os": "windows"}
 {"input": "  EXPLORER THUMBNAIL CACHES  ", "dsl": "file and name startswith \"thumbcache_\" and ext = db", "os": "windows"}
+{"input": "discord app caches", "dsl": "file and path ~ \"/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "windows"}
+{"input": "  DISCORD APP CACHES  ", "dsl": "file and path ~ \"/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "windows"}
 {"input": "trash contents", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "chrome browser caches", "dsl": "file and path ~ \"/Caches/Google/Chrome/\"", "os": "macos"}
@@ -48,6 +50,12 @@
 {"input": "  UTM VIRTUAL MACHINES  ", "dsl": "dir and name endswith \".utm\"", "os": "macos"}
 {"input": "large mac app caches", "dsl": "file and path ~ \"/Library/Caches/\" and size > 500mib", "os": "macos"}
 {"input": "  LARGE MAC APP CACHES  ", "dsl": "file and path ~ \"/Library/Caches/\" and size > 500mib", "os": "macos"}
+{"input": "discord app caches", "dsl": "file and path ~ \"/Application Support/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "macos"}
+{"input": "  DISCORD APP CACHES  ", "dsl": "file and path ~ \"/Application Support/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "macos"}
+{"input": "mac e5rt bundle caches", "dsl": "file and path ~ \"/com.apple.e5rt.e5bundlecache/\"", "os": "macos"}
+{"input": "  MAC E5RT BUNDLE CACHES  ", "dsl": "file and path ~ \"/com.apple.e5rt.e5bundlecache/\"", "os": "macos"}
+{"input": "coreml model caches", "dsl": "file and path ~ \"/Application Support/coreMLCache/\"", "os": "macos"}
+{"input": "  COREML MODEL CACHES  ", "dsl": "file and path ~ \"/Application Support/coreMLCache/\"", "os": "macos"}
 {"input": "trash contents", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
 {"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
 {"input": "chrome browser caches", "dsl": "file and path ~ \"/.cache/google-chrome/\"", "os": "linux"}
@@ -62,6 +70,8 @@
 {"input": "  LINUX THUMBNAIL CACHES  ", "dsl": "file and path ~ \"/.cache/thumbnails/\"", "os": "linux"}
 {"input": "large linux user caches", "dsl": "file and path ~ \"/.cache/\" and size > 500mib", "os": "linux"}
 {"input": "  LARGE LINUX USER CACHES  ", "dsl": "file and path ~ \"/.cache/\" and size > 500mib", "os": "linux"}
+{"input": "flatpak app data", "dsl": "file and path ~ \"/.var/app/\" and size > 100mib", "os": "linux"}
+{"input": "  FLATPAK APP DATA  ", "dsl": "file and path ~ \"/.var/app/\" and size > 100mib", "os": "linux"}
 {"input": "steam game instlls", "error": true}
 {"input": "steam game instlls", "error": true}
 {"input": "steam game instlls", "error": true}
