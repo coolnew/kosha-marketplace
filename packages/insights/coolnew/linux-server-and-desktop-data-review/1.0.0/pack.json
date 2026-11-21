@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "linux-server-and-desktop-data-review",
+    "version": "1.0.0",
+    "title": "Linux server and desktop data review",
+    "description": "Review known Linux locations for container and VM disks, database clusters, certificates, keyrings, system journals and desktop app profiles. Most of this data cannot be regenerated.",
+    "tags": [
+      "linux",
+      "containers",
+      "databases",
+      "certificates",
+      "server",
+      "review-only"
+    ]
+  },
+  "platforms": [
+    "linux"
+  ],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "insights": [
+    {
+      "id": "ollama-system-models",
+      "title": "Review Ollama system models",
+      "subject": "model weights",
+      "location": {
+        "base": "absolute",
+        "path": "/usr/share/ollama/.ollama/models"
+      },
+      "action": "review-only",
+      "detail": "Models pulled by the system Ollama service. Re-pulling costs time and bandwidth. Use the ollama list and ollama rm commands rather than deleting files."
+    },
+    {
+      "id": "docker-engine-data",
+      "title": "Review Docker Engine data",
+      "subject": "container data",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/docker"
+      },
+      "action": "review-only",
+      "detail": "Docker's data root: images, containers, volumes and build cache. Named volumes can hold database data. Use docker system df and the Docker CLI before any change."
+    },
+    {
+      "id": "podman-storage",
+      "title": "Review Podman storage",
+      "subject": "container data",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/containers/storage"
+      },
+      "action": "review-only",
+      "detail": "Rootful Podman images, containers and volumes. Use podman system df and the Podman CLI for changes."
+    },
+    {
+      "id": "libvirt-images",
+      "title": "Review libvirt VM images",
+      "subject": "VM disk",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/libvirt/images"
+      },
+      "action": "review-only",
+      "detail": "Disk images of libvirt virtual machines, often very large. Remove guests with virsh or virt-manager; a disk still attached to a guest breaks it."
+    },
+    {
+      "id": "postgresql-data",
+      "title": "Review PostgreSQL data",
+      "subject": "database",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/postgresql"
+      },
+      "action": "review-only",
+      "detail": "PostgreSQL cluster data on Debian-style installs. Stop the service and back up with pg_dump or your backup tool before any change."
+    },
+    {
+      "id": "mysql-data",
+      "title": "Review MySQL data",
+      "subject": "database",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/mysql"
+      },
+      "action": "review-only",
+      "detail": "MySQL and MariaDB data directory. Stop the service and back up with mysqldump or your backup tool before any change."
+    },
+    {
+      "id": "mongodb-data",
+      "title": "Review MongoDB data",
+      "subject": "database",
+      "location": {
+        "base": "absolute",
+        "path": "/var/lib/mongodb"
+      },
+      "action": "review-only",
+      "detail": "MongoDB data files on package-based installs. Back up with mongodump or your backup tool before any change."
+    },
+    {
+      "id": "letsencrypt-config",
+      "title": "Review Let's Encrypt configuration",
+      "subject": "certificates",
+      "location": {
+        "base": "absolute",
+        "path": "/etc/letsencrypt"
+      },
+      "action": "review-only",
+      "detail": "Certbot keeps certificates, private keys and renewal settings in archive, live and renewal folders. Removing parts breaks renewal; use certbot certificates and certbot's own commands."
+    },
+    {
+      "id": "systemd-journal",
+      "title": "Review systemd journal",
+      "subject": "system logs",
+      "location": {
+        "base": "absolute",
+        "path": "/var/log/journal"
+      },
+      "action": "review-only",
+      "detail": "Persistent systemd journal. Use journalctl for its supported size and time controls; editing journal files directly is not supported."
+    },
+    {
+      "id": "gnome-keyring",
+      "title": "Review GNOME keyring files",
+      "subject": "keyring",
+      "location": {
+        "base": "home",
+        "path": ".local/share/keyrings"
+      },
+      "action": "review-only",
+      "detail": "Keyring files that hold passwords saved by GNOME apps. Removing a keyring loses the secrets in it; back up before any change."
+    },
+    {
+      "id": "firefox-profiles",
+      "title": "Review Firefox profiles",
+      "subject": "browser profile",
+      "location": {
+        "base": "home",
+        "path": ".mozilla/firefox"
+      },
+      "action": "review-only",
+      "detail": "Profiles hold bookmarks, saved logins, extensions and sessions. Use Firefox's clear-data settings for cache; export what you need before removing a profile."
+    },
+    {
+      "id": "chrome-user-data",
+      "title": "Review Chrome user data",
+      "subject": "browser profile",
+      "location": {
+        "base": "home",
+        "path": ".config/google-chrome"
+      },
+      "action": "review-only",
+      "detail": "Profiles hold bookmarks, saved passwords, extensions and history. Use Chrome's Delete browsing data for cache, and check sync before removing a profile."
+    },
+    {
+      "id": "signal-data",
+      "title": "Review Signal messages",
+      "subject": "message store",
+      "location": {
+        "base": "home",
+        "path": ".config/Signal"
+      },
+      "action": "review-only",
+      "detail": "Encrypted message database and attachments. Signal cannot restore messages without this data. Use Signal's backup and export options before any change."
+    },
+    {
+      "id": "thunderbird-profiles",
+      "title": "Review Thunderbird profiles",
+      "subject": "mail profile",
+      "location": {
+        "base": "home",
+        "path": ".thunderbird"
+      },
+      "action": "review-only",
+      "detail": "Mail, address books and account settings. Local folders can hold mail that exists nowhere else. Back up the profile before any change."
+    }
+  ]
+}
