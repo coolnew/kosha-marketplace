@@ -30,6 +30,12 @@
 {"input": "  EXPLORER THUMBNAIL CACHES  ", "dsl": "file and name startswith \"thumbcache_\" and ext = db", "os": "windows"}
 {"input": "discord app caches", "dsl": "file and path ~ \"/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "windows"}
 {"input": "  DISCORD APP CACHES  ", "dsl": "file and path ~ \"/discord/\" and (path ~ \"/Cache/\" or path ~ \"/Code Cache/\" or path ~ \"/GPUCache/\")", "os": "windows"}
+{"input": "epic games launcher caches", "dsl": "file and path ~ \"/EpicGamesLauncher/Saved/\"", "os": "windows"}
+{"input": "  EPIC GAMES LAUNCHER CACHES  ", "dsl": "file and path ~ \"/EpicGamesLauncher/Saved/\"", "os": "windows"}
+{"input": "office document cache", "dsl": "file and path ~ \"/Microsoft/Office/16.0/OfficeFileCache/\"", "os": "windows"}
+{"input": "  OFFICE DOCUMENT CACHE  ", "dsl": "file and path ~ \"/Microsoft/Office/16.0/OfficeFileCache/\"", "os": "windows"}
+{"input": "office unsaved file drafts", "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\"", "os": "windows"}
+{"input": "  OFFICE UNSAVED FILE DRAFTS  ", "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\"", "os": "windows"}
 {"input": "trash contents", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "chrome browser caches", "dsl": "file and path ~ \"/Caches/Google/Chrome/\"", "os": "macos"}
@@ -56,6 +62,8 @@
 {"input": "  MAC E5RT BUNDLE CACHES  ", "dsl": "file and path ~ \"/com.apple.e5rt.e5bundlecache/\"", "os": "macos"}
 {"input": "coreml model caches", "dsl": "file and path ~ \"/Application Support/coreMLCache/\"", "os": "macos"}
 {"input": "  COREML MODEL CACHES  ", "dsl": "file and path ~ \"/Application Support/coreMLCache/\"", "os": "macos"}
+{"input": "epic games launcher caches", "dsl": "file and path ~ \"/com.epicgames.EpicGamesLauncher/\"", "os": "macos"}
+{"input": "  EPIC GAMES LAUNCHER CACHES  ", "dsl": "file and path ~ \"/com.epicgames.EpicGamesLauncher/\"", "os": "macos"}
 {"input": "trash contents", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
 {"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
 {"input": "chrome browser caches", "dsl": "file and path ~ \"/.cache/google-chrome/\"", "os": "linux"}

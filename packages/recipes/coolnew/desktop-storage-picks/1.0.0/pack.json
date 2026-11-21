@@ -204,6 +204,26 @@
       "os": "macos",
       "phrase": "coreml model caches",
       "dsl": "file and path ~ \"/Application Support/coreMLCache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "epic games launcher caches",
+      "dsl": "file and path ~ \"/EpicGamesLauncher/Saved/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "epic games launcher caches",
+      "dsl": "file and path ~ \"/com.epicgames.EpicGamesLauncher/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "office document cache",
+      "dsl": "file and path ~ \"/Microsoft/Office/16.0/OfficeFileCache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "office unsaved file drafts",
+      "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\""
     }
   ]
 }
