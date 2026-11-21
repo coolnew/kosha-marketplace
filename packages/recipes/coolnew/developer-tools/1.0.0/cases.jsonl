@@ -56,6 +56,14 @@
 {"input": "  ANDROID STUDIO CACHES  ", "dsl": "file and path ~ \"/Google/AndroidStudio\""}
 {"input": "vscode app caches", "dsl": "file and (path ~ \"/Code/Cache/\" or path ~ \"/Code/CachedData/\" or path ~ \"/Code/GPUCache/\")"}
 {"input": "  VSCODE APP CACHES  ", "dsl": "file and (path ~ \"/Code/Cache/\" or path ~ \"/Code/CachedData/\" or path ~ \"/Code/GPUCache/\")"}
+{"input": "poetry package cache", "dsl": "file and path ~ \"/pypoetry/Cache/\"", "os": "windows"}
+{"input": "  POETRY PACKAGE CACHE  ", "dsl": "file and path ~ \"/pypoetry/Cache/\"", "os": "windows"}
+{"input": "maven local repository", "dsl": "file and path ~ \"/.m2/repository/\""}
+{"input": "  MAVEN LOCAL REPOSITORY  ", "dsl": "file and path ~ \"/.m2/repository/\""}
+{"input": "conda environments", "dsl": "file and (path ~ \"/anaconda3/envs/\" or path ~ \"/miniconda3/envs/\")"}
+{"input": "  CONDA ENVIRONMENTS  ", "dsl": "file and (path ~ \"/anaconda3/envs/\" or path ~ \"/miniconda3/envs/\")"}
+{"input": "conda package cache", "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"}
+{"input": "  CONDA PACKAGE CACHE  ", "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"}
 {"input": "xcode derived data older than 30 days", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
 {"input": "  XCODE DERIVED DATA OLDER THAN 30 DAYS  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
 {"input": "xcode derived data", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
@@ -138,6 +146,8 @@
 {"input": "  DASH DOCSETS  ", "dsl": "file and path ~ \"/Application Support/Dash/DocSets/\"", "os": "macos"}
 {"input": "ios device crash logs", "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\"", "os": "macos"}
 {"input": "  IOS DEVICE CRASH LOGS  ", "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\"", "os": "macos"}
+{"input": "poetry package cache", "dsl": "file and path ~ \"/Library/Caches/pypoetry/\"", "os": "macos"}
+{"input": "  POETRY PACKAGE CACHE  ", "dsl": "file and path ~ \"/Library/Caches/pypoetry/\"", "os": "macos"}
 {"input": "pyenv python versions", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "  PYENV PYTHON VERSIONS  ", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "nvm node versions", "dsl": "file and path ~ \"/.nvm/versions/node/\"", "os": "linux"}
@@ -158,5 +168,7 @@
 {"input": "  JETBRAINS IDE CACHES  ", "dsl": "file and path ~ \"/.cache/JetBrains/\"", "os": "linux"}
 {"input": "aur helper caches", "dsl": "file and (path ~ \"/.cache/yay/\" or path ~ \"/.cache/paru/\")", "os": "linux"}
 {"input": "  AUR HELPER CACHES  ", "dsl": "file and (path ~ \"/.cache/yay/\" or path ~ \"/.cache/paru/\")", "os": "linux"}
+{"input": "poetry package cache", "dsl": "file and path ~ \"/.cache/pypoetry/\"", "os": "linux"}
+{"input": "  POETRY PACKAGE CACHE  ", "dsl": "file and path ~ \"/.cache/pypoetry/\"", "os": "linux"}
 {"input": "xcode derved data", "error": true, "os": "macos"}
 {"input": "bun install cache; execute", "dsl": "name ~ \"bun install cache; execute\""}

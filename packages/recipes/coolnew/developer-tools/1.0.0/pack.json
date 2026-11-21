@@ -405,6 +405,33 @@
       "os": "macos",
       "phrase": "ios device crash logs",
       "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "poetry package cache",
+      "dsl": "file and path ~ \"/Library/Caches/pypoetry/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "poetry package cache",
+      "dsl": "file and path ~ \"/.cache/pypoetry/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "poetry package cache",
+      "dsl": "file and path ~ \"/pypoetry/Cache/\""
+    },
+    {
+      "phrase": "maven local repository",
+      "dsl": "file and path ~ \"/.m2/repository/\""
+    },
+    {
+      "phrase": "conda environments",
+      "dsl": "file and (path ~ \"/anaconda3/envs/\" or path ~ \"/miniconda3/envs/\")"
+    },
+    {
+      "phrase": "conda package cache",
+      "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"
     }
   ]
 }
