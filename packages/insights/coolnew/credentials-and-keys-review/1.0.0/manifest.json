@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "credentials-and-keys-review",
+    "version": "1.0.0",
+    "title": "Credential and key stores review",
+    "description": "Review known locations of SSH, GnuPG, cloud CLI and password-store secrets. Keys and tokens cannot be regenerated from files; nothing here is disposable.",
+    "tags": [
+      "keys",
+      "credentials",
+      "ssh",
+      "gnupg",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "path": "packages/insights/coolnew/credentials-and-keys-review/1.0.0/pack.json"
+}

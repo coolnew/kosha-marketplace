@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "credentials-and-keys-review",
+    "version": "1.0.0",
+    "title": "Credential and key stores review",
+    "description": "Review known locations of SSH, GnuPG, cloud CLI and password-store secrets. Keys and tokens cannot be regenerated from files; nothing here is disposable.",
+    "tags": [
+      "keys",
+      "credentials",
+      "ssh",
+      "gnupg",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "insights": [
+    {
+      "id": "ssh-keys",
+      "title": "Review SSH keys and config",
+      "subject": "key store",
+      "location": {
+        "base": "home",
+        "path": ".ssh"
+      },
+      "action": "review-only",
+      "detail": "Private keys here cannot be regenerated, and losing them locks you out of servers. Back up before changing anything. Check config and known_hosts before removing any entry."
+    },
+    {
+      "id": "gnupg-keyring",
+      "title": "Review GnuPG keyring",
+      "subject": "key store",
+      "location": {
+        "base": "home",
+        "path": ".gnupg"
+      },
+      "action": "review-only",
+      "detail": "Holds private keys and the trust database. Export and back up keys with gpg before any change; deleting this folder can destroy keys you cannot restore."
+    },
+    {
+      "id": "aws-cli-credentials",
+      "title": "Review AWS CLI credentials",
+      "subject": "credentials",
+      "location": {
+        "base": "home",
+        "path": ".aws"
+      },
+      "action": "review-only",
+      "detail": "Access keys and profiles for the AWS CLI. Rotate or revoke keys in the AWS console when they are no longer needed; use the aws configure tools for changes."
+    },
+    {
+      "id": "kubernetes-config",
+      "title": "Review kubeconfig",
+      "subject": "credentials",
+      "location": {
+        "base": "home",
+        "path": ".kube"
+      },
+      "action": "review-only",
+      "detail": "Cluster endpoints and credentials, and possibly cloud CLI plugin references. Keep a copy before editing; use kubectl config commands for changes."
+    },
+    {
+      "id": "docker-cli-config",
+      "title": "Review Docker CLI config",
+      "subject": "credentials",
+      "location": {
+        "base": "home",
+        "path": ".docker"
+      },
+      "action": "review-only",
+      "detail": "Docker CLI settings. config.json may hold registry login data. Use docker logout to remove a login, and back up contexts you still need."
+    },
+    {
+      "id": "azure-cli-profile",
+      "title": "Review Azure CLI profile",
+      "subject": "credentials",
+      "location": {
+        "base": "home",
+        "path": ".azure"
+      },
+      "action": "review-only",
+      "detail": "Azure CLI sign-in data and cached tokens. Use the az account and az logout commands for changes; removing this folder signs you out."
+    },
+    {
+      "id": "password-store",
+      "title": "Review pass password store",
+      "subject": "password store",
+      "location": {
+        "base": "home",
+        "path": ".password-store"
+      },
+      "action": "review-only",
+      "detail": "Encrypted entries of the pass password manager. Entries cannot be read without the GPG key, so back up the folder and its keys together."
+    }
+  ]
+}
