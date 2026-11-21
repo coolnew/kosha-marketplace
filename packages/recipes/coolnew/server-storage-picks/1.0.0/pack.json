@@ -175,6 +175,18 @@
       "os": "linux",
       "phrase": "apt package lists",
       "dsl": "file and path startswith \"/var/lib/apt/lists/\""
+    },
+    {
+      "type": "template",
+      "phrase": "log files in /var/log older than 30 days",
+      "template": "log files in {folder:path} older than {age:duration}",
+      "dsl": "file and (ext = log or name ~ \".log.\") and path ~ {folder} and age > {age}"
+    },
+    {
+      "type": "template",
+      "phrase": "files owned by root",
+      "template": "files owned by {account:text}",
+      "dsl": "file and owner = {account}"
     }
   ]
 }

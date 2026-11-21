@@ -1,7 +1,6 @@
 {"input": "virtual machine disks", "dsl": "file and ext in (qcow2, vmdk, vhd, vhdx, vdi)"}
 {"input": "  VIRTUAL MACHINE DISKS  ", "dsl": "file and ext in (qcow2, vmdk, vhd, vhdx, vdi)"}
 {"input": "log files older than 30 days", "dsl": "file and (ext = \"log\" or name ~ \".log.\") and age > 2592000s"}
-{"input": "  LOG FILES OLDER THAN 30 DAYS  ", "dsl": "file and (ext = \"log\" or name ~ \".log.\") and age > 2592000s"}
 {"input": "windows component store", "dsl": "file and path ~ \"/Windows/WinSxS/\"", "os": "windows"}
 {"input": "  WINDOWS COMPONENT STORE  ", "dsl": "file and path ~ \"/Windows/WinSxS/\"", "os": "windows"}
 {"input": "iis failed request traces", "dsl": "file and path ~ \"/inetpub/logs/FailedReqLogFiles/\"", "os": "windows"}
@@ -18,6 +17,8 @@
 {"input": "  WINDOWS TRACE LOGS  ", "dsl": "file and ext = etl and path ~ \"/LogFiles/\"", "os": "windows"}
 {"input": "restic repository cache", "dsl": "file and path ~ \"/AppData/Local/restic/\"", "os": "windows"}
 {"input": "  RESTIC REPOSITORY CACHE  ", "dsl": "file and path ~ \"/AppData/Local/restic/\"", "os": "windows"}
+{"input": "log files in /var/log older than 30 days", "dsl": "file and (ext = \"log\" or name ~ \".log.\") and path ~ \"/var/log\" and age > 2592000s"}
+{"input": "files owned by root", "dsl": "file and owner = \"root\""}
 {"input": "mac diagnostic logs", "dsl": "file and path ~ \"/var/db/diagnostics/\"", "os": "macos"}
 {"input": "  MAC DIAGNOSTIC LOGS  ", "dsl": "file and path ~ \"/var/db/diagnostics/\"", "os": "macos"}
 {"input": "mac system logs", "dsl": "file and path ~ \"/private/var/log/\"", "os": "macos"}
