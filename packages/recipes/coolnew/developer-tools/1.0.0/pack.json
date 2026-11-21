@@ -337,6 +337,45 @@
       "os": "linux",
       "phrase": "debian build chroots",
       "dsl": "file and path startswith \"/var/lib/schroot/chroots/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "docker desktop wsl disk",
+      "dsl": "file and name = docker_data.vhdx"
+    },
+    {
+      "os": "macos",
+      "phrase": "uv package cache",
+      "dsl": "file and path ~ \"/.cache/uv/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "uv package cache",
+      "dsl": "file and path ~ \"/.cache/uv/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "uv package cache",
+      "dsl": "file and path ~ \"/uv/cache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "visual studio installer package cache",
+      "dsl": "file and path ~ \"/ProgramData/Package Cache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "jetbrains ide caches",
+      "dsl": "file and path ~ \"/.cache/JetBrains/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "jetbrains ide caches",
+      "dsl": "file and path ~ \"/AppData/Local/JetBrains/\" and path ~ \"/caches/\""
+    },
+    {
+      "phrase": "android studio caches",
+      "dsl": "file and path ~ \"/Google/AndroidStudio\""
     }
   ]
 }

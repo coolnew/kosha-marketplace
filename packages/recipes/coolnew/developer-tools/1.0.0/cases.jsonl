@@ -44,6 +44,16 @@
 {"input": "  NVM FOR WINDOWS NODE VERSIONS  ", "dsl": "file and path ~ \"/AppData/Roaming/nvm/\"", "os": "windows"}
 {"input": "flutter pub cache", "dsl": "file and path ~ \"/AppData/Local/Pub/Cache/\"", "os": "windows"}
 {"input": "  FLUTTER PUB CACHE  ", "dsl": "file and path ~ \"/AppData/Local/Pub/Cache/\"", "os": "windows"}
+{"input": "docker desktop wsl disk", "dsl": "file and name = docker_data.vhdx", "os": "windows"}
+{"input": "  DOCKER DESKTOP WSL DISK  ", "dsl": "file and name = docker_data.vhdx", "os": "windows"}
+{"input": "uv package cache", "dsl": "file and path ~ \"/uv/cache/\"", "os": "windows"}
+{"input": "  UV PACKAGE CACHE  ", "dsl": "file and path ~ \"/uv/cache/\"", "os": "windows"}
+{"input": "visual studio installer package cache", "dsl": "file and path ~ \"/ProgramData/Package Cache/\"", "os": "windows"}
+{"input": "  VISUAL STUDIO INSTALLER PACKAGE CACHE  ", "dsl": "file and path ~ \"/ProgramData/Package Cache/\"", "os": "windows"}
+{"input": "jetbrains ide caches", "dsl": "file and path ~ \"/AppData/Local/JetBrains/\" and path ~ \"/caches/\"", "os": "windows"}
+{"input": "  JETBRAINS IDE CACHES  ", "dsl": "file and path ~ \"/AppData/Local/JetBrains/\" and path ~ \"/caches/\"", "os": "windows"}
+{"input": "android studio caches", "dsl": "file and path ~ \"/Google/AndroidStudio\""}
+{"input": "  ANDROID STUDIO CACHES  ", "dsl": "file and path ~ \"/Google/AndroidStudio\""}
 {"input": "xcode derived data older than 30 days", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
 {"input": "  XCODE DERIVED DATA OLDER THAN 30 DAYS  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
 {"input": "xcode derived data", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
@@ -116,6 +126,8 @@
 {"input": "  FLUTTER PUB CACHE  ", "dsl": "file and path ~ \"/.pub-cache/\"", "os": "macos"}
 {"input": "ruby gem installs", "dsl": "file and path ~ \"/.gem/ruby/\"", "os": "macos"}
 {"input": "  RUBY GEM INSTALLS  ", "dsl": "file and path ~ \"/.gem/ruby/\"", "os": "macos"}
+{"input": "uv package cache", "dsl": "file and path ~ \"/.cache/uv/\"", "os": "macos"}
+{"input": "  UV PACKAGE CACHE  ", "dsl": "file and path ~ \"/.cache/uv/\"", "os": "macos"}
 {"input": "pyenv python versions", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "  PYENV PYTHON VERSIONS  ", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "nvm node versions", "dsl": "file and path ~ \"/.nvm/versions/node/\"", "os": "linux"}
@@ -130,5 +142,9 @@
 {"input": "  HOMEBREW DOWNLOAD CACHE  ", "dsl": "file and path ~ \"/.cache/Homebrew/\"", "os": "linux"}
 {"input": "debian build chroots", "dsl": "file and path startswith \"/var/lib/schroot/chroots/\"", "os": "linux"}
 {"input": "  DEBIAN BUILD CHROOTS  ", "dsl": "file and path startswith \"/var/lib/schroot/chroots/\"", "os": "linux"}
+{"input": "uv package cache", "dsl": "file and path ~ \"/.cache/uv/\"", "os": "linux"}
+{"input": "  UV PACKAGE CACHE  ", "dsl": "file and path ~ \"/.cache/uv/\"", "os": "linux"}
+{"input": "jetbrains ide caches", "dsl": "file and path ~ \"/.cache/JetBrains/\"", "os": "linux"}
+{"input": "  JETBRAINS IDE CACHES  ", "dsl": "file and path ~ \"/.cache/JetBrains/\"", "os": "linux"}
 {"input": "xcode derved data", "error": true, "os": "macos"}
 {"input": "bun install cache; execute", "dsl": "name ~ \"bun install cache; execute\""}
