@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "macos-app-and-device-data-review",
+    "version": "1.0.0",
+    "title": "macOS app and device data review",
+    "description": "Review known macOS locations for photo, music, device backups, Xcode archives, simulators, keychains, browser and mail profiles. Most of this data cannot be regenerated.",
+    "tags": [
+      "macos",
+      "photos",
+      "backups",
+      "xcode",
+      "keychain",
+      "review-only"
+    ]
+  },
+  "platforms": [
+    "macos"
+  ],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "path": "packages/insights/coolnew/macos-app-and-device-data-review/1.0.0/pack.json"
+}
