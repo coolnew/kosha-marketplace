@@ -400,6 +400,11 @@
       "os": "linux",
       "phrase": "aur helper caches",
       "dsl": "file and (path ~ \"/.cache/yay/\" or path ~ \"/.cache/paru/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "ios device crash logs",
+      "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\""
     }
   ]
 }

@@ -136,6 +136,8 @@
 {"input": "  VSCODE CPP TOOLS CACHES  ", "dsl": "file and path ~ \"/Caches/vscode-cpptools/\"", "os": "macos"}
 {"input": "dash docsets", "dsl": "file and path ~ \"/Application Support/Dash/DocSets/\"", "os": "macos"}
 {"input": "  DASH DOCSETS  ", "dsl": "file and path ~ \"/Application Support/Dash/DocSets/\"", "os": "macos"}
+{"input": "ios device crash logs", "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\"", "os": "macos"}
+{"input": "  IOS DEVICE CRASH LOGS  ", "dsl": "file and path ~ \"/Logs/CrashReporter/MobileDevice/\"", "os": "macos"}
 {"input": "pyenv python versions", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "  PYENV PYTHON VERSIONS  ", "dsl": "file and path ~ \"/.pyenv/versions/\"", "os": "linux"}
 {"input": "nvm node versions", "dsl": "file and path ~ \"/.nvm/versions/node/\"", "os": "linux"}
