@@ -13,7 +13,6 @@
 {"input": "downloaded installers", "dsl": "file and path ~ \"/Downloads/\" and ext in (dmg, pkg, iso, msi, exe, deb, rpm, appimage)"}
 {"input": "  DOWNLOADED INSTALLERS  ", "dsl": "file and path ~ \"/Downloads/\" and ext in (dmg, pkg, iso, msi, exe, deb, rpm, appimage)"}
 {"input": "downloads older than 90 days", "dsl": "file and path ~ \"/Downloads/\" and age > 7776000s"}
-{"input": "  DOWNLOADS OLDER THAN 90 DAYS  ", "dsl": "file and path ~ \"/Downloads/\" and age > 7776000s"}
 {"input": "windows hibernation file", "dsl": "file and name = hiberfil.sys", "os": "windows"}
 {"input": "  WINDOWS HIBERNATION FILE  ", "dsl": "file and name = hiberfil.sys", "os": "windows"}
 {"input": "windows page files", "dsl": "file and name in (pagefile.sys, swapfile.sys)", "os": "windows"}
@@ -36,6 +35,8 @@
 {"input": "  OFFICE DOCUMENT CACHE  ", "dsl": "file and path ~ \"/Microsoft/Office/16.0/OfficeFileCache/\"", "os": "windows"}
 {"input": "office unsaved file drafts", "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\"", "os": "windows"}
 {"input": "  OFFICE UNSAVED FILE DRAFTS  ", "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\"", "os": "windows"}
+{"input": "files in Downloads older than 90 days", "dsl": "file and path ~ \"Downloads\" and age > 7776000s"}
+{"input": "files in Downloads over 1 GB", "dsl": "file and path ~ \"Downloads\" and size > 1073741824b"}
 {"input": "trash contents", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
 {"input": "chrome browser caches", "dsl": "file and path ~ \"/Caches/Google/Chrome/\"", "os": "macos"}

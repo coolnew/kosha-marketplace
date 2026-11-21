@@ -224,6 +224,18 @@
       "os": "windows",
       "phrase": "office unsaved file drafts",
       "dsl": "file and path ~ \"/Microsoft/Office/UnsavedFiles/\""
+    },
+    {
+      "type": "template",
+      "phrase": "files in Downloads older than 90 days",
+      "template": "files in {folder:path} older than {age:duration}",
+      "dsl": "file and path ~ {folder} and age > {age}"
+    },
+    {
+      "type": "template",
+      "phrase": "files in Downloads over 1 GB",
+      "template": "files in {folder:path} over {minimum:size}",
+      "dsl": "file and path ~ {folder} and size > {minimum}"
     }
   ]
 }
