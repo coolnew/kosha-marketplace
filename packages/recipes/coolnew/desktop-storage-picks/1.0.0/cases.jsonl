@@ -1,0 +1,68 @@
+{"input": "trash contents", "dsl": "file and path ~ \"/$Recycle.Bin/\"", "os": "windows"}
+{"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/$Recycle.Bin/\"", "os": "windows"}
+{"input": "chrome browser caches", "dsl": "file and path ~ \"/Cache/Cache_Data/\" and path ~ \"/Google/Chrome/\"", "os": "windows"}
+{"input": "  CHROME BROWSER CACHES  ", "dsl": "file and path ~ \"/Cache/Cache_Data/\" and path ~ \"/Google/Chrome/\"", "os": "windows"}
+{"input": "ios device backups", "dsl": "file and path ~ \"/MobileSync/Backup/\"", "os": "windows"}
+{"input": "  IOS DEVICE BACKUPS  ", "dsl": "file and path ~ \"/MobileSync/Backup/\"", "os": "windows"}
+{"input": "steam game installs", "dsl": "file and path ~ \"/steamapps/common/\""}
+{"input": "  STEAM GAME INSTALLS  ", "dsl": "file and path ~ \"/steamapps/common/\""}
+{"input": "steam shader caches", "dsl": "file and path ~ \"/steamapps/shadercache/\""}
+{"input": "  STEAM SHADER CACHES  ", "dsl": "file and path ~ \"/steamapps/shadercache/\""}
+{"input": "firefox cache files", "dsl": "file and path ~ \"/cache2/\" and (path ~ \"/Firefox/Profiles/\" or path ~ \"/mozilla/firefox/\")"}
+{"input": "  FIREFOX CACHE FILES  ", "dsl": "file and path ~ \"/cache2/\" and (path ~ \"/Firefox/Profiles/\" or path ~ \"/mozilla/firefox/\")"}
+{"input": "downloaded installers", "dsl": "file and path ~ \"/Downloads/\" and ext in (dmg, pkg, iso, msi, exe, deb, rpm, appimage)"}
+{"input": "  DOWNLOADED INSTALLERS  ", "dsl": "file and path ~ \"/Downloads/\" and ext in (dmg, pkg, iso, msi, exe, deb, rpm, appimage)"}
+{"input": "downloads older than 90 days", "dsl": "file and path ~ \"/Downloads/\" and age > 7776000s"}
+{"input": "  DOWNLOADS OLDER THAN 90 DAYS  ", "dsl": "file and path ~ \"/Downloads/\" and age > 7776000s"}
+{"input": "windows hibernation file", "dsl": "file and name = hiberfil.sys", "os": "windows"}
+{"input": "  WINDOWS HIBERNATION FILE  ", "dsl": "file and name = hiberfil.sys", "os": "windows"}
+{"input": "windows page files", "dsl": "file and name in (pagefile.sys, swapfile.sys)", "os": "windows"}
+{"input": "  WINDOWS PAGE FILES  ", "dsl": "file and name in (pagefile.sys, swapfile.sys)", "os": "windows"}
+{"input": "previous windows installation", "dsl": "file and path ~ \"/Windows.old/\"", "os": "windows"}
+{"input": "  PREVIOUS WINDOWS INSTALLATION  ", "dsl": "file and path ~ \"/Windows.old/\"", "os": "windows"}
+{"input": "windows installer cache", "dsl": "file and path ~ \"/Windows/Installer/\" and ext in (msp, msi)", "os": "windows"}
+{"input": "  WINDOWS INSTALLER CACHE  ", "dsl": "file and path ~ \"/Windows/Installer/\" and ext in (msp, msi)", "os": "windows"}
+{"input": "delivery optimization cache", "dsl": "file and path ~ \"/SoftwareDistribution/DeliveryOptimization/\"", "os": "windows"}
+{"input": "  DELIVERY OPTIMIZATION CACHE  ", "dsl": "file and path ~ \"/SoftwareDistribution/DeliveryOptimization/\"", "os": "windows"}
+{"input": "windows search index", "dsl": "file and path ~ \"/Microsoft/Search/Data/\"", "os": "windows"}
+{"input": "  WINDOWS SEARCH INDEX  ", "dsl": "file and path ~ \"/Microsoft/Search/Data/\"", "os": "windows"}
+{"input": "explorer thumbnail caches", "dsl": "file and name startswith \"thumbcache_\" and ext = db", "os": "windows"}
+{"input": "  EXPLORER THUMBNAIL CACHES  ", "dsl": "file and name startswith \"thumbcache_\" and ext = db", "os": "windows"}
+{"input": "trash contents", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
+{"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.Trash/\"", "os": "macos"}
+{"input": "chrome browser caches", "dsl": "file and path ~ \"/Caches/Google/Chrome/\"", "os": "macos"}
+{"input": "  CHROME BROWSER CACHES  ", "dsl": "file and path ~ \"/Caches/Google/Chrome/\"", "os": "macos"}
+{"input": "ios device backups", "dsl": "file and path ~ \"/MobileSync/Backup/\"", "os": "macos"}
+{"input": "  IOS DEVICE BACKUPS  ", "dsl": "file and path ~ \"/MobileSync/Backup/\"", "os": "macos"}
+{"input": "photos libraries", "dsl": "dir and name endswith \".photoslibrary\"", "os": "macos"}
+{"input": "  PHOTOS LIBRARIES  ", "dsl": "dir and name endswith \".photoslibrary\"", "os": "macos"}
+{"input": "mail attachment downloads", "dsl": "file and path ~ \"/Mail Downloads/\"", "os": "macos"}
+{"input": "  MAIL ATTACHMENT DOWNLOADS  ", "dsl": "file and path ~ \"/Mail Downloads/\"", "os": "macos"}
+{"input": "macos software update downloads", "dsl": "file and path ~ \"/Library/Updates/\"", "os": "macos"}
+{"input": "  MACOS SOFTWARE UPDATE DOWNLOADS  ", "dsl": "file and path ~ \"/Library/Updates/\"", "os": "macos"}
+{"input": "mac virtual memory files", "dsl": "file and path ~ \"/var/vm/\" and (name startswith \"swapfile\" or name = sleepimage)", "os": "macos"}
+{"input": "  MAC VIRTUAL MEMORY FILES  ", "dsl": "file and path ~ \"/var/vm/\" and (name startswith \"swapfile\" or name = sleepimage)", "os": "macos"}
+{"input": "parallels virtual machines", "dsl": "dir and name endswith \".pvm\"", "os": "macos"}
+{"input": "  PARALLELS VIRTUAL MACHINES  ", "dsl": "dir and name endswith \".pvm\"", "os": "macos"}
+{"input": "utm virtual machines", "dsl": "dir and name endswith \".utm\"", "os": "macos"}
+{"input": "  UTM VIRTUAL MACHINES  ", "dsl": "dir and name endswith \".utm\"", "os": "macos"}
+{"input": "large mac app caches", "dsl": "file and path ~ \"/Library/Caches/\" and size > 500mib", "os": "macos"}
+{"input": "  LARGE MAC APP CACHES  ", "dsl": "file and path ~ \"/Library/Caches/\" and size > 500mib", "os": "macos"}
+{"input": "trash contents", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
+{"input": "  TRASH CONTENTS  ", "dsl": "file and path ~ \"/.local/share/Trash/\"", "os": "linux"}
+{"input": "chrome browser caches", "dsl": "file and path ~ \"/.cache/google-chrome/\"", "os": "linux"}
+{"input": "  CHROME BROWSER CACHES  ", "dsl": "file and path ~ \"/.cache/google-chrome/\"", "os": "linux"}
+{"input": "snap package images", "dsl": "file and path startswith \"/var/lib/snapd/snaps/\" and ext = snap", "os": "linux"}
+{"input": "  SNAP PACKAGE IMAGES  ", "dsl": "file and path startswith \"/var/lib/snapd/snaps/\" and ext = snap", "os": "linux"}
+{"input": "system flatpak installs", "dsl": "file and path startswith \"/var/lib/flatpak/\" and size > 100mib", "os": "linux"}
+{"input": "  SYSTEM FLATPAK INSTALLS  ", "dsl": "file and path startswith \"/var/lib/flatpak/\" and size > 100mib", "os": "linux"}
+{"input": "user flatpak data", "dsl": "file and path ~ \"/.local/share/flatpak/\" and size > 100mib", "os": "linux"}
+{"input": "  USER FLATPAK DATA  ", "dsl": "file and path ~ \"/.local/share/flatpak/\" and size > 100mib", "os": "linux"}
+{"input": "linux thumbnail caches", "dsl": "file and path ~ \"/.cache/thumbnails/\"", "os": "linux"}
+{"input": "  LINUX THUMBNAIL CACHES  ", "dsl": "file and path ~ \"/.cache/thumbnails/\"", "os": "linux"}
+{"input": "large linux user caches", "dsl": "file and path ~ \"/.cache/\" and size > 500mib", "os": "linux"}
+{"input": "  LARGE LINUX USER CACHES  ", "dsl": "file and path ~ \"/.cache/\" and size > 500mib", "os": "linux"}
+{"input": "steam game instlls", "error": true}
+{"input": "steam game instlls", "error": true}
+{"input": "steam game instlls", "error": true}
+{"input": "steam shader caches; execute", "dsl": "name ~ \"steam shader caches; execute\""}

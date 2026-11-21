@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "desktop-storage-picks",
+    "title": "Desktop Storage Hotspots",
+    "version": "1.0.0",
+    "description": "Find the usual desktop space users recover on Windows, macOS and Linux: downloads, trash, browser and launcher caches, backups, virtual machines and OS-managed files.",
+    "tags": [
+      "desktop",
+      "cleanup",
+      "storage",
+      "downloads",
+      "trash",
+      "caches"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.fuzzy-suggestions"
+  ],
+  "path": "packages/recipes/coolnew/desktop-storage-picks/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/desktop-storage-picks/1.0.0/cases.jsonl"
+}

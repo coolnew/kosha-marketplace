@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "desktop-storage-picks",
+    "title": "Desktop Storage Hotspots",
+    "version": "1.0.0",
+    "description": "Find the usual desktop space users recover on Windows, macOS and Linux: downloads, trash, browser and launcher caches, backups, virtual machines and OS-managed files.",
+    "tags": [
+      "desktop",
+      "cleanup",
+      "storage",
+      "downloads",
+      "trash",
+      "caches"
+    ],
+    "publisher": "coolnew"
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.fuzzy-suggestions"
+  ],
+  "recipes": [
+    {
+      "os": "windows",
+      "phrase": "trash contents",
+      "dsl": "file and path ~ \"/$Recycle.Bin/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "trash contents",
+      "dsl": "file and path ~ \"/.Trash/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "trash contents",
+      "dsl": "file and path ~ \"/.local/share/Trash/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "chrome browser caches",
+      "dsl": "file and path ~ \"/Cache/Cache_Data/\" and path ~ \"/Google/Chrome/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "chrome browser caches",
+      "dsl": "file and path ~ \"/Caches/Google/Chrome/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "chrome browser caches",
+      "dsl": "file and path ~ \"/.cache/google-chrome/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "ios device backups",
+      "dsl": "file and path ~ \"/MobileSync/Backup/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "ios device backups",
+      "dsl": "file and path ~ \"/MobileSync/Backup/\""
+    },
+    {
+      "type": "fuzzy-suggestions",
+      "phrase": "steam game installs",
+      "dsl": "file and path ~ \"/steamapps/common/\""
+    },
+    {
+      "phrase": "steam shader caches",
+      "dsl": "file and path ~ \"/steamapps/shadercache/\""
+    },
+    {
+      "phrase": "firefox cache files",
+      "dsl": "file and path ~ \"/cache2/\" and (path ~ \"/Firefox/Profiles/\" or path ~ \"/mozilla/firefox/\")"
+    },
+    {
+      "phrase": "downloaded installers",
+      "dsl": "file and path ~ \"/Downloads/\" and ext in (dmg, pkg, iso, msi, exe, deb, rpm, appimage)"
+    },
+    {
+      "type": "template",
+      "phrase": "downloads older than 90 days",
+      "template": "downloads older than {age:duration}",
+      "dsl": "file and path ~ \"/Downloads/\" and age > {age}"
+    },
+    {
+      "os": "windows",
+      "phrase": "windows hibernation file",
+      "dsl": "file and name = hiberfil.sys"
+    },
+    {
+      "os": "windows",
+      "phrase": "windows page files",
+      "dsl": "file and name in (pagefile.sys, swapfile.sys)"
+    },
+    {
+      "os": "windows",
+      "phrase": "previous windows installation",
+      "dsl": "file and path ~ \"/Windows.old/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows installer cache",
+      "dsl": "file and path ~ \"/Windows/Installer/\" and ext in (msp, msi)"
+    },
+    {
+      "os": "windows",
+      "phrase": "delivery optimization cache",
+      "dsl": "file and path ~ \"/SoftwareDistribution/DeliveryOptimization/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "windows search index",
+      "dsl": "file and path ~ \"/Microsoft/Search/Data/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "explorer thumbnail caches",
+      "dsl": "file and name startswith \"thumbcache_\" and ext = db"
+    },
+    {
+      "os": "macos",
+      "phrase": "photos libraries",
+      "dsl": "dir and name endswith \".photoslibrary\""
+    },
+    {
+      "os": "macos",
+      "phrase": "mail attachment downloads",
+      "dsl": "file and path ~ \"/Mail Downloads/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "macos software update downloads",
+      "dsl": "file and path ~ \"/Library/Updates/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "mac virtual memory files",
+      "dsl": "file and path ~ \"/var/vm/\" and (name startswith \"swapfile\" or name = sleepimage)"
+    },
+    {
+      "os": "macos",
+      "phrase": "parallels virtual machines",
+      "dsl": "dir and name endswith \".pvm\""
+    },
+    {
+      "os": "macos",
+      "phrase": "utm virtual machines",
+      "dsl": "dir and name endswith \".utm\""
+    },
+    {
+      "os": "macos",
+      "phrase": "large mac app caches",
+      "dsl": "file and path ~ \"/Library/Caches/\" and size > 500mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "snap package images",
+      "dsl": "file and path startswith \"/var/lib/snapd/snaps/\" and ext = snap"
+    },
+    {
+      "os": "linux",
+      "phrase": "system flatpak installs",
+      "dsl": "file and path startswith \"/var/lib/flatpak/\" and size > 100mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "user flatpak data",
+      "dsl": "file and path ~ \"/.local/share/flatpak/\" and size > 100mib"
+    },
+    {
+      "os": "linux",
+      "phrase": "linux thumbnail caches",
+      "dsl": "file and path ~ \"/.cache/thumbnails/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "large linux user caches",
+      "dsl": "file and path ~ \"/.cache/\" and size > 500mib"
+    }
+  ]
+}
