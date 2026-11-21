@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "developer-tools",
+    "title": "Developer Tools",
+    "version": "1.0.0",
+    "description": "Find build outputs, package and toolchain caches, simulator and emulator data, and container disks for development on Windows, macOS and Linux.",
+    "tags": [
+      "development",
+      "build",
+      "cache",
+      "sdk",
+      "toolchain",
+      "ios",
+      "android",
+      "containers"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.fuzzy-suggestions"
+  ],
+  "path": "packages/recipes/coolnew/developer-tools/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/developer-tools/1.0.0/cases.jsonl"
+}

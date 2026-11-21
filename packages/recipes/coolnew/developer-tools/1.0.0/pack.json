@@ -1,0 +1,342 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "developer-tools",
+    "title": "Developer Tools",
+    "version": "1.0.0",
+    "description": "Find build outputs, package and toolchain caches, simulator and emulator data, and container disks for development on Windows, macOS and Linux.",
+    "tags": [
+      "development",
+      "build",
+      "cache",
+      "sdk",
+      "toolchain",
+      "ios",
+      "android",
+      "containers"
+    ],
+    "publisher": "coolnew"
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template",
+    "recipe.fuzzy-suggestions"
+  ],
+  "recipes": [
+    {
+      "phrase": "bun install cache",
+      "dsl": "file and path ~ \"/.bun/install/cache/\""
+    },
+    {
+      "phrase": "rustup toolchains",
+      "dsl": "file and path ~ \"/.rustup/toolchains/\""
+    },
+    {
+      "phrase": "conan packages",
+      "dsl": "file and path ~ \"/.conan2/p/\""
+    },
+    {
+      "phrase": "vcpkg build trees",
+      "dsl": "file and path ~ \"/vcpkg/buildtrees/\""
+    },
+    {
+      "phrase": "dotnet build output",
+      "dsl": "file and (path ~ \"/bin/Debug/\" or path ~ \"/bin/Release/\") and ext in (dll, exe, pdb)"
+    },
+    {
+      "phrase": "playwright browser binaries",
+      "dsl": "file and path ~ \"/ms-playwright/\""
+    },
+    {
+      "phrase": "puppeteer browser downloads",
+      "dsl": "file and path ~ \"/.cache/puppeteer/\""
+    },
+    {
+      "phrase": "minikube image cache",
+      "dsl": "file and path ~ \"/.minikube/cache/\""
+    },
+    {
+      "phrase": "jupyter checkpoint files",
+      "dsl": "file and path ~ \"/.ipynb_checkpoints/\""
+    },
+    {
+      "phrase": "android emulator avd images",
+      "dsl": "file and path ~ \"/.android/avd/\""
+    },
+    {
+      "phrase": "android sdk system images",
+      "dsl": "file and path ~ \"/Android/Sdk/system-images/\""
+    },
+    {
+      "phrase": "gradle wrapper distributions",
+      "dsl": "file and path ~ \"/.gradle/wrapper/dists/\""
+    },
+    {
+      "phrase": "ruby bundled gems",
+      "dsl": "file and path ~ \"/vendor/bundle/\""
+    },
+    {
+      "phrase": "conda package archives",
+      "dsl": "file and ext = conda and path ~ \"/pkgs/\""
+    },
+    {
+      "phrase": "unreal derived data caches",
+      "dsl": "file and path ~ \"/DerivedDataCache/\""
+    },
+    {
+      "os": "macos",
+      "type": "template",
+      "phrase": "xcode derived data older than 30 days",
+      "template": "xcode derived data older than {age:duration}",
+      "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > {age}"
+    },
+    {
+      "os": "macos",
+      "type": "fuzzy-suggestions",
+      "phrase": "xcode derived data",
+      "aliases": [
+        "xcode build cache"
+      ],
+      "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "xcode archives",
+      "dsl": "dir and name endswith \".xcarchive\""
+    },
+    {
+      "os": "macos",
+      "phrase": "ios device support symbols",
+      "aliases": [
+        "ios debug symbols"
+      ],
+      "dsl": "file and path ~ \"/Library/Developer/Xcode/iOS DeviceSupport/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "xcode simulator devices",
+      "dsl": "file and path ~ \"/Library/Developer/CoreSimulator/Devices/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "xcode simulator runtimes",
+      "dsl": "file and path ~ \"/Library/Developer/CoreSimulator/Volumes/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "docker desktop disk image",
+      "dsl": "file and name = Docker.raw"
+    },
+    {
+      "os": "macos",
+      "phrase": "cocoapods cache",
+      "dsl": "file and path ~ \"/Library/Caches/CocoaPods/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "swift package manager caches",
+      "dsl": "file and path ~ \"/Library/Caches/org.swift.swiftpm/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "homebrew download cache",
+      "dsl": "file and path ~ \"/Library/Caches/Homebrew/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "ccache build cache",
+      "dsl": "file and path ~ \"/Library/Caches/ccache/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "go build cache",
+      "dsl": "file and path ~ \"/Library/Caches/go-build/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "npm download cache",
+      "dsl": "file and path ~ \"/.npm/_cacache/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "pip download cache",
+      "dsl": "file and path ~ \"/Library/Caches/pip/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "rust build files",
+      "dsl": "file and (path ~ \"/target/debug/\" or path ~ \"/target/release/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "cargo downloaded crates",
+      "dsl": "file and path ~ \"/.cargo/registry/cache/\" and ext = crate"
+    },
+    {
+      "os": "macos",
+      "phrase": "cmake build files",
+      "dsl": "file and (name = CMakeCache.txt or path ~ \"/CMakeFiles/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "node dependencies",
+      "dsl": "file and path ~ \"/node_modules/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "python bytecode caches",
+      "dsl": "file and path ~ \"/__pycache__/\" and ext = pyc"
+    },
+    {
+      "os": "macos",
+      "phrase": "go module cache",
+      "dsl": "file and path ~ \"/go/pkg/mod/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "git object packs",
+      "dsl": "file and path ~ \"/.git/objects/pack/\" and ext in (pack, idx, rev, bitmap)"
+    },
+    {
+      "os": "macos",
+      "phrase": "project build definitions",
+      "dsl": "file and name in (Cargo.toml, CMakeLists.txt, meson.build, Makefile, go.mod, pyproject.toml, package.json, pom.xml, build.gradle, build.gradle.kts)"
+    },
+    {
+      "os": "macos",
+      "phrase": "dependency lockfiles",
+      "dsl": "file and name in (Cargo.lock, go.sum, uv.lock, poetry.lock, package-lock.json, pnpm-lock.yaml, yarn.lock, composer.lock, Gemfile.lock, packages.lock.json)"
+    },
+    {
+      "os": "macos",
+      "phrase": "container build definitions",
+      "dsl": "file and (name in (Dockerfile, Containerfile, compose.yaml, compose.yml, docker-compose.yaml, docker-compose.yml) or name startswith \"Dockerfile.\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "terraform provider cache files",
+      "dsl": "file and path ~ \"/.terraform/providers/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "maven downloaded jars",
+      "dsl": "file and path ~ \"/.m2/repository/\" and ext = jar"
+    },
+    {
+      "os": "macos",
+      "phrase": "gradle cached packages",
+      "dsl": "file and path ~ \"/.gradle/caches/modules-2/files-2.1/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "javascript build caches",
+      "dsl": "file and (path ~ \"/.next/cache/\" or path ~ \"/.turbo/cache/\" or path ~ \"/node_modules/.vite/\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "test coverage reports",
+      "dsl": "file and (name in (lcov.info, coverage.xml, coverage.json, .coverage) or name startswith \".coverage.\")"
+    },
+    {
+      "os": "macos",
+      "phrase": "large source maps",
+      "dsl": "file and (name endswith \".js.map\" or name endswith \".css.map\") and size > 5mib"
+    },
+    {
+      "os": "macos",
+      "phrase": "pyenv python versions",
+      "dsl": "file and path ~ \"/.pyenv/versions/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "pyenv python versions",
+      "dsl": "file and path ~ \"/.pyenv/versions/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "nvm node versions",
+      "dsl": "file and path ~ \"/.nvm/versions/node/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "nvm node versions",
+      "dsl": "file and path ~ \"/.nvm/versions/node/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "flutter pub cache",
+      "dsl": "file and path ~ \"/.pub-cache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "flutter pub cache",
+      "dsl": "file and path ~ \"/.pub-cache/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "ruby gem installs",
+      "dsl": "file and path ~ \"/.gem/ruby/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "ruby gem installs",
+      "dsl": "file and path ~ \"/.gem/ruby/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "visual studio solution caches",
+      "dsl": "file and path ~ \"/.vs/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "wsl disk images",
+      "dsl": "file and name = ext4.vhdx"
+    },
+    {
+      "os": "windows",
+      "phrase": "scoop download cache",
+      "dsl": "file and path ~ \"/scoop/cache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "chocolatey packages",
+      "dsl": "file and ext = nupkg and path ~ \"/chocolatey/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "sccache compiler cache",
+      "dsl": "file and path ~ \"/Mozilla/sccache/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "pyenv win python versions",
+      "dsl": "file and path ~ \"/.pyenv/pyenv-win/versions/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "nvm for windows node versions",
+      "dsl": "file and path ~ \"/AppData/Roaming/nvm/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "flutter pub cache",
+      "dsl": "file and path ~ \"/AppData/Local/Pub/Cache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "ccache build cache",
+      "dsl": "file and path ~ \"/.cache/ccache/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "homebrew download cache",
+      "dsl": "file and path ~ \"/.cache/Homebrew/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "debian build chroots",
+      "dsl": "file and path startswith \"/var/lib/schroot/chroots/\""
+    }
+  ]
+}
