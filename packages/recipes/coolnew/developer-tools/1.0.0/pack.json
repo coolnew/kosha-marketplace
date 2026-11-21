@@ -21,6 +21,7 @@
   "requires": [
     "recipe.exact",
     "recipe.template",
+    "recipe.regex",
     "recipe.fuzzy-suggestions"
   ],
   "recipes": [
@@ -432,6 +433,39 @@
     {
       "phrase": "conda package cache",
       "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"
+    },
+    {
+      "type": "template",
+      "phrase": "node modules older than 90 days",
+      "template": "node modules older than {age:duration}",
+      "dsl": "file and path ~ \"/node_modules/\" and age > {age}"
+    },
+    {
+      "type": "template",
+      "phrase": "node modules over 100 MB",
+      "template": "node modules over {minimum:size}",
+      "dsl": "file and path ~ \"/node_modules/\" and size > {minimum}"
+    },
+    {
+      "type": "template",
+      "phrase": "rust target folders older than 60 days",
+      "template": "rust target folders older than {age:duration}",
+      "dsl": "file and (path ~ \"/target/debug/\" or path ~ \"/target/release/\") and age > {age}"
+    },
+    {
+      "type": "template",
+      "phrase": "python virtual environments older than 180 days",
+      "template": "python virtual environments older than {age:duration}",
+      "dsl": "file and path ~ \"/.venv/\" and age > {age}"
+    },
+    {
+      "type": "regex",
+      "phrase": "rust crates named serde",
+      "pattern": "(?i)rust crates named (?P<crate>[a-z][a-z0-9_-]{0,63})",
+      "bindings": {
+        "crate": "text"
+      },
+      "dsl": "file and path ~ \"/.cargo/registry/\" and name ~ {crate}"
     }
   ]
 }

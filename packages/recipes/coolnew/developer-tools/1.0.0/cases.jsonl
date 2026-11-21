@@ -64,18 +64,20 @@
 {"input": "  CONDA ENVIRONMENTS  ", "dsl": "file and (path ~ \"/anaconda3/envs/\" or path ~ \"/miniconda3/envs/\")"}
 {"input": "conda package cache", "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"}
 {"input": "  CONDA PACKAGE CACHE  ", "dsl": "file and (path ~ \"/anaconda3/pkgs/\" or path ~ \"/miniconda3/pkgs/\")"}
+{"input": "node modules older than 90 days", "dsl": "file and path ~ \"/node_modules/\" and age > 7776000s"}
+{"input": "node modules over 100 MB", "dsl": "file and path ~ \"/node_modules/\" and size > 104857600b"}
+{"input": "rust target folders older than 60 days", "dsl": "file and (path ~ \"/target/debug/\" or path ~ \"/target/release/\") and age > 5184000s"}
+{"input": "python virtual environments older than 180 days", "dsl": "file and path ~ \"/.venv/\" and age > 15552000s"}
+{"input": "rust crates named serde", "dsl": "file and path ~ \"/.cargo/registry/\" and name ~ \"serde\""}
 {"input": "xcode derived data older than 30 days", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
-{"input": "  XCODE DERIVED DATA OLDER THAN 30 DAYS  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\" and age > 2592000s", "os": "macos"}
 {"input": "xcode derived data", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
 {"input": "  XCODE DERIVED DATA  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
 {"input": "xcode build cache", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
-{"input": "  XCODE BUILD CACHE  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/DerivedData/\"", "os": "macos"}
 {"input": "xcode archives", "dsl": "dir and name endswith \".xcarchive\"", "os": "macos"}
 {"input": "  XCODE ARCHIVES  ", "dsl": "dir and name endswith \".xcarchive\"", "os": "macos"}
 {"input": "ios device support symbols", "dsl": "file and path ~ \"/Library/Developer/Xcode/iOS DeviceSupport/\"", "os": "macos"}
 {"input": "  IOS DEVICE SUPPORT SYMBOLS  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/iOS DeviceSupport/\"", "os": "macos"}
 {"input": "ios debug symbols", "dsl": "file and path ~ \"/Library/Developer/Xcode/iOS DeviceSupport/\"", "os": "macos"}
-{"input": "  IOS DEBUG SYMBOLS  ", "dsl": "file and path ~ \"/Library/Developer/Xcode/iOS DeviceSupport/\"", "os": "macos"}
 {"input": "xcode simulator devices", "dsl": "file and path ~ \"/Library/Developer/CoreSimulator/Devices/\"", "os": "macos"}
 {"input": "  XCODE SIMULATOR DEVICES  ", "dsl": "file and path ~ \"/Library/Developer/CoreSimulator/Devices/\"", "os": "macos"}
 {"input": "xcode simulator runtimes", "dsl": "file and path ~ \"/Library/Developer/CoreSimulator/Volumes/\"", "os": "macos"}

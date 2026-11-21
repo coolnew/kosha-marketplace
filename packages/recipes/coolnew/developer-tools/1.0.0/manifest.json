@@ -27,6 +27,7 @@
   "requires": [
     "recipe.exact",
     "recipe.template",
+    "recipe.regex",
     "recipe.fuzzy-suggestions"
   ],
   "path": "packages/recipes/coolnew/developer-tools/1.0.0/pack.json",
