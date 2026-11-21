@@ -23,15 +23,15 @@
 {"input": "downloaded videos", "dsl": "file and path ~ \"/Downloads/\" and ext in (mp4, mov, mkv, webm, m4v)"}
 {"input": "  DOWNLOADED VIDEOS  ", "dsl": "file and path ~ \"/Downloads/\" and ext in (mp4, mov, mkv, webm, m4v)"}
 {"input": "video files over 500 MB", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\", \"m4v\", \"avi\", \"mts\", \"m2ts\", \"mxf\") and size > 524288000b"}
-{"input": "  VIDEO FILES OVER 500 MB  ", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\", \"m4v\", \"avi\", \"mts\", \"m2ts\", \"mxf\") and size > 524288000b"}
 {"input": "render exports older than 90 days", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\") and age > 7776000s"}
-{"input": "  RENDER EXPORTS OLDER THAN 90 DAYS  ", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\") and age > 7776000s"}
 {"input": "lightroom previews", "dsl": "file and path ~ \"/Previews.lrdata/\" and not path ~ \"Smart Previews.lrdata\""}
 {"input": "  LIGHTROOM PREVIEWS  ", "dsl": "file and path ~ \"/Previews.lrdata/\" and not path ~ \"Smart Previews.lrdata\""}
 {"input": "capcut projects", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "windows"}
 {"input": "  CAPCUT PROJECTS  ", "dsl": "file and path ~ \"/CapCut/User Data/Projects/\"", "os": "windows"}
 {"input": "zoom local recordings", "dsl": "file and path ~ \"/Documents/Zoom/\" and ext in (mp4, m4a, vtt)"}
 {"input": "  ZOOM LOCAL RECORDINGS  ", "dsl": "file and path ~ \"/Documents/Zoom/\" and ext in (mp4, m4a, vtt)"}
+{"input": "video files in Movies", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\", \"m4v\") and path ~ \"Movies\""}
+{"input": "audio files in Music", "dsl": "file and ext in (\"wav\", \"flac\", \"aif\", \"aiff\", \"m4a\", \"mp3\") and path ~ \"Music\""}
 {"input": "obs recordings", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
 {"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
 {"input": "premiere media cache files", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "macos"}
@@ -47,7 +47,6 @@
 {"input": "final cut pro libraries", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
 {"input": "  FINAL CUT PRO LIBRARIES  ", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
 {"input": "final cut libraries", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
-{"input": "  FINAL CUT LIBRARIES  ", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
 {"input": "imovie libraries", "dsl": "dir and name endswith \".imovielibrary\"", "os": "macos"}
 {"input": "  IMOVIE LIBRARIES  ", "dsl": "dir and name endswith \".imovielibrary\"", "os": "macos"}
 {"input": "logic pro projects", "dsl": "dir and name endswith \".logicx\"", "os": "macos"}

@@ -256,6 +256,18 @@
       "os": "macos",
       "phrase": "logic pro bounces",
       "dsl": "file and (path ~ \"/Music/Logic/Bounces/\" or (path ~ \".logicx/\" and path ~ \"/Bounces/\"))"
+    },
+    {
+      "type": "template",
+      "phrase": "video files in Movies",
+      "template": "video files in {folder:path}",
+      "dsl": "file and ext in (mp4, mov, mkv, webm, m4v) and path ~ {folder}"
+    },
+    {
+      "type": "template",
+      "phrase": "audio files in Music",
+      "template": "audio files in {folder:path}",
+      "dsl": "file and ext in (wav, flac, aif, aiff, m4a, mp3) and path ~ {folder}"
     }
   ]
 }
