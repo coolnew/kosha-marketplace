@@ -376,6 +376,30 @@
     {
       "phrase": "android studio caches",
       "dsl": "file and path ~ \"/Google/AndroidStudio\""
+    },
+    {
+      "os": "macos",
+      "phrase": "yarn package cache",
+      "dsl": "file and path ~ \"/Library/Caches/Yarn/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "vscode cpp tools caches",
+      "dsl": "file and path ~ \"/Caches/vscode-cpptools/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "dash docsets",
+      "dsl": "file and path ~ \"/Application Support/Dash/DocSets/\""
+    },
+    {
+      "phrase": "vscode app caches",
+      "dsl": "file and (path ~ \"/Code/Cache/\" or path ~ \"/Code/CachedData/\" or path ~ \"/Code/GPUCache/\")"
+    },
+    {
+      "os": "linux",
+      "phrase": "aur helper caches",
+      "dsl": "file and (path ~ \"/.cache/yay/\" or path ~ \"/.cache/paru/\")"
     }
   ]
 }
