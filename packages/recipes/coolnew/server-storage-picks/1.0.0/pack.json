@@ -160,6 +160,21 @@
       "os": "windows",
       "phrase": "restic repository cache",
       "dsl": "file and path ~ \"/AppData/Local/restic/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "k3s data directory",
+      "dsl": "file and path startswith \"/var/lib/rancher/k3s/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "k0s data directory",
+      "dsl": "file and path startswith \"/var/lib/k0s/\""
+    },
+    {
+      "os": "linux",
+      "phrase": "apt package lists",
+      "dsl": "file and path startswith \"/var/lib/apt/lists/\""
     }
   ]
 }

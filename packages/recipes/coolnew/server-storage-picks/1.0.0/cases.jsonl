@@ -54,4 +54,10 @@
 {"input": "  MAIL SPOOL FILES  ", "dsl": "file and (path startswith \"/var/spool/mail/\" or path startswith \"/var/mail/\")", "os": "linux"}
 {"input": "restic repository cache", "dsl": "file and path ~ \"/.cache/restic/\"", "os": "linux"}
 {"input": "  RESTIC REPOSITORY CACHE  ", "dsl": "file and path ~ \"/.cache/restic/\"", "os": "linux"}
+{"input": "k3s data directory", "dsl": "file and path startswith \"/var/lib/rancher/k3s/\"", "os": "linux"}
+{"input": "  K3S DATA DIRECTORY  ", "dsl": "file and path startswith \"/var/lib/rancher/k3s/\"", "os": "linux"}
+{"input": "k0s data directory", "dsl": "file and path startswith \"/var/lib/k0s/\"", "os": "linux"}
+{"input": "  K0S DATA DIRECTORY  ", "dsl": "file and path startswith \"/var/lib/k0s/\"", "os": "linux"}
+{"input": "apt package lists", "dsl": "file and path startswith \"/var/lib/apt/lists/\"", "os": "linux"}
+{"input": "  APT PACKAGE LISTS  ", "dsl": "file and path startswith \"/var/lib/apt/lists/\"", "os": "linux"}
 {"input": "virtual machine disks; execute", "dsl": "name ~ \"virtual machine disks; execute\""}
