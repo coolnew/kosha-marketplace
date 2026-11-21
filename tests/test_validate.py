@@ -48,7 +48,7 @@ class CatalogTests(unittest.TestCase):
     def test_publisher_and_version_remain_unchanged(self):
         entries = [json.loads(line) for line in (self.root / "indexes/recipes.jsonl").read_bytes().splitlines()]
         self.assertEqual({e["metadata"]["id"] for e in entries},
-                         {"linux-essentials", "windows-essentials", "search-power-tools", "developer-tools", "content-creator-tools"})
+                         {"linux-essentials", "windows-essentials", "search-power-tools", "developer-tools", "content-creator-tools", "digital-artists"})
         for entry in entries:
             self.assertEqual(entry["publisher"], "coolnew")
             self.assertEqual(entry["metadata"]["publisher"], "coolnew")

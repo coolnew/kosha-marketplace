@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "digital-artists",
+    "title": "Digital Artists and 3D",
+    "version": "1.0.0",
+    "description": "Find illustration, design, 3D, CAD, font and music-notation files on Windows, macOS and Linux, plus engine caches for 3D and game work.",
+    "tags": [
+      "art",
+      "design",
+      "3d",
+      "illustration",
+      "cad",
+      "fonts",
+      "music"
+    ],
+    "publisher": "coolnew"
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "recipes": [
+    {
+      "phrase": "procreate files",
+      "dsl": "file and ext = procreate"
+    },
+    {
+      "phrase": "clip studio paint files",
+      "dsl": "file and ext = clip"
+    },
+    {
+      "phrase": "sketch design files",
+      "dsl": "file and ext = sketch"
+    },
+    {
+      "phrase": "aseprite sprites",
+      "dsl": "file and ext in (aseprite, ase)"
+    },
+    {
+      "phrase": "tiled maps",
+      "dsl": "file and ext = tmx"
+    },
+    {
+      "phrase": "substance files",
+      "dsl": "file and ext in (sbs, sbsar, spp)"
+    },
+    {
+      "phrase": "zbrush tool files",
+      "dsl": "file and ext = ztl"
+    },
+    {
+      "phrase": "maya scenes",
+      "dsl": "file and ext in (ma, mb)"
+    },
+    {
+      "phrase": "3ds max scenes",
+      "dsl": "file and ext = max"
+    },
+    {
+      "phrase": "cinema 4d scenes",
+      "dsl": "file and ext = c4d"
+    },
+    {
+      "phrase": "houdini scenes",
+      "dsl": "file and ext in (hip, hiplc, hipnc)"
+    },
+    {
+      "phrase": "sketchup models",
+      "dsl": "file and ext = skp"
+    },
+    {
+      "phrase": "rhino models",
+      "dsl": "file and ext = 3dm"
+    },
+    {
+      "phrase": "fusion 360 archives",
+      "dsl": "file and ext = f3d"
+    },
+    {
+      "phrase": "coreldraw files",
+      "dsl": "file and ext = cdr"
+    },
+    {
+      "phrase": "pixelmator files",
+      "dsl": "file and ext in (pxm, pxd)"
+    },
+    {
+      "os": "windows",
+      "phrase": "paint net files",
+      "dsl": "file and ext = pdn"
+    },
+    {
+      "phrase": "unreal engine assets",
+      "dsl": "file and ext in (uasset, umap)"
+    },
+    {
+      "phrase": "godot imported assets",
+      "dsl": "dir and name = imported and path ~ \"/.godot/\""
+    },
+    {
+      "phrase": "musescore scores",
+      "dsl": "file and ext in (mscz, mscx)"
+    },
+    {
+      "phrase": "guitar pro scores",
+      "dsl": "file and ext in (gp, gpx, gp5)"
+    },
+    {
+      "phrase": "sibelius scores",
+      "dsl": "file and ext = sib"
+    },
+    {
+      "phrase": "font files",
+      "dsl": "file and ext in (ttf, otf, ttc, woff, woff2)"
+    },
+    {
+      "phrase": "photoshop brush and style libraries",
+      "dsl": "file and ext in (abr, asl)"
+    },
+    {
+      "phrase": "color lookup tables",
+      "dsl": "file and ext in (cube, 3dl)"
+    },
+    {
+      "phrase": "hdr environment maps",
+      "dsl": "file and ext = hdr and size > 20mib"
+    },
+    {
+      "type": "template",
+      "phrase": "3d scene files over 200 MB",
+      "template": "3d scene files over {minimum:size}",
+      "dsl": "file and ext in (blend, ma, mb, max, c4d, hip, hiplc, hipnc, skp, 3dm, fbx, obj, glb, gltf) and size > {minimum}"
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe photoshop projects",
+      "dsl": "file and ext in (psd, psb)"
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe illustrator files",
+      "dsl": "file and ext in (ai, eps, ait)"
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe indesign documents",
+      "dsl": "file and ext in (indd, idml, indt)"
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe lightroom catalogues",
+      "dsl": "file and ext in (lrcat, lrcat-data)"
+    },
+    {
+      "os": "macos",
+      "phrase": "camera raw photos",
+      "dsl": "file and ext in (dng, cr2, cr3, nef, arw, raf, rw2, orf)"
+    },
+    {
+      "os": "macos",
+      "phrase": "gimp krita and affinity projects",
+      "dsl": "file and ext in (xcf, kra, ora, afphoto, afdesign, afpub)"
+    },
+    {
+      "os": "macos",
+      "phrase": "blender projects",
+      "dsl": "file and ext in (blend)"
+    },
+    {
+      "os": "macos",
+      "phrase": "blender version backups",
+      "dsl": "file and ext in (blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8, blend9)"
+    },
+    {
+      "os": "macos",
+      "phrase": "3d meshes and scene exchange",
+      "dsl": "file and ext in (obj, fbx, gltf, glb, usd, usda, usdc, usdz, abc)"
+    },
+    {
+      "os": "macos",
+      "phrase": "autocad drawings",
+      "dsl": "file and ext in (dwg, dxf, dwt)"
+    },
+    {
+      "os": "macos",
+      "phrase": "mechanical cad projects",
+      "dsl": "file and ext in (fcstd, sldprt, sldasm, slddrw, ipt, iam, idw)"
+    },
+    {
+      "os": "macos",
+      "phrase": "cad exchange files",
+      "dsl": "file and ext in (step, stp, iges, igs, sat, x_t, x_b)"
+    },
+    {
+      "os": "macos",
+      "phrase": "3d print assets",
+      "dsl": "file and ext in (stl, 3mf, amf, gcode)"
+    },
+    {
+      "os": "macos",
+      "phrase": "kicad design files",
+      "dsl": "file and ext in (kicad_pro, kicad_pcb, kicad_sch, kicad_sym, kicad_mod)"
+    },
+    {
+      "os": "macos",
+      "phrase": "gerber and pcb drill candidates",
+      "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)"
+    }
+  ]
+}

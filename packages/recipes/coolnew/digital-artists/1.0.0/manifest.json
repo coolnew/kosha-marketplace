@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "digital-artists",
+    "title": "Digital Artists and 3D",
+    "version": "1.0.0",
+    "description": "Find illustration, design, 3D, CAD, font and music-notation files on Windows, macOS and Linux, plus engine caches for 3D and game work.",
+    "tags": [
+      "art",
+      "design",
+      "3d",
+      "illustration",
+      "cad",
+      "fonts",
+      "music"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "path": "packages/recipes/coolnew/digital-artists/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/digital-artists/1.0.0/cases.jsonl"
+}

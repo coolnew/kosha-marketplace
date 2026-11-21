@@ -11,9 +11,9 @@
     {
       "kind": "recipe-pack",
       "path": "indexes/recipes.jsonl",
-      "bytes": 2968,
-      "sha256": "5e116f00d330f4a8a8fc2f28d4d9aaeb1de482fa6187f18205cab72b554dc69b",
-      "entries": 5
+      "bytes": 3581,
+      "sha256": "9477d2462555a0a6ad0a0e4f706b3bebbc9828cc83da2d8b8c85e1445ad6fd38",
+      "entries": 6
     }
   ]
 }

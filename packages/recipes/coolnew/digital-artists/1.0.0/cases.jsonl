@@ -1,0 +1,85 @@
+{"input": "procreate files", "dsl": "file and ext = procreate"}
+{"input": "  PROCREATE FILES  ", "dsl": "file and ext = procreate"}
+{"input": "clip studio paint files", "dsl": "file and ext = clip"}
+{"input": "  CLIP STUDIO PAINT FILES  ", "dsl": "file and ext = clip"}
+{"input": "sketch design files", "dsl": "file and ext = sketch"}
+{"input": "  SKETCH DESIGN FILES  ", "dsl": "file and ext = sketch"}
+{"input": "aseprite sprites", "dsl": "file and ext in (aseprite, ase)"}
+{"input": "  ASEPRITE SPRITES  ", "dsl": "file and ext in (aseprite, ase)"}
+{"input": "tiled maps", "dsl": "file and ext = tmx"}
+{"input": "  TILED MAPS  ", "dsl": "file and ext = tmx"}
+{"input": "substance files", "dsl": "file and ext in (sbs, sbsar, spp)"}
+{"input": "  SUBSTANCE FILES  ", "dsl": "file and ext in (sbs, sbsar, spp)"}
+{"input": "zbrush tool files", "dsl": "file and ext = ztl"}
+{"input": "  ZBRUSH TOOL FILES  ", "dsl": "file and ext = ztl"}
+{"input": "maya scenes", "dsl": "file and ext in (ma, mb)"}
+{"input": "  MAYA SCENES  ", "dsl": "file and ext in (ma, mb)"}
+{"input": "3ds max scenes", "dsl": "file and ext = max"}
+{"input": "  3DS MAX SCENES  ", "dsl": "file and ext = max"}
+{"input": "cinema 4d scenes", "dsl": "file and ext = c4d"}
+{"input": "  CINEMA 4D SCENES  ", "dsl": "file and ext = c4d"}
+{"input": "houdini scenes", "dsl": "file and ext in (hip, hiplc, hipnc)"}
+{"input": "  HOUDINI SCENES  ", "dsl": "file and ext in (hip, hiplc, hipnc)"}
+{"input": "sketchup models", "dsl": "file and ext = skp"}
+{"input": "  SKETCHUP MODELS  ", "dsl": "file and ext = skp"}
+{"input": "rhino models", "dsl": "file and ext = 3dm"}
+{"input": "  RHINO MODELS  ", "dsl": "file and ext = 3dm"}
+{"input": "fusion 360 archives", "dsl": "file and ext = f3d"}
+{"input": "  FUSION 360 ARCHIVES  ", "dsl": "file and ext = f3d"}
+{"input": "coreldraw files", "dsl": "file and ext = cdr"}
+{"input": "  CORELDRAW FILES  ", "dsl": "file and ext = cdr"}
+{"input": "pixelmator files", "dsl": "file and ext in (pxm, pxd)"}
+{"input": "  PIXELMATOR FILES  ", "dsl": "file and ext in (pxm, pxd)"}
+{"input": "paint net files", "dsl": "file and ext = pdn", "os": "windows"}
+{"input": "  PAINT NET FILES  ", "dsl": "file and ext = pdn", "os": "windows"}
+{"input": "unreal engine assets", "dsl": "file and ext in (uasset, umap)"}
+{"input": "  UNREAL ENGINE ASSETS  ", "dsl": "file and ext in (uasset, umap)"}
+{"input": "godot imported assets", "dsl": "dir and name = imported and path ~ \"/.godot/\""}
+{"input": "  GODOT IMPORTED ASSETS  ", "dsl": "dir and name = imported and path ~ \"/.godot/\""}
+{"input": "musescore scores", "dsl": "file and ext in (mscz, mscx)"}
+{"input": "  MUSESCORE SCORES  ", "dsl": "file and ext in (mscz, mscx)"}
+{"input": "guitar pro scores", "dsl": "file and ext in (gp, gpx, gp5)"}
+{"input": "  GUITAR PRO SCORES  ", "dsl": "file and ext in (gp, gpx, gp5)"}
+{"input": "sibelius scores", "dsl": "file and ext = sib"}
+{"input": "  SIBELIUS SCORES  ", "dsl": "file and ext = sib"}
+{"input": "font files", "dsl": "file and ext in (ttf, otf, ttc, woff, woff2)"}
+{"input": "  FONT FILES  ", "dsl": "file and ext in (ttf, otf, ttc, woff, woff2)"}
+{"input": "photoshop brush and style libraries", "dsl": "file and ext in (abr, asl)"}
+{"input": "  PHOTOSHOP BRUSH AND STYLE LIBRARIES  ", "dsl": "file and ext in (abr, asl)"}
+{"input": "color lookup tables", "dsl": "file and ext in (cube, 3dl)"}
+{"input": "  COLOR LOOKUP TABLES  ", "dsl": "file and ext in (cube, 3dl)"}
+{"input": "hdr environment maps", "dsl": "file and ext = hdr and size > 20mib"}
+{"input": "  HDR ENVIRONMENT MAPS  ", "dsl": "file and ext = hdr and size > 20mib"}
+{"input": "3d scene files over 200 MB", "dsl": "file and ext in (\"blend\", \"ma\", \"mb\", \"max\", \"c4d\", \"hip\", \"hiplc\", \"hipnc\", \"skp\", \"3dm\", \"fbx\", \"obj\", \"glb\", \"gltf\") and size > 209715200b"}
+{"input": "  3D SCENE FILES OVER 200 MB  ", "dsl": "file and ext in (\"blend\", \"ma\", \"mb\", \"max\", \"c4d\", \"hip\", \"hiplc\", \"hipnc\", \"skp\", \"3dm\", \"fbx\", \"obj\", \"glb\", \"gltf\") and size > 209715200b"}
+{"input": "adobe photoshop projects", "dsl": "file and ext in (psd, psb)", "os": "macos"}
+{"input": "  ADOBE PHOTOSHOP PROJECTS  ", "dsl": "file and ext in (psd, psb)", "os": "macos"}
+{"input": "adobe illustrator files", "dsl": "file and ext in (ai, eps, ait)", "os": "macos"}
+{"input": "  ADOBE ILLUSTRATOR FILES  ", "dsl": "file and ext in (ai, eps, ait)", "os": "macos"}
+{"input": "adobe indesign documents", "dsl": "file and ext in (indd, idml, indt)", "os": "macos"}
+{"input": "  ADOBE INDESIGN DOCUMENTS  ", "dsl": "file and ext in (indd, idml, indt)", "os": "macos"}
+{"input": "adobe lightroom catalogues", "dsl": "file and ext in (lrcat, lrcat-data)", "os": "macos"}
+{"input": "  ADOBE LIGHTROOM CATALOGUES  ", "dsl": "file and ext in (lrcat, lrcat-data)", "os": "macos"}
+{"input": "camera raw photos", "dsl": "file and ext in (dng, cr2, cr3, nef, arw, raf, rw2, orf)", "os": "macos"}
+{"input": "  CAMERA RAW PHOTOS  ", "dsl": "file and ext in (dng, cr2, cr3, nef, arw, raf, rw2, orf)", "os": "macos"}
+{"input": "gimp krita and affinity projects", "dsl": "file and ext in (xcf, kra, ora, afphoto, afdesign, afpub)", "os": "macos"}
+{"input": "  GIMP KRITA AND AFFINITY PROJECTS  ", "dsl": "file and ext in (xcf, kra, ora, afphoto, afdesign, afpub)", "os": "macos"}
+{"input": "blender projects", "dsl": "file and ext in (blend)", "os": "macos"}
+{"input": "  BLENDER PROJECTS  ", "dsl": "file and ext in (blend)", "os": "macos"}
+{"input": "blender version backups", "dsl": "file and ext in (blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8, blend9)", "os": "macos"}
+{"input": "  BLENDER VERSION BACKUPS  ", "dsl": "file and ext in (blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8, blend9)", "os": "macos"}
+{"input": "3d meshes and scene exchange", "dsl": "file and ext in (obj, fbx, gltf, glb, usd, usda, usdc, usdz, abc)", "os": "macos"}
+{"input": "  3D MESHES AND SCENE EXCHANGE  ", "dsl": "file and ext in (obj, fbx, gltf, glb, usd, usda, usdc, usdz, abc)", "os": "macos"}
+{"input": "autocad drawings", "dsl": "file and ext in (dwg, dxf, dwt)", "os": "macos"}
+{"input": "  AUTOCAD DRAWINGS  ", "dsl": "file and ext in (dwg, dxf, dwt)", "os": "macos"}
+{"input": "mechanical cad projects", "dsl": "file and ext in (fcstd, sldprt, sldasm, slddrw, ipt, iam, idw)", "os": "macos"}
+{"input": "  MECHANICAL CAD PROJECTS  ", "dsl": "file and ext in (fcstd, sldprt, sldasm, slddrw, ipt, iam, idw)", "os": "macos"}
+{"input": "cad exchange files", "dsl": "file and ext in (step, stp, iges, igs, sat, x_t, x_b)", "os": "macos"}
+{"input": "  CAD EXCHANGE FILES  ", "dsl": "file and ext in (step, stp, iges, igs, sat, x_t, x_b)", "os": "macos"}
+{"input": "3d print assets", "dsl": "file and ext in (stl, 3mf, amf, gcode)", "os": "macos"}
+{"input": "  3D PRINT ASSETS  ", "dsl": "file and ext in (stl, 3mf, amf, gcode)", "os": "macos"}
+{"input": "kicad design files", "dsl": "file and ext in (kicad_pro, kicad_pcb, kicad_sch, kicad_sym, kicad_mod)", "os": "macos"}
+{"input": "  KICAD DESIGN FILES  ", "dsl": "file and ext in (kicad_pro, kicad_pcb, kicad_sch, kicad_sym, kicad_mod)", "os": "macos"}
+{"input": "gerber and pcb drill candidates", "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)", "os": "macos"}
+{"input": "  GERBER AND PCB DRILL CANDIDATES  ", "dsl": "file and ext in (gbr, ger, gtl, gbl, gts, gbs, gto, gbo, drl)", "os": "macos"}
+{"input": "procreate files; execute", "dsl": "name ~ \"procreate files; execute\""}
