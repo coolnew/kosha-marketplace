@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "windows-app-and-device-data-review",
+    "version": "1.0.0",
+    "title": "Windows app and device data review",
+    "description": "Review known Windows locations for device backups, Docker and Hyper-V disks, browser and mail profiles, creative project data and recordings. Most of this data cannot be regenerated.",
+    "tags": [
+      "windows",
+      "backups",
+      "docker",
+      "hyper-v",
+      "profiles",
+      "review-only"
+    ]
+  },
+  "platforms": [
+    "windows"
+  ],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "insights": [
+    {
+      "id": "apple-iphone-backups",
+      "title": "Review iPhone and iPad backups",
+      "subject": "device backups",
+      "location": {
+        "base": "home",
+        "path": "AppData/Roaming/Apple Computer/MobileSync/Backup"
+      },
+      "action": "review-only",
+      "detail": "Local backups of iOS devices, often many gigabytes, and possibly the only copy of device data. Manage them in iTunes or the Apple Devices app; the Microsoft Store and desktop versions use different folders."
+    },
+    {
+      "id": "docker-desktop-wsl",
+      "title": "Review Docker Desktop WSL disks",
+      "subject": "VM disk",
+      "location": {
+        "base": "local_app_data",
+        "path": "Docker/wsl"
+      },
+      "action": "review-only",
+      "detail": "Docker Desktop keeps its WSL2 disk here, holding images, containers and volumes. Use Docker's settings for disk location and space; do not edit the virtual disk files."
+    },
+    {
+      "id": "hyper-v-virtual-disks",
+      "title": "Review Hyper-V virtual hard disks",
+      "subject": "VM disk",
+      "location": {
+        "base": "absolute",
+        "path": "C:/ProgramData/Microsoft/Windows/Virtual Hard Disks"
+      },
+      "action": "review-only",
+      "detail": "Virtual disks for Hyper-V machines, often very large. This is the default location on the C: drive. Remove machines and their disks in Hyper-V Manager; a disk still attached to a VM breaks it."
+    },
+    {
+      "id": "firefox-profiles",
+      "title": "Review Firefox profiles",
+      "subject": "browser profile",
+      "location": {
+        "base": "home",
+        "path": "AppData/Roaming/Mozilla/Firefox/Profiles"
+      },
+      "action": "review-only",
+      "detail": "Profiles hold bookmarks, saved logins, extensions and sessions. Use Firefox's clear-data settings for cache; export what you need before removing a profile."
+    },
+    {
+      "id": "chrome-user-data",
+      "title": "Review Chrome user data",
+      "subject": "browser profile",
+      "location": {
+        "base": "local_app_data",
+        "path": "Google/Chrome/User Data"
+      },
+      "action": "review-only",
+      "detail": "Profiles hold bookmarks, saved passwords, extensions and history. Use Chrome's Delete browsing data for cache, and check sync before removing a profile."
+    },
+    {
+      "id": "davinci-resolve-database",
+      "title": "Review DaVinci Resolve database",
+      "subject": "project database",
+      "location": {
+        "base": "home",
+        "path": "AppData/Roaming/Blackmagic Design/DaVinci Resolve"
+      },
+      "action": "review-only",
+      "detail": "Project database, settings and caches for DaVinci Resolve. Projects may be stored here. Use the Resolve project manager and its backup options."
+    },
+    {
+      "id": "ableton-user-library",
+      "title": "Review Ableton user library",
+      "subject": "user library",
+      "location": {
+        "base": "home",
+        "path": "Documents/Ableton/User Library"
+      },
+      "action": "review-only",
+      "detail": "Presets, samples and devices you saved or installed. Items saved here are not restored when Live is reinstalled. Back up before any change."
+    },
+    {
+      "id": "zoom-recordings",
+      "title": "Review Zoom local recordings",
+      "subject": "recordings",
+      "location": {
+        "base": "home",
+        "path": "Documents/Zoom"
+      },
+      "action": "review-only",
+      "detail": "Local meeting recordings saved by Zoom, often the only copy. Move them to backup storage before changing anything."
+    },
+    {
+      "id": "signal-data",
+      "title": "Review Signal messages",
+      "subject": "message store",
+      "location": {
+        "base": "home",
+        "path": "AppData/Roaming/Signal"
+      },
+      "action": "review-only",
+      "detail": "Encrypted message database and attachments. Signal cannot restore messages without this data. Use Signal's backup and export options before any change."
+    },
+    {
+      "id": "thunderbird-profiles",
+      "title": "Review Thunderbird profiles",
+      "subject": "mail profile",
+      "location": {
+        "base": "home",
+        "path": "AppData/Roaming/Thunderbird/Profiles"
+      },
+      "action": "review-only",
+      "detail": "Mail, address books and account settings. Local folders can hold mail that exists nowhere else. Back up the profile before any change."
+    }
+  ]
+}

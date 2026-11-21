@@ -4,9 +4,9 @@
     {
       "kind": "insight-pack",
       "path": "indexes/insights.jsonl",
-      "bytes": 3219,
-      "sha256": "266f08e12582e51da01abab1aece442353fd1d7454327b2ef61b0dd8a6bb44f7",
-      "entries": 5
+      "bytes": 3912,
+      "sha256": "fdabca458b4517b411e59b0ae8af793b1e27ca6161c1ed4424fa3b8770884f32",
+      "entries": 6
     },
     {
       "kind": "recipe-pack",
