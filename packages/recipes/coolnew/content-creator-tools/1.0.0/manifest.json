@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "id": "content-creator-tools",
+    "title": "Content Creator Tools",
+    "version": "1.0.0",
+    "description": "Find recording folders, editing project files, render and media caches, and exported video, audio and thumbnails for video and podcast production on Windows, macOS and Linux.",
+    "tags": [
+      "video",
+      "audio",
+      "podcast",
+      "streaming",
+      "editing",
+      "thumbnails"
+    ],
+    "publisher": "coolnew"
+  },
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "path": "packages/recipes/coolnew/content-creator-tools/1.0.0/pack.json",
+  "cases": "packages/recipes/coolnew/content-creator-tools/1.0.0/cases.jsonl"
+}

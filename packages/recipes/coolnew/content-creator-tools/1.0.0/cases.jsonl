@@ -1,0 +1,87 @@
+{"input": "obs recordings", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "windows"}
+{"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "windows"}
+{"input": "premiere media cache files", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "windows"}
+{"input": "  PREMIERE MEDIA CACHE FILES  ", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "windows"}
+{"input": "premiere peak files", "dsl": "file and ext = pek and path ~ \"/Adobe/\"", "os": "windows"}
+{"input": "  PREMIERE PEAK FILES  ", "dsl": "file and ext = pek and path ~ \"/Adobe/\"", "os": "windows"}
+{"input": "filmora projects", "dsl": "file and ext = wfp", "os": "windows"}
+{"input": "  FILMORA PROJECTS  ", "dsl": "file and ext = wfp", "os": "windows"}
+{"input": "vegas pro projects", "dsl": "file and ext = veg", "os": "windows"}
+{"input": "  VEGAS PRO PROJECTS  ", "dsl": "file and ext = veg", "os": "windows"}
+{"input": "audacity projects", "dsl": "file and ext = aup3"}
+{"input": "  AUDACITY PROJECTS  ", "dsl": "file and ext = aup3"}
+{"input": "audacity sidecar files", "dsl": "file and (name endswith \".aup3-wal\" or name endswith \".aup3-shm\")"}
+{"input": "  AUDACITY SIDECAR FILES  ", "dsl": "file and (name endswith \".aup3-wal\" or name endswith \".aup3-shm\")"}
+{"input": "shotcut projects", "dsl": "file and ext = mlt"}
+{"input": "  SHOTCUT PROJECTS  ", "dsl": "file and ext = mlt"}
+{"input": "kdenlive projects", "dsl": "file and ext = kdenlive"}
+{"input": "  KDENLIVE PROJECTS  ", "dsl": "file and ext = kdenlive"}
+{"input": "thumbnail source files", "dsl": "file and ext in (psd, psb, xcf, kra, afphoto, afdesign) and name ~ \"thumbnail\""}
+{"input": "  THUMBNAIL SOURCE FILES  ", "dsl": "file and ext in (psd, psb, xcf, kra, afphoto, afdesign) and name ~ \"thumbnail\""}
+{"input": "thumbnail exports", "dsl": "file and ext in (png, jpg, jpeg, webp) and name ~ \"thumbnail\""}
+{"input": "  THUMBNAIL EXPORTS  ", "dsl": "file and ext in (png, jpg, jpeg, webp) and name ~ \"thumbnail\""}
+{"input": "downloaded videos", "dsl": "file and path ~ \"/Downloads/\" and ext in (mp4, mov, mkv, webm, m4v)"}
+{"input": "  DOWNLOADED VIDEOS  ", "dsl": "file and path ~ \"/Downloads/\" and ext in (mp4, mov, mkv, webm, m4v)"}
+{"input": "video files over 500 MB", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\", \"m4v\", \"avi\", \"mts\", \"m2ts\", \"mxf\") and size > 524288000b"}
+{"input": "  VIDEO FILES OVER 500 MB  ", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\", \"m4v\", \"avi\", \"mts\", \"m2ts\", \"mxf\") and size > 524288000b"}
+{"input": "render exports older than 90 days", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\") and age > 7776000s"}
+{"input": "  RENDER EXPORTS OLDER THAN 90 DAYS  ", "dsl": "file and ext in (\"mp4\", \"mov\", \"mkv\", \"webm\") and age > 7776000s"}
+{"input": "obs recordings", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
+{"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "macos"}
+{"input": "premiere media cache files", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "macos"}
+{"input": "  PREMIERE MEDIA CACHE FILES  ", "dsl": "file and path ~ \"/Adobe/Common/Media Cache\"", "os": "macos"}
+{"input": "premiere peak files", "dsl": "file and ext = pek and path ~ \"/Adobe/\"", "os": "macos"}
+{"input": "  PREMIERE PEAK FILES  ", "dsl": "file and ext = pek and path ~ \"/Adobe/\"", "os": "macos"}
+{"input": "filmora projects", "dsl": "file and ext = wfp", "os": "macos"}
+{"input": "  FILMORA PROJECTS  ", "dsl": "file and ext = wfp", "os": "macos"}
+{"input": "final cut render files", "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Render Files/\"", "os": "macos"}
+{"input": "  FINAL CUT RENDER FILES  ", "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Render Files/\"", "os": "macos"}
+{"input": "final cut proxy and optimized media", "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Transcoded Media/\"", "os": "macos"}
+{"input": "  FINAL CUT PROXY AND OPTIMIZED MEDIA  ", "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Transcoded Media/\"", "os": "macos"}
+{"input": "final cut pro libraries", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
+{"input": "  FINAL CUT PRO LIBRARIES  ", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
+{"input": "final cut libraries", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
+{"input": "  FINAL CUT LIBRARIES  ", "dsl": "dir and name endswith \".fcpbundle\"", "os": "macos"}
+{"input": "imovie libraries", "dsl": "dir and name endswith \".imovielibrary\"", "os": "macos"}
+{"input": "  IMOVIE LIBRARIES  ", "dsl": "dir and name endswith \".imovielibrary\"", "os": "macos"}
+{"input": "logic pro projects", "dsl": "dir and name endswith \".logicx\"", "os": "macos"}
+{"input": "  LOGIC PRO PROJECTS  ", "dsl": "dir and name endswith \".logicx\"", "os": "macos"}
+{"input": "garageband projects", "dsl": "dir and name endswith \".band\"", "os": "macos"}
+{"input": "  GARAGEBAND PROJECTS  ", "dsl": "dir and name endswith \".band\"", "os": "macos"}
+{"input": "audio unit plugins", "dsl": "dir and name endswith \".component\"", "os": "macos"}
+{"input": "  AUDIO UNIT PLUGINS  ", "dsl": "dir and name endswith \".component\"", "os": "macos"}
+{"input": "video footage and exports", "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts, mpg, mpeg)", "os": "macos"}
+{"input": "  VIDEO FOOTAGE AND EXPORTS  ", "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts, mpg, mpeg)", "os": "macos"}
+{"input": "large video files", "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts) and size > 1gib", "os": "macos"}
+{"input": "  LARGE VIDEO FILES  ", "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts) and size > 1gib", "os": "macos"}
+{"input": "camera cinema footage", "dsl": "file and ext in (braw, r3d, ari, arx, crm)", "os": "macos"}
+{"input": "  CAMERA CINEMA FOOTAGE  ", "dsl": "file and ext in (braw, r3d, ari, arx, crm)", "os": "macos"}
+{"input": "subtitles and captions", "dsl": "file and ext in (srt, vtt, ass, ssa, scc)", "os": "macos"}
+{"input": "  SUBTITLES AND CAPTIONS  ", "dsl": "file and ext in (srt, vtt, ass, ssa, scc)", "os": "macos"}
+{"input": "compositing image sequences", "dsl": "file and ext in (exr, dpx, cin)", "os": "macos"}
+{"input": "  COMPOSITING IMAGE SEQUENCES  ", "dsl": "file and ext in (exr, dpx, cin)", "os": "macos"}
+{"input": "lossless audio and stems", "dsl": "file and ext in (wav, bwf, aif, aiff, flac, caf)", "os": "macos"}
+{"input": "  LOSSLESS AUDIO AND STEMS  ", "dsl": "file and ext in (wav, bwf, aif, aiff, flac, caf)", "os": "macos"}
+{"input": "midi files", "dsl": "file and ext in (mid, midi, smf)", "os": "macos"}
+{"input": "  MIDI FILES  ", "dsl": "file and ext in (mid, midi, smf)", "os": "macos"}
+{"input": "daw sessions", "dsl": "file and ext in (als, ardour, rpp, flp, bwproject, sesx, cpr, npr, ptx, song)", "os": "macos"}
+{"input": "  DAW SESSIONS  ", "dsl": "file and ext in (als, ardour, rpp, flp, bwproject, sesx, cpr, npr, ptx, song)", "os": "macos"}
+{"input": "premiere auto save projects", "dsl": "file and ext = prproj and path ~ \"/Adobe Premiere Pro Auto-Save/\"", "os": "macos"}
+{"input": "  PREMIERE AUTO SAVE PROJECTS  ", "dsl": "file and ext = prproj and path ~ \"/Adobe Premiere Pro Auto-Save/\"", "os": "macos"}
+{"input": "adobe premiere projects", "dsl": "file and ext in (prproj)", "os": "macos"}
+{"input": "  ADOBE PREMIERE PROJECTS  ", "dsl": "file and ext in (prproj)", "os": "macos"}
+{"input": "adobe after effects projects", "dsl": "file and ext in (aep, aepx, aet)", "os": "macos"}
+{"input": "  ADOBE AFTER EFFECTS PROJECTS  ", "dsl": "file and ext in (aep, aepx, aet)", "os": "macos"}
+{"input": "davinci resolve projects and timelines", "dsl": "file and ext in (drp, drt, drb)", "os": "macos"}
+{"input": "  DAVINCI RESOLVE PROJECTS AND TIMELINES  ", "dsl": "file and ext in (drp, drt, drb)", "os": "macos"}
+{"input": "davinci resolve project archives", "dsl": "dir and name endswith \".dra\"", "os": "macos"}
+{"input": "  DAVINCI RESOLVE PROJECT ARCHIVES  ", "dsl": "dir and name endswith \".dra\"", "os": "macos"}
+{"input": "audio plugin presets", "dsl": "file and ext in (vstpreset, fxp, fxb)", "os": "macos"}
+{"input": "  AUDIO PLUGIN PRESETS  ", "dsl": "file and ext in (vstpreset, fxp, fxb)", "os": "macos"}
+{"input": "vst3 plugin bundles", "dsl": "dir and name endswith \".vst3\"", "os": "macos"}
+{"input": "  VST3 PLUGIN BUNDLES  ", "dsl": "dir and name endswith \".vst3\"", "os": "macos"}
+{"input": "clap plugin files", "dsl": "file and ext in (clap)", "os": "macos"}
+{"input": "  CLAP PLUGIN FILES  ", "dsl": "file and ext in (clap)", "os": "macos"}
+{"input": "obs recordings", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "linux"}
+{"input": "  OBS RECORDINGS  ", "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)", "os": "linux"}
+{"input": "audacity projects; execute", "dsl": "name ~ \"audacity projects; execute\""}

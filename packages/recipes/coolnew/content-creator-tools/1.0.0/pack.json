@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "kind": "recipe-pack",
+  "metadata": {
+    "id": "content-creator-tools",
+    "title": "Content Creator Tools",
+    "version": "1.0.0",
+    "description": "Find recording folders, editing project files, render and media caches, and exported video, audio and thumbnails for video and podcast production on Windows, macOS and Linux.",
+    "tags": [
+      "video",
+      "audio",
+      "podcast",
+      "streaming",
+      "editing",
+      "thumbnails"
+    ],
+    "publisher": "coolnew"
+  },
+  "requires": [
+    "recipe.exact",
+    "recipe.template"
+  ],
+  "recipes": [
+    {
+      "os": "windows",
+      "phrase": "obs recordings",
+      "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)"
+    },
+    {
+      "os": "macos",
+      "phrase": "obs recordings",
+      "dsl": "file and path ~ \"/Movies/\" and ext in (mkv, mp4, flv, mov, ts)"
+    },
+    {
+      "os": "linux",
+      "phrase": "obs recordings",
+      "dsl": "file and path ~ \"/Videos/\" and ext in (mkv, mp4, flv, mov, ts)"
+    },
+    {
+      "os": "windows",
+      "phrase": "premiere media cache files",
+      "dsl": "file and path ~ \"/Adobe/Common/Media Cache\""
+    },
+    {
+      "os": "macos",
+      "phrase": "premiere media cache files",
+      "dsl": "file and path ~ \"/Adobe/Common/Media Cache\""
+    },
+    {
+      "os": "windows",
+      "phrase": "premiere peak files",
+      "dsl": "file and ext = pek and path ~ \"/Adobe/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "premiere peak files",
+      "dsl": "file and ext = pek and path ~ \"/Adobe/\""
+    },
+    {
+      "os": "windows",
+      "phrase": "filmora projects",
+      "dsl": "file and ext = wfp"
+    },
+    {
+      "os": "macos",
+      "phrase": "filmora projects",
+      "dsl": "file and ext = wfp"
+    },
+    {
+      "os": "windows",
+      "phrase": "vegas pro projects",
+      "dsl": "file and ext = veg"
+    },
+    {
+      "os": "macos",
+      "phrase": "final cut render files",
+      "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Render Files/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "final cut proxy and optimized media",
+      "dsl": "file and path ~ \".fcpbundle/\" and path ~ \"/Transcoded Media/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "final cut pro libraries",
+      "aliases": [
+        "final cut libraries"
+      ],
+      "dsl": "dir and name endswith \".fcpbundle\""
+    },
+    {
+      "os": "macos",
+      "phrase": "imovie libraries",
+      "dsl": "dir and name endswith \".imovielibrary\""
+    },
+    {
+      "os": "macos",
+      "phrase": "logic pro projects",
+      "dsl": "dir and name endswith \".logicx\""
+    },
+    {
+      "os": "macos",
+      "phrase": "garageband projects",
+      "dsl": "dir and name endswith \".band\""
+    },
+    {
+      "os": "macos",
+      "phrase": "audio unit plugins",
+      "dsl": "dir and name endswith \".component\""
+    },
+    {
+      "phrase": "audacity projects",
+      "dsl": "file and ext = aup3"
+    },
+    {
+      "phrase": "audacity sidecar files",
+      "dsl": "file and (name endswith \".aup3-wal\" or name endswith \".aup3-shm\")"
+    },
+    {
+      "phrase": "shotcut projects",
+      "dsl": "file and ext = mlt"
+    },
+    {
+      "phrase": "kdenlive projects",
+      "dsl": "file and ext = kdenlive"
+    },
+    {
+      "phrase": "thumbnail source files",
+      "dsl": "file and ext in (psd, psb, xcf, kra, afphoto, afdesign) and name ~ \"thumbnail\""
+    },
+    {
+      "phrase": "thumbnail exports",
+      "dsl": "file and ext in (png, jpg, jpeg, webp) and name ~ \"thumbnail\""
+    },
+    {
+      "phrase": "downloaded videos",
+      "dsl": "file and path ~ \"/Downloads/\" and ext in (mp4, mov, mkv, webm, m4v)"
+    },
+    {
+      "type": "template",
+      "phrase": "video files over 500 MB",
+      "template": "video files over {minimum:size}",
+      "dsl": "file and ext in (mp4, mov, mkv, webm, m4v, avi, mts, m2ts, mxf) and size > {minimum}"
+    },
+    {
+      "type": "template",
+      "phrase": "render exports older than 90 days",
+      "template": "render exports older than {age:duration}",
+      "dsl": "file and ext in (mp4, mov, mkv, webm) and age > {age}"
+    },
+    {
+      "os": "macos",
+      "phrase": "video footage and exports",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts, mpg, mpeg)"
+    },
+    {
+      "os": "macos",
+      "phrase": "large video files",
+      "dsl": "file and ext in (mp4, mov, mxf, mkv, webm, avi, m4v, mts, m2ts) and size > 1gib"
+    },
+    {
+      "os": "macos",
+      "phrase": "camera cinema footage",
+      "dsl": "file and ext in (braw, r3d, ari, arx, crm)"
+    },
+    {
+      "os": "macos",
+      "phrase": "subtitles and captions",
+      "dsl": "file and ext in (srt, vtt, ass, ssa, scc)"
+    },
+    {
+      "os": "macos",
+      "phrase": "compositing image sequences",
+      "dsl": "file and ext in (exr, dpx, cin)"
+    },
+    {
+      "os": "macos",
+      "phrase": "lossless audio and stems",
+      "dsl": "file and ext in (wav, bwf, aif, aiff, flac, caf)"
+    },
+    {
+      "os": "macos",
+      "phrase": "midi files",
+      "dsl": "file and ext in (mid, midi, smf)"
+    },
+    {
+      "os": "macos",
+      "phrase": "daw sessions",
+      "dsl": "file and ext in (als, ardour, rpp, flp, bwproject, sesx, cpr, npr, ptx, song)"
+    },
+    {
+      "os": "macos",
+      "phrase": "premiere auto save projects",
+      "dsl": "file and ext = prproj and path ~ \"/Adobe Premiere Pro Auto-Save/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe premiere projects",
+      "dsl": "file and ext in (prproj)"
+    },
+    {
+      "os": "macos",
+      "phrase": "adobe after effects projects",
+      "dsl": "file and ext in (aep, aepx, aet)"
+    },
+    {
+      "os": "macos",
+      "phrase": "davinci resolve projects and timelines",
+      "dsl": "file and ext in (drp, drt, drb)"
+    },
+    {
+      "os": "macos",
+      "phrase": "davinci resolve project archives",
+      "dsl": "dir and name endswith \".dra\""
+    },
+    {
+      "os": "macos",
+      "phrase": "audio plugin presets",
+      "dsl": "file and ext in (vstpreset, fxp, fxb)"
+    },
+    {
+      "os": "macos",
+      "phrase": "vst3 plugin bundles",
+      "dsl": "dir and name endswith \".vst3\""
+    },
+    {
+      "os": "macos",
+      "phrase": "clap plugin files",
+      "dsl": "file and ext in (clap)"
+    }
+  ]
+}
