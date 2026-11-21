@@ -228,6 +228,20 @@
       "os": "macos",
       "phrase": "clap plugin files",
       "dsl": "file and ext in (clap)"
+    },
+    {
+      "phrase": "lightroom previews",
+      "dsl": "file and path ~ \"/Previews.lrdata/\" and not path ~ \"Smart Previews.lrdata\""
+    },
+    {
+      "os": "windows",
+      "phrase": "capcut projects",
+      "dsl": "file and path ~ \"/CapCut/User Data/Projects/\""
+    },
+    {
+      "os": "macos",
+      "phrase": "capcut projects",
+      "dsl": "file and path ~ \"/CapCut/User Data/Projects/\""
     }
   ]
 }
