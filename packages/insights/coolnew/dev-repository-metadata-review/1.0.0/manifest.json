@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "dev-repository-metadata-review",
+    "version": "1.0.0",
+    "title": "Repository metadata review",
+    "description": "Review version-control metadata at the root of a scanned project. History in these folders can be the only copy of commits, stashes and branches that were never pushed.",
+    "tags": [
+      "git",
+      "mercurial",
+      "subversion",
+      "jujutsu",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "path": "packages/insights/coolnew/dev-repository-metadata-review/1.0.0/pack.json"
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "dev-repository-metadata-review",
+    "version": "1.0.0",
+    "title": "Repository metadata review",
+    "description": "Review version-control metadata at the root of a scanned project. History in these folders can be the only copy of commits, stashes and branches that were never pushed.",
+    "tags": [
+      "git",
+      "mercurial",
+      "subversion",
+      "jujutsu",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "insights": [
+    {
+      "id": "git-metadata",
+      "title": "Review Git repository history",
+      "subject": "repository",
+      "location": {
+        "base": "scan_root",
+        "path": ".git"
+      },
+      "action": "review-only",
+      "detail": "This folder is the repository. Unpushed commits, stashes, reflog entries and branches exist only here. Check git status and git log --branches --not --remotes before any change, and use git's own commands."
+    },
+    {
+      "id": "mercurial-metadata",
+      "title": "Review Mercurial repository history",
+      "subject": "repository",
+      "location": {
+        "base": "scan_root",
+        "path": ".hg"
+      },
+      "action": "review-only",
+      "detail": "Mercurial revisions and bookmarks live here until pushed. Check hg status and hg outgoing before removing anything."
+    },
+    {
+      "id": "subversion-metadata",
+      "title": "Review Subversion working copy metadata",
+      "subject": "working copy",
+      "location": {
+        "base": "scan_root",
+        "path": ".svn"
+      },
+      "action": "review-only",
+      "detail": "Working copy bookkeeping. Uncommitted edits are kept in the working files, and history lives on the server. Check svn status before any change."
+    },
+    {
+      "id": "jujutsu-metadata",
+      "title": "Review Jujutsu repository store",
+      "subject": "repository",
+      "location": {
+        "base": "scan_root",
+        "path": ".jj"
+      },
+      "action": "review-only",
+      "detail": "Jujutsu operation log and commit store. Check jj status and jj log before any change, and use jj's own commands."
+    }
+  ]
+}
