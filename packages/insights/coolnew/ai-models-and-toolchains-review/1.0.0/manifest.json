@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "publisher": "coolnew",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "ai-models-and-toolchains-review",
+    "version": "1.0.0",
+    "title": "Model weights and developer toolchains review",
+    "description": "Review known locations of downloaded AI model weights and installed language toolchains. Re-downloads can be slow or impossible for gated models, and removing an installed tool breaks the projects that use it.",
+    "tags": [
+      "models",
+      "toolchains",
+      "rust",
+      "python",
+      "node",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "path": "packages/insights/coolnew/ai-models-and-toolchains-review/1.0.0/pack.json"
+}

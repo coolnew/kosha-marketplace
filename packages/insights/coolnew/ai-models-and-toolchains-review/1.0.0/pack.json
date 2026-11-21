@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "kind": "insight-pack",
+  "metadata": {
+    "publisher": "coolnew",
+    "id": "ai-models-and-toolchains-review",
+    "version": "1.0.0",
+    "title": "Model weights and developer toolchains review",
+    "description": "Review known locations of downloaded AI model weights and installed language toolchains. Re-downloads can be slow or impossible for gated models, and removing an installed tool breaks the projects that use it.",
+    "tags": [
+      "models",
+      "toolchains",
+      "rust",
+      "python",
+      "node",
+      "review-only"
+    ]
+  },
+  "platforms": [],
+  "requires": [
+    "insight.locations.v1"
+  ],
+  "insights": [
+    {
+      "id": "ollama-models",
+      "title": "Review Ollama models",
+      "subject": "model weights",
+      "location": {
+        "base": "home",
+        "path": ".ollama/models"
+      },
+      "action": "review-only",
+      "detail": "Downloaded model weights, often many gigabytes. Re-pulling costs time and bandwidth. Use the ollama list and ollama rm commands rather than deleting files."
+    },
+    {
+      "id": "huggingface-hub-cache",
+      "title": "Review Hugging Face hub cache",
+      "subject": "model weights",
+      "location": {
+        "base": "home",
+        "path": ".cache/huggingface/hub"
+      },
+      "action": "review-only",
+      "detail": "Downloaded model and dataset snapshots. Gated models need license acceptance again before download. Use the Hugging Face cache tools to inspect entries; the access token sits beside this folder."
+    },
+    {
+      "id": "rustup-toolchains",
+      "title": "Review Rust toolchains",
+      "subject": "toolchains",
+      "location": {
+        "base": "home",
+        "path": ".rustup"
+      },
+      "action": "review-only",
+      "detail": "Installed Rust toolchains and components. Removing one breaks builds that pin it. Use rustup toolchain list and rustup toolchain uninstall for changes."
+    },
+    {
+      "id": "cargo-installed-tools",
+      "title": "Review Cargo-installed tools",
+      "subject": "installed tools",
+      "location": {
+        "base": "home",
+        "path": ".cargo/bin"
+      },
+      "action": "review-only",
+      "detail": "Executables installed with cargo install, plus rustup proxies. Removing them breaks commands on your PATH. Use cargo install --list to see what was installed."
+    },
+    {
+      "id": "pyenv-python-versions",
+      "title": "Review pyenv Python versions",
+      "subject": "toolchains",
+      "location": {
+        "base": "home",
+        "path": ".pyenv/versions"
+      },
+      "action": "review-only",
+      "detail": "Python interpreters installed with pyenv. Virtual environments built on one stop working when it is removed. Use pyenv versions and pyenv uninstall for changes."
+    },
+    {
+      "id": "nvm-node-versions",
+      "title": "Review nvm Node.js versions",
+      "subject": "toolchains",
+      "location": {
+        "base": "home",
+        "path": ".nvm/versions"
+      },
+      "action": "review-only",
+      "detail": "Node.js versions installed by nvm. Global packages belong to each version. Use nvm ls to review and nvm uninstall to change."
+    },
+    {
+      "id": "sdkman-candidates",
+      "title": "Review SDKMAN candidates",
+      "subject": "toolchains",
+      "location": {
+        "base": "home",
+        "path": ".sdkman/candidates"
+      },
+      "action": "review-only",
+      "detail": "JDKs, build tools and other SDKMAN candidates. Check which projects pin a version, then use sdk list and sdk uninstall for changes."
+    }
+  ]
+}
